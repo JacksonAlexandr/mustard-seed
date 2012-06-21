@@ -1,0 +1,47 @@
+// Mongo Collections
+Items = new Meteor.Collection("items");
+Favorites = new Meteor.Collection("favorites");
+
+if (Meteor.is_client) {
+    Template.items.items = function() {
+        return Items.find({}, {sort: {time: -1}});
+    };
+
+    
+
+    var MSRouter = Backbone.Router.extend({
+        routes: {
+            "" : "main",
+            "add" : "add",
+            ":id" : "id"
+        },
+        main: function() {
+            // Redirect to standard page
+            Session.set("page_id", null);
+        },
+        id: function(id) {
+
+        },
+        add: function() {
+            // Redirect to add page
+            Session.set("page_id", "add");
+        }
+    });
+
+    Meteor.startup(function() {
+        Router = new MSRouter;
+
+        Backbone.history.start({pushState: true});
+    });
+}
+
+if (Meteor.is_server) {
+    Meteor.startup(function () {
+        collectionApi = new CollectionAPI();
+        collectionApi.addCollection(Items, 'items');
+        collectionApi.addCollection(Favorites, 'items/favorites');
+        collectionApi.start();
+
+
+    });
+}
