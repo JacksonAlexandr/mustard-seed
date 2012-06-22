@@ -1,9 +1,44 @@
+body {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 100%;
+	line-height: 1.6875;
+}
+
 img {
-    width: auto;
-    height: 100px;
-    }
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+}
+
+table {
+	width: 100%;
+	table-layout: fixed;
+	text-align: center;
+}
 
 span.title {
     font-weight: bold;
     font-size: 1.5em;
-    }
+}
+
+hr {
+	color: #eee;
+}
+
+td {
+	width: 100%;
+
+}
+
+input {
+	font-size: 1.1em;
+}
+
+textarea {
+	font-size: 1.1em;
+	height: 100%;
+}
+
+.favorite {
+	background: #FFFFE0;
+}

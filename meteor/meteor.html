@@ -38,7 +38,7 @@
 </template>
 
 <template name="admin">
-  <h1>Admin</h1>
+  <h1>Admin Interface</h1>
   <table>
     <thead>
       <tr>
@@ -59,7 +59,7 @@
 </template>
 
 <template name="table_item">
-  <tr>
+  <tr {{{favorite_style}}}>
     <td><img src="{{img_url}}" /></td>
     <td><input type="text" placeholder="Name" id="name" value={{name}} /></td>
     <td><input type="text" placeholder="Owner" id="owner" value={{owner}} /></td>
@@ -71,4 +71,6 @@
     <td><input name="favorite" type="checkbox" class="favorite"
       {{{favorite_checkbox}}} /></td>
     <td><input name="delete" class="delete" value="Delete" type="button" /></td>
+  </tr>
+  <hr />
 </template>

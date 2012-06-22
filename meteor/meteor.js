@@ -1,3 +1,6 @@
+// Constants
+var DEFAULT_IMG_URL = "http://www.sdtimes.com/blog/post/2010/image.axd?picture=2010%2F7%2Fclick_here.png";
+
 // Mongo Collections
 Items = new Meteor.Collection("items");
 Favorites = new Meteor.Collection("favorites");
@@ -8,7 +11,7 @@ function is_favorite(id) {
 
 if (Meteor.is_client) {
     Template.items.items = function() {
-        return Items.find({}, {sort: {time: -1}});
+        return Items.find({}, {sort: {"_id": 1}});
     };
 
     Template.admin.favorite_items = function() {
@@ -21,6 +24,10 @@ if (Meteor.is_client) {
         return this.favorite ? 'checked="checked"' : '';
     };
 
+    Template.table_item.favorite_style = function () {
+        return this.favorite ? 'class="favorite"' : '';
+    };
+
     //Template.table_item.favorite = function() {
     //   return is_favorite(this._id);
     //};
@@ -28,7 +35,7 @@ if (Meteor.is_client) {
     Template.admin.events = {
         'click input#add': function() {
             Items.insert({
-                img_url: "",
+                img_url: DEFAULT_IMG_URL,
                 name: "",
                 owner: "",
                 description: ""
