@@ -38,6 +38,7 @@
 </template>
 
 <template name="admin">
+  <h1>Admin</h1>
   <table>
     <thead>
       <tr>
@@ -54,16 +55,20 @@
       {{/each}}
     </tbody>
   </table>
-  <input type="button" value="Add" name="add" />
+  <input type="button" value="Add" name="add" id="add" />
 </template>
 
 <template name="table_item">
   <tr>
     <td><img src="{{img_url}}" /></td>
-    <td>{{name}}</td>
-    <td>{{owner}}</td>
-    <td>{{description}}</td>
+    <td><input type="text" placeholder="Name" id="name" value={{name}} /></td>
+    <td><input type="text" placeholder="Owner" id="owner" value={{owner}} /></td>
+    <td>
+      <textarea placeholder="Description" id="description">
+        {{description}} 
+      </textarea>
+    </td>
     <td><input name="favorite" type="checkbox" class="favorite"
-      {{#if favorite}} checked{{/if}} /></td>
+      {{{favorite_checkbox}}} /></td>
     <td><input name="delete" class="delete" value="Delete" type="button" /></td>
 </template>

@@ -3,7 +3,7 @@ Items = new Meteor.Collection("items");
 Favorites = new Meteor.Collection("favorites");
 
 function is_favorite(id) {
-    return Favorites.findOne({_id: id});
+    return Favorites.findOne({item_id: id});
 }
 
 if (Meteor.is_client) {
@@ -11,14 +11,22 @@ if (Meteor.is_client) {
         return Items.find({}, {sort: {time: -1}});
     };
 
-    Template.admin.items = Template.items.items;
-
-    Template.table_item.favorite = function() {
-        return is_favorite(this._id);
+    Template.admin.favorite_items = function() {
+        return Items.find({favorite: true});
     };
 
+    Template.admin.items = Template.items.items;
+
+    Template.table_item.favorite_checkbox = function () {
+        return this.favorite ? 'checked="checked"' : '';
+    };
+
+    //Template.table_item.favorite = function() {
+    //   return is_favorite(this._id);
+    //};
+
     Template.admin.events = {
-        'click .add': function() {
+        'click input#add': function() {
             Items.insert({
                 img_url: "",
                 name: "",
@@ -30,10 +38,33 @@ if (Meteor.is_client) {
 
     Template.table_item.events = {
         'click .delete': function() {
-            console.log(this);
-            //Items.remove({_id: this._id});
+            if (confirm("Are you sure you want to delete this item?"))
+                Items.remove({_id: this._id});
+        },
+        'click .favorite': function(e) {
+            Items.update(this._id, {$set: {favorite: !this.favorite}});
+        },
+        'keyup input#name': function(e) {
+            var value = e.target.value;
+            Items.update(this._id, {$set: {name: value}});
+            e.target.value = value;
+        },
+        'keyup input#owner': function(e) {
+            var value = e.target.value;
+            Items.update(this._id, {$set: {owner: value}});
+            e.target.value = value;
+        },
+        'keyup textarea#description': function(e) {
+            var value = e.target.value;
+            Items.update(this._id, {$set: {description: value}});
+            e.target.value = value;
+        },
+        'click img': function(e) {
+            var url = prompt("Enter image url", this.img_url);
+            if (url)
+                Items.update(this._id, {$set: {img_url: url}});
         }
-    }
+    };
 
     var MSRouter = Backbone.Router.extend({
         routes: {
