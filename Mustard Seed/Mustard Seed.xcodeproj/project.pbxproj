@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		28387EA81593FFCB008EC6AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28387EA71593FFCB008EC6AF /* UIKit.framework */; };
+		28387EAA1593FFCB008EC6AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28387EA91593FFCB008EC6AF /* Foundation.framework */; };
+		28387EAC1593FFCB008EC6AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28387EAB1593FFCB008EC6AF /* CoreGraphics.framework */; };
+		28387EB21593FFCB008EC6AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28387EB01593FFCB008EC6AF /* InfoPlist.strings */; };
+		28387EB41593FFCB008EC6AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28387EB31593FFCB008EC6AF /* main.m */; };
+		28387EB81593FFCB008EC6AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28387EB71593FFCB008EC6AF /* AppDelegate.m */; };
+		28387EBB1593FFCB008EC6AF /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28387EB91593FFCB008EC6AF /* MainStoryboard_iPhone.storyboard */; };
+		28387EBE1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28387EBC1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard */; };
+		28387EC11593FFCB008EC6AF /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28387EC01593FFCB008EC6AF /* FirstViewController.m */; };
+		28387EC31593FFCB008EC6AF /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 28387EC21593FFCB008EC6AF /* first.png */; };
+		28387EC51593FFCB008EC6AF /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28387EC41593FFCB008EC6AF /* first@2x.png */; };
+		28387EC81593FFCB008EC6AF /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28387EC71593FFCB008EC6AF /* SecondViewController.m */; };
+		28387ECA1593FFCB008EC6AF /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 28387EC91593FFCB008EC6AF /* second.png */; };
+		28387ECC1593FFCB008EC6AF /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28387ECB1593FFCB008EC6AF /* second@2x.png */; };
+		28387ED41593FFCB008EC6AF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28387ED31593FFCB008EC6AF /* SenTestingKit.framework */; };
+		28387ED51593FFCC008EC6AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28387EA71593FFCB008EC6AF /* UIKit.framework */; };
+		28387ED61593FFCC008EC6AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28387EA91593FFCB008EC6AF /* Foundation.framework */; };
+		28387EDE1593FFCC008EC6AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28387EDC1593FFCC008EC6AF /* InfoPlist.strings */; };
+		28387EE11593FFCC008EC6AF /* Mustard_SeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28387EE01593FFCC008EC6AF /* Mustard_SeedTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28387ED71593FFCC008EC6AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28387E9A1593FFCA008EC6AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28387EA21593FFCA008EC6AF;
+			remoteInfo = "Mustard Seed";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		28387EA31593FFCB008EC6AF /* Mustard Seed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mustard Seed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28387EA71593FFCB008EC6AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28387EA91593FFCB008EC6AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		28387EAB1593FFCB008EC6AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28387EAF1593FFCB008EC6AF /* Mustard Seed-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mustard Seed-Info.plist"; sourceTree = "<group>"; };
+		28387EB11593FFCB008EC6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		28387EB31593FFCB008EC6AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		28387EB51593FFCB008EC6AF /* Mustard Seed-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mustard Seed-Prefix.pch"; sourceTree = "<group>"; };
+		28387EB61593FFCB008EC6AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		28387EB71593FFCB008EC6AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		28387EBA1593FFCB008EC6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		28387EBD1593FFCB008EC6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		28387EBF1593FFCB008EC6AF /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		28387EC01593FFCB008EC6AF /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		28387EC21593FFCB008EC6AF /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		28387EC41593FFCB008EC6AF /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		28387EC61593FFCB008EC6AF /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		28387EC71593FFCB008EC6AF /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		28387EC91593FFCB008EC6AF /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		28387ECB1593FFCB008EC6AF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		28387ED21593FFCB008EC6AF /* Mustard SeedTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mustard SeedTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28387ED31593FFCB008EC6AF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		28387EDB1593FFCC008EC6AF /* Mustard SeedTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mustard SeedTests-Info.plist"; sourceTree = "<group>"; };
+		28387EDD1593FFCC008EC6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		28387EDF1593FFCC008EC6AF /* Mustard_SeedTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mustard_SeedTests.h; sourceTree = "<group>"; };
+		28387EE01593FFCC008EC6AF /* Mustard_SeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mustard_SeedTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28387EA01593FFCA008EC6AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28387EA81593FFCB008EC6AF /* UIKit.framework in Frameworks */,
+				28387EAA1593FFCB008EC6AF /* Foundation.framework in Frameworks */,
+				28387EAC1593FFCB008EC6AF /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28387ECE1593FFCB008EC6AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28387ED41593FFCB008EC6AF /* SenTestingKit.framework in Frameworks */,
+				28387ED51593FFCC008EC6AF /* UIKit.framework in Frameworks */,
+				28387ED61593FFCC008EC6AF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28387E981593FFCA008EC6AF = {
+			isa = PBXGroup;
+			children = (
+				28387EAD1593FFCB008EC6AF /* Mustard Seed */,
+				28387ED91593FFCC008EC6AF /* Mustard SeedTests */,
+				28387EA61593FFCB008EC6AF /* Frameworks */,
+				28387EA41593FFCB008EC6AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		28387EA41593FFCB008EC6AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28387EA31593FFCB008EC6AF /* Mustard Seed.app */,
+				28387ED21593FFCB008EC6AF /* Mustard SeedTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28387EA61593FFCB008EC6AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28387EA71593FFCB008EC6AF /* UIKit.framework */,
+				28387EA91593FFCB008EC6AF /* Foundation.framework */,
+				28387EAB1593FFCB008EC6AF /* CoreGraphics.framework */,
+				28387ED31593FFCB008EC6AF /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		28387EAD1593FFCB008EC6AF /* Mustard Seed */ = {
+			isa = PBXGroup;
+			children = (
+				28387EB61593FFCB008EC6AF /* AppDelegate.h */,
+				28387EB71593FFCB008EC6AF /* AppDelegate.m */,
+				28387EB91593FFCB008EC6AF /* MainStoryboard_iPhone.storyboard */,
+				28387EBC1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard */,
+				28387EBF1593FFCB008EC6AF /* FirstViewController.h */,
+				28387EC01593FFCB008EC6AF /* FirstViewController.m */,
+				28387EC21593FFCB008EC6AF /* first.png */,
+				28387EC41593FFCB008EC6AF /* first@2x.png */,
+				28387EC61593FFCB008EC6AF /* SecondViewController.h */,
+				28387EC71593FFCB008EC6AF /* SecondViewController.m */,
+				28387EC91593FFCB008EC6AF /* second.png */,
+				28387ECB1593FFCB008EC6AF /* second@2x.png */,
+				28387EAE1593FFCB008EC6AF /* Supporting Files */,
+			);
+			path = "Mustard Seed";
+			sourceTree = "<group>";
+		};
+		28387EAE1593FFCB008EC6AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				28387EAF1593FFCB008EC6AF /* Mustard Seed-Info.plist */,
+				28387EB01593FFCB008EC6AF /* InfoPlist.strings */,
+				28387EB31593FFCB008EC6AF /* main.m */,
+				28387EB51593FFCB008EC6AF /* Mustard Seed-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28387ED91593FFCC008EC6AF /* Mustard SeedTests */ = {
+			isa = PBXGroup;
+			children = (
+				28387EDF1593FFCC008EC6AF /* Mustard_SeedTests.h */,
+				28387EE01593FFCC008EC6AF /* Mustard_SeedTests.m */,
+				28387EDA1593FFCC008EC6AF /* Supporting Files */,
+			);
+			path = "Mustard SeedTests";
+			sourceTree = "<group>";
+		};
+		28387EDA1593FFCC008EC6AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				28387EDB1593FFCC008EC6AF /* Mustard SeedTests-Info.plist */,
+				28387EDC1593FFCC008EC6AF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28387EA21593FFCA008EC6AF /* Mustard Seed */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28387EE41593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "Mustard Seed" */;
+			buildPhases = (
+				28387E9F1593FFCA008EC6AF /* Sources */,
+				28387EA01593FFCA008EC6AF /* Frameworks */,
+				28387EA11593FFCA008EC6AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mustard Seed";
+			productName = "Mustard Seed";
+			productReference = 28387EA31593FFCB008EC6AF /* Mustard Seed.app */;
+			productType = "com.apple.product-type.application";
+		};
+		28387ED11593FFCB008EC6AF /* Mustard SeedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28387EE71593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "Mustard SeedTests" */;
+			buildPhases = (
+				28387ECD1593FFCB008EC6AF /* Sources */,
+				28387ECE1593FFCB008EC6AF /* Frameworks */,
+				28387ECF1593FFCB008EC6AF /* Resources */,
+				28387ED01593FFCB008EC6AF /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28387ED81593FFCC008EC6AF /* PBXTargetDependency */,
+			);
+			name = "Mustard SeedTests";
+			productName = "Mustard SeedTests";
+			productReference = 28387ED21593FFCB008EC6AF /* Mustard SeedTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		28387E9A1593FFCA008EC6AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Stanford University";
+			};
+			buildConfigurationList = 28387E9D1593FFCA008EC6AF /* Build configuration list for PBXProject "Mustard Seed" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 28387E981593FFCA008EC6AF;
+			productRefGroup = 28387EA41593FFCB008EC6AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28387EA21593FFCA008EC6AF /* Mustard Seed */,
+				28387ED11593FFCB008EC6AF /* Mustard SeedTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28387EA11593FFCA008EC6AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28387EB21593FFCB008EC6AF /* InfoPlist.strings in Resources */,
+				28387EBB1593FFCB008EC6AF /* MainStoryboard_iPhone.storyboard in Resources */,
+				28387EBE1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard in Resources */,
+				28387EC31593FFCB008EC6AF /* first.png in Resources */,
+				28387EC51593FFCB008EC6AF /* first@2x.png in Resources */,
+				28387ECA1593FFCB008EC6AF /* second.png in Resources */,
+				28387ECC1593FFCB008EC6AF /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28387ECF1593FFCB008EC6AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28387EDE1593FFCC008EC6AF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28387ED01593FFCB008EC6AF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28387E9F1593FFCA008EC6AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28387EB41593FFCB008EC6AF /* main.m in Sources */,
+				28387EB81593FFCB008EC6AF /* AppDelegate.m in Sources */,
+				28387EC11593FFCB008EC6AF /* FirstViewController.m in Sources */,
+				28387EC81593FFCB008EC6AF /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28387ECD1593FFCB008EC6AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28387EE11593FFCC008EC6AF /* Mustard_SeedTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28387ED81593FFCC008EC6AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28387EA21593FFCA008EC6AF /* Mustard Seed */;
+			targetProxy = 28387ED71593FFCC008EC6AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		28387EB01593FFCB008EC6AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28387EB11593FFCB008EC6AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		28387EB91593FFCB008EC6AF /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28387EBA1593FFCB008EC6AF /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		28387EBC1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28387EBD1593FFCB008EC6AF /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		28387EDC1593FFCC008EC6AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28387EDD1593FFCC008EC6AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		28387EE21593FFCC008EC6AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		28387EE31593FFCC008EC6AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		28387EE51593FFCC008EC6AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
+				INFOPLIST_FILE = "Mustard Seed/Mustard Seed-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		28387EE61593FFCC008EC6AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
+				INFOPLIST_FILE = "Mustard Seed/Mustard Seed-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		28387EE81593FFCC008EC6AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mustard Seed.app/Mustard Seed";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
+				INFOPLIST_FILE = "Mustard SeedTests/Mustard SeedTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		28387EE91593FFCC008EC6AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mustard Seed.app/Mustard Seed";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
+				INFOPLIST_FILE = "Mustard SeedTests/Mustard SeedTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28387E9D1593FFCA008EC6AF /* Build configuration list for PBXProject "Mustard Seed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28387EE21593FFCC008EC6AF /* Debug */,
+				28387EE31593FFCC008EC6AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28387EE41593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "Mustard Seed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28387EE51593FFCC008EC6AF /* Debug */,
+				28387EE61593FFCC008EC6AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		28387EE71593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "Mustard SeedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28387EE81593FFCC008EC6AF /* Debug */,
+				28387EE91593FFCC008EC6AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 28387E9A1593FFCA008EC6AF /* Project object */;
+}
