@@ -51,14 +51,14 @@
 		28387EB71593FFCB008EC6AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		28387EBA1593FFCB008EC6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		28387EBD1593FFCB008EC6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		28387EBF1593FFCB008EC6AF /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		28387EC01593FFCB008EC6AF /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		28387EC21593FFCB008EC6AF /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		28387EC41593FFCB008EC6AF /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		28387EC61593FFCB008EC6AF /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		28387EC71593FFCB008EC6AF /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		28387EC91593FFCB008EC6AF /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		28387ECB1593FFCB008EC6AF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		28387EBF1593FFCB008EC6AF /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FirstViewController.h; path = "Mustard Seed/FirstViewController.h"; sourceTree = "<group>"; };
+		28387EC01593FFCB008EC6AF /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FirstViewController.m; path = "Mustard Seed/FirstViewController.m"; sourceTree = "<group>"; };
+		28387EC21593FFCB008EC6AF /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = "Mustard Seed/first.png"; sourceTree = "<group>"; };
+		28387EC41593FFCB008EC6AF /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "Mustard Seed/first@2x.png"; sourceTree = "<group>"; };
+		28387EC61593FFCB008EC6AF /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = "Mustard Seed/SecondViewController.h"; sourceTree = "<group>"; };
+		28387EC71593FFCB008EC6AF /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = "Mustard Seed/SecondViewController.m"; sourceTree = "<group>"; };
+		28387EC91593FFCB008EC6AF /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = "Mustard Seed/second.png"; sourceTree = "<group>"; };
+		28387ECB1593FFCB008EC6AF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Mustard Seed/second@2x.png"; sourceTree = "<group>"; };
 		28387ED21593FFCB008EC6AF /* Mustard SeedTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mustard SeedTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28387ED31593FFCB008EC6AF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		28387EDB1593FFCC008EC6AF /* Mustard SeedTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mustard SeedTests-Info.plist"; sourceTree = "<group>"; };
@@ -91,12 +91,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2810EA0515945BAB00066B91 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		2810EA0615945BB100066B91 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		2810EA0715945BB700066B91 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				28387EBF1593FFCB008EC6AF /* FirstViewController.h */,
+				28387EC01593FFCB008EC6AF /* FirstViewController.m */,
+				28387EC61593FFCB008EC6AF /* SecondViewController.h */,
+				28387EC71593FFCB008EC6AF /* SecondViewController.m */,
+			);
+			name = Controllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		2810EA0915945C0D00066B91 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				28387EC21593FFCB008EC6AF /* first.png */,
+				28387EC41593FFCB008EC6AF /* first@2x.png */,
+				28387EC91593FFCB008EC6AF /* second.png */,
+				28387ECB1593FFCB008EC6AF /* second@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		28387E981593FFCA008EC6AF = {
 			isa = PBXGroup;
 			children = (
+				28387EB91593FFCB008EC6AF /* MainStoryboard_iPhone.storyboard */,
+				28387EBC1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard */,
 				28387EAD1593FFCB008EC6AF /* Mustard Seed */,
-				28387ED91593FFCC008EC6AF /* Mustard SeedTests */,
+				2810EA0915945C0D00066B91 /* Images */,
 				28387EA61593FFCB008EC6AF /* Frameworks */,
+				28387ED91593FFCC008EC6AF /* Mustard SeedTests */,
 				28387EA41593FFCB008EC6AF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,18 +166,9 @@
 		28387EAD1593FFCB008EC6AF /* Mustard Seed */ = {
 			isa = PBXGroup;
 			children = (
-				28387EB61593FFCB008EC6AF /* AppDelegate.h */,
-				28387EB71593FFCB008EC6AF /* AppDelegate.m */,
-				28387EB91593FFCB008EC6AF /* MainStoryboard_iPhone.storyboard */,
-				28387EBC1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard */,
-				28387EBF1593FFCB008EC6AF /* FirstViewController.h */,
-				28387EC01593FFCB008EC6AF /* FirstViewController.m */,
-				28387EC21593FFCB008EC6AF /* first.png */,
-				28387EC41593FFCB008EC6AF /* first@2x.png */,
-				28387EC61593FFCB008EC6AF /* SecondViewController.h */,
-				28387EC71593FFCB008EC6AF /* SecondViewController.m */,
-				28387EC91593FFCB008EC6AF /* second.png */,
-				28387ECB1593FFCB008EC6AF /* second@2x.png */,
+				2810EA0715945BB700066B91 /* Controllers */,
+				2810EA0615945BB100066B91 /* Views */,
+				2810EA0515945BAB00066B91 /* Models */,
 				28387EAE1593FFCB008EC6AF /* Supporting Files */,
 			);
 			path = "Mustard Seed";
@@ -144,6 +177,8 @@
 		28387EAE1593FFCB008EC6AF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				28387EB61593FFCB008EC6AF /* AppDelegate.h */,
+				28387EB71593FFCB008EC6AF /* AppDelegate.m */,
 				28387EAF1593FFCB008EC6AF /* Mustard Seed-Info.plist */,
 				28387EB01593FFCB008EC6AF /* InfoPlist.strings */,
 				28387EB31593FFCB008EC6AF /* main.m */,
@@ -323,6 +358,7 @@
 				28387EBA1593FFCB008EC6AF /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
+			path = "Mustard Seed";
 			sourceTree = "<group>";
 		};
 		28387EBC1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard */ = {
@@ -331,6 +367,7 @@
 				28387EBD1593FFCB008EC6AF /* en */,
 			);
 			name = MainStoryboard_iPad.storyboard;
+			path = "Mustard Seed";
 			sourceTree = "<group>";
 		};
 		28387EDC1593FFCC008EC6AF /* InfoPlist.strings */ = {
@@ -466,6 +503,7 @@
 				28387EE61593FFCC008EC6AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28387EE71593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "Mustard SeedTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +512,7 @@
 				28387EE91593FFCC008EC6AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

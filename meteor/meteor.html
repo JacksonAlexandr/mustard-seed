@@ -37,6 +37,33 @@
   </div>
 </template>
 
-<template name="add">
-  <div>Add here</div>
+<template name="admin">
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Owner</th>
+        <th>Description</th>
+        <th>Favorite</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each items}}
+        {{> table_item}}
+      {{/each}}
+    </tbody>
+  </table>
+  <input type="button" value="Add" name="add" />
+</template>
+
+<template name="table_item">
+  <tr>
+    <td><img src="{{img_url}}" /></td>
+    <td>{{name}}</td>
+    <td>{{owner}}</td>
+    <td>{{description}}</td>
+    <td><input name="favorite" type="checkbox" class="favorite"
+      {{#if favorite}} checked{{/if}} /></td>
+    <td><input name="delete" class="delete" value="Delete" type="button" /></td>
 </template>
