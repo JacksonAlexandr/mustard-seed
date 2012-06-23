@@ -1,5 +1,8 @@
 // Constants
 var DEFAULT_IMG_URL = "http://www.sdtimes.com/blog/post/2010/image.axd?picture=2010%2F7%2Fclick_here.png";
+var DEFAULT_NAME = "Click here to change name";
+var DEFAULT_OWNER = "Click here to change owner";
+var DEFAULT_DESCRIPTION = "Click here to change the description of the item";
 
 // Mongo Collections
 Items = new Meteor.Collection("items");
@@ -7,6 +10,13 @@ Favorites = new Meteor.Collection("favorites");
 
 function is_favorite(id) {
     return Favorites.findOne({item_id: id});
+}
+
+function set_prompt_value(v, def, id) {
+    var value = prompt("Enter " + v, def);
+
+    if (value)
+        Items.update(id, {$set: {v: value}});
 }
 
 if (Meteor.is_client) {
@@ -20,12 +30,16 @@ if (Meteor.is_client) {
 
     Template.admin.items = Template.items.items;
 
-    Template.table_item.favorite_checkbox = function () {
+    Template.admin_item.favorite_checkbox = function () {
         return this.favorite ? 'checked="checked"' : '';
     };
 
-    Template.table_item.favorite_style = function () {
+    Template.admin_item.favorite_style = function () {
         return this.favorite ? 'class="favorite"' : '';
+    };
+
+    Template.admin_item.favorite_value = function() {
+        return !this.favorite ? 'value="Favorite"' : 'value="Unfavorite"';
     };
 
     //Template.table_item.favorite = function() {
@@ -36,41 +50,41 @@ if (Meteor.is_client) {
         'click input#add': function() {
             Items.insert({
                 img_url: DEFAULT_IMG_URL,
-                name: "",
-                owner: "",
-                description: ""
+                name: DEFAULT_NAME,
+                owner: DEFAULT_OWNER,
+                description: DEFAULT_DESCRIPTION
             });
         }
     };
 
-    Template.table_item.events = {
-        'click .delete': function() {
+    Template.admin_item.events = {
+        'click #delete': function() {
             if (confirm("Are you sure you want to delete this item?"))
                 Items.remove({_id: this._id});
         },
-        'click .favorite': function(e) {
+        'click #favorite': function(e) {
             Items.update(this._id, {$set: {favorite: !this.favorite}});
         },
-        'keyup input#name': function(e) {
-            var value = e.target.value;
-            Items.update(this._id, {$set: {name: value}});
-            e.target.value = value;
+        'click #name': function(e) {
+            var value = prompt("Enter Name", this.name);
+
+            if (value) Items.update(this._id, {$set: {name: value}});
         },
-        'keyup input#owner': function(e) {
-            var value = e.target.value;
-            Items.update(this._id, {$set: {owner: value}});
-            e.target.value = value;
+        'click #owner': function(e) {
+            var value = prompt("Enter Owner", this.owner);
+
+            if (value) Items.update(this._id, {$set: {owner: value}});
         },
-        'keyup textarea#description': function(e) {
-            var value = e.target.value;
-            Items.update(this._id, {$set: {description: value}});
-            e.target.value = value;
+        'click #description': function(e) {
+            var value = prompt("Enter Description", this.description);
+
+            if (value) Items.update(this._id, {$set: {description: value}});
         },
-        'click img': function(e) {
-            var url = prompt("Enter image url", this.img_url);
-            if (url)
-                Items.update(this._id, {$set: {img_url: url}});
-        }
+        'click #image': function(e) {
+            var value = prompt("Enter Image URL", this.img_url);
+
+            if (value) Items.update(this._id, {$set: {img_url: value}});
+        },
     };
 
     var MSRouter = Backbone.Router.extend({

@@ -4,16 +4,40 @@ body {
 	line-height: 1.6875;
 }
 
-img {
-    width: 100%;
-    height: auto;
-    max-height: 150px;
+h1 {
+
 }
 
-table {
-	width: 100%;
-	table-layout: fixed;
-	text-align: center;
+h2 {
+	margin: 0;
+}
+
+h3 {
+	margin: 0;
+	margin-top: -0.5em;
+}
+
+#image {
+	float: left;
+	width: 20%;
+	height: 200px;
+	background-position: center;
+	background-size: cover;
+}
+
+#info {
+	float: left;
+	width: 75%;
+	margin-left: 15px;
+}
+
+#description {
+	margin: 0px 0px 1em 0px;
+	vertical-align: text-top;
+}
+
+#name, #owner, #description, #buttons {
+	clear: both;
 }
 
 span.title {
@@ -25,20 +49,23 @@ hr {
 	color: #eee;
 }
 
-td {
-	width: 100%;
+.favorite {
+	background: #FFFFE0;
+}
 
+.edit:hover {
+	background: #00FFAA;
+	cursor: hand;
+}
+
+#admin_item {
+	width: 100%;
+	margin: 0.5em 0em;
+	clear: both;
+	float: left;
 }
 
 input {
-	font-size: 1.1em;
-}
-
-textarea {
-	font-size: 1.1em;
-	height: 100%;
-}
-
-.favorite {
-	background: #FFFFE0;
+	margin-left: 0;
+	font-size: 2em;
 }

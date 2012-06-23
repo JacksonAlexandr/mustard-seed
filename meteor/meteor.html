@@ -39,38 +39,26 @@
 
 <template name="admin">
   <h1>Admin Interface</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Owner</th>
-        <th>Description</th>
-        <th>Favorite</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each items}}
-        {{> table_item}}
+  <div>
+    {{#each items}}
+        {{> admin_item}}
       {{/each}}
-    </tbody>
-  </table>
+  </div>
   <input type="button" value="Add" name="add" id="add" />
 </template>
 
-<template name="table_item">
-  <tr {{{favorite_style}}}>
-    <td><img src="{{img_url}}" /></td>
-    <td><input type="text" placeholder="Name" id="name" value={{name}} /></td>
-    <td><input type="text" placeholder="Owner" id="owner" value={{owner}} /></td>
-    <td>
-      <textarea placeholder="Description" id="description">
-        {{description}} 
-      </textarea>
-    </td>
-    <td><input name="favorite" type="checkbox" class="favorite"
-      {{{favorite_checkbox}}} /></td>
-    <td><input name="delete" class="delete" value="Delete" type="button" /></td>
-  </tr>
+<template name="admin_item">
+  <div id="admin_item" {{{favorite_style}}}>
+    <div id="image" style="background-image: url('{{img_url}}')"></div>
+    <div id="info">
+      <h2 id="name" class="edit">{{name}}</h2>
+      <h3 id="owner" class="edit">{{owner}}</h3>
+      <div id="description" class="edit">{{description}}</div>
+      <div id="buttons">
+        <input name="favorite" id="favorite" {{{favorite_value}}} type="button" />
+        <input name="delete" id="delete" value="Delete" type="button" />
+      </div>
+    </div>
+  </div>
   <hr />
 </template>
