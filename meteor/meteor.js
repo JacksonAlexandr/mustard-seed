@@ -3,6 +3,7 @@ var DEFAULT_IMG_URL = "http://www.sdtimes.com/blog/post/2010/image.axd?picture=2
 var DEFAULT_NAME = "Click here to change name";
 var DEFAULT_OWNER = "Click here to change owner";
 var DEFAULT_DESCRIPTION = "Click here to change the description of the item";
+var DEFAULT_COMMERCE_URL = "Click here to change the commerce URL";
 
 // Mongo Collections
 Items = new Meteor.Collection("items");
@@ -52,6 +53,7 @@ if (Meteor.is_client) {
                 img_url: DEFAULT_IMG_URL,
                 name: DEFAULT_NAME,
                 owner: DEFAULT_OWNER,
+                commerce_url: DEFAULT_COMMERCE_URL,
                 description: DEFAULT_DESCRIPTION
             });
         }
@@ -79,6 +81,11 @@ if (Meteor.is_client) {
             var value = prompt("Enter Description", this.description);
 
             if (value) Items.update(this._id, {$set: {description: value}});
+        },
+        'click #commerce_url': function(e) {
+            var value = prompt("Enter Commerce URL", this.commerce_url);
+
+            if (value) Items.update(this._id, {$set: {commerce_url: value}});
         },
         'click #image': function(e) {
             var value = prompt("Enter Image URL", this.img_url);

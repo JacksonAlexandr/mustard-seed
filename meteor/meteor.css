@@ -32,11 +32,14 @@ h3 {
 }
 
 #description {
-	margin: 0px 0px 1em 0px;
-	vertical-align: text-top;
+	margin: 0;
 }
 
-#name, #owner, #description, #buttons {
+#commerce_url {
+	margin: 0 0 1em 0;
+}
+
+#name, #owner, #description, #buttons, #commerce_link {
 	clear: both;
 }
 
@@ -54,7 +57,7 @@ hr {
 }
 
 .edit:hover {
-	background: #00FFAA;
+	background: #C4FFCF;
 	cursor: hand;
 }
 
