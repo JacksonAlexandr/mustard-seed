@@ -10,16 +10,19 @@
 
 @interface Item : NSObject
 
-@property (readonly) NSUInteger itemID;
+@property (readonly) NSString *itemID;
 @property (readonly) NSString *name;
 @property (readonly) NSString *description;
 @property (readonly) NSString * owner;
 @property (readonly) NSURL * imgURL;
 @property (readonly) NSURL * commerceURL;
 @property (readonly) NSUInteger viewCount;
+@property (nonatomic, assign) BOOL favorite;
 
 - (id) initWithAttributes:(NSDictionary *) attributes;
+- (void) toggleFavorite;
 
 + (void) itemsWithBlock:(void (^)(NSArray * items))block;
++ (void) favoriteItemsWithBlock:(void (^)(NSArray * items))block;
 
 @end

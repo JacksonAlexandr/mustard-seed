@@ -11,18 +11,14 @@
 #import "Item.h"
 #import "ItemTableViewCell.h"
 #import "ItemDetailViewController.h"
+#import "ColorBook.h"
+#import "SearchViewController.h"
 
-NSString *kTitle = @"Mustard Seed";
+// Constants
+NSString *kTitle = @"KUBE-IT";
+float kRequestButtonHeight = 40.0f;
 
-@interface ItemsTableViewController ()
-- (void) reload:(id) sender;
-@end
-
-@implementation ItemsTableViewController {
-@private
-    NSArray *_items;
-    __strong UIActivityIndicatorView *_activityIndicatorView;
-}
+@implementation ItemsTableViewController
 
 - (void)reload:(id)sender {
     [_activityIndicatorView startAnimating];
@@ -44,8 +40,30 @@ NSString *kTitle = @"Mustard Seed";
 - (void)loadView {
     [super loadView];
     
+    // Initialize Activity Indicator
     _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     _activityIndicatorView.hidesWhenStopped = YES;
+    
+    // Initialize Back button
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    backButton.tintColor = [ColorBook green];
+    [[self navigationItem] setBackBarButtonItem:backButton];
+    
+    // Initialize Person icon
+    [self.navigationItem.leftBarButtonItem setImage:[UIImage imageNamed:@"person-icon"]];
+    self.navigationItem.leftBarButtonItem.tintColor = [ColorBook green];
+    
+    // Initialize Listen button
+    self.navigationItem.rightBarButtonItem.title = @"Listen";
+    self.navigationItem.rightBarButtonItem.tintColor = [ColorBook green];
+    
+    [self initRequestButton];
+}
+
+- (void) initRequestButton {
+    _requestButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [_requestButton addTarget:self action:@selector(requestItem) forControlEvents:UIControlEventTouchDown];
+    [_requestButton setTitle:@"Request Item" forState:UIControlStateNormal];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -57,22 +75,32 @@ NSString *kTitle = @"Mustard Seed";
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self reload:nil];
+}
+
+- (void)listenToAudio:(id) sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName: @"MainStoryboard_iPhone" bundle:[NSBundle mainBundle]];
+    
+    SearchViewController *searchViewController = [storyboard instantiateViewControllerWithIdentifier:@"SearchViewController"];
+    [self presentModalViewController:searchViewController animated:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.title = NSLocalizedString(kTitle, nil);
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_activityIndicatorView];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reload:)];
-    
+    /*
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Listen" style:UIBarButtonItemStylePlain target:self action:@selector(listenToAudio:)];
+    */
     self.tableView.rowHeight = 70.0f;
     
     [self reload:nil];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -91,6 +119,10 @@ NSString *kTitle = @"Mustard Seed";
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void) requestItem {
+    NSLog(@"Requesting item");
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -100,77 +132,87 @@ NSString *kTitle = @"Mustard Seed";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_items count];
+    // Extra row for button
+    return [_items count] + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ItemCell";
-    ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier;
     
-    if (!cell) {
-        cell = [[ItemTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    // Last cell should be the request button
+    if (indexPath.row == _items.count) {
+        CellIdentifier = @"_requestButtonCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!cell)
+            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+        // Add button
+        _requestButton.frame = cell.bounds;
+        [cell addSubview:_requestButton];
+        
+        return cell;
+    } else {
+        CellIdentifier = @"ItemCell";
+        ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (!cell) {
+            cell = [[ItemTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        }
+        
+        cell.item = [_items objectAtIndex:indexPath.row];
+        
+        return cell;
     }
-    
-    cell.item = [_items objectAtIndex:indexPath.row];
-    
-    return cell;
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }   
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }   
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Request button
+    if (indexPath.row == _items.count)
+        return kRequestButtonHeight;
+    
     return [ItemTableViewCell heightForCellWithItem:[_items objectAtIndex:indexPath.row]];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

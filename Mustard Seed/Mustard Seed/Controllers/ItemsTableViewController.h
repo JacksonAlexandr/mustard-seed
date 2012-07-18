@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ItemsTableViewController : UITableViewController
+@interface ItemsTableViewController : UITableViewController {
+    NSArray *_items;
+    UIActivityIndicatorView *_activityIndicatorView;
+    UIButton *_requestButton;
+}
+
+- (void) reload:(id) sender;
+- (void) listenToAudio:(id) sender;
+- (void) initRequestButton;
+- (void) requestItem;
 
 @end

@@ -484,6 +484,45 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
 	return request;
 }
 
+- (NSMutableURLRequest *)requestWithMethod:(NSString *)method 
+                                      path:(NSString *)path 
+                                parameterString:(NSString *)parameters 
+{	
+    NSURL *url = [NSURL URLWithString:path relativeToURL:self.baseURL];
+	NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] initWithURL:url] autorelease];
+    [request setHTTPMethod:method];
+    [request setAllHTTPHeaderFields:self.defaultHeaders];
+    
+    if ([method isEqualToString:@"GET"] || [method isEqualToString:@"HEAD"]) {
+        [request setHTTPShouldUsePipelining:YES];
+    }
+	
+    if (parameters) {        
+        if ([method isEqualToString:@"GET"] || [method isEqualToString:@"HEAD"] || [method isEqualToString:@"DELETE"]) {
+            url = [NSURL URLWithString:[[url absoluteString] stringByAppendingFormat:[path rangeOfString:@"?"].location == NSNotFound ? @"?%@" : @"&%@", parameters]];
+            [request setURL:url];
+        } else {
+            NSString *charset = (NSString *)CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(self.stringEncoding));
+            switch (self.parameterEncoding) {
+                case AFFormURLParameterEncoding:;
+                    [request setValue:[NSString stringWithFormat:@"application/x-www-form-urlencoded; charset=%@", charset] forHTTPHeaderField:@"Content-Type"];
+                    [request setHTTPBody:[parameters dataUsingEncoding:self.stringEncoding]];
+                    break;
+                case AFJSONParameterEncoding:;
+                    [request setValue:[NSString stringWithFormat:@"application/json; charset=%@", charset] forHTTPHeaderField:@"Content-Type"];
+                    [request setHTTPBody:[parameters dataUsingEncoding:self.stringEncoding]];
+                    break;
+                case AFPropertyListParameterEncoding:;
+                    [request setValue:[NSString stringWithFormat:@"application/x-plist; charset=%@", charset] forHTTPHeaderField:@"Content-Type"];
+                    [request setHTTPBody:[parameters dataUsingEncoding:self.stringEncoding]];
+                    break;
+            }
+        }
+    }
+    
+	return request;
+}
+
 - (NSMutableURLRequest *)multipartFormRequestWithMethod:(NSString *)method
                                                    path:(NSString *)path
                                              parameters:(NSDictionary *)parameters
@@ -627,6 +666,16 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
 	NSURLRequest *request = [self requestWithMethod:@"POST" path:path parameters:parameters];
+	AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithRequest:request success:success failure:failure];
+    [self enqueueHTTPRequestOperation:operation];
+}
+
+- (void)putPath:(NSString *)path 
+        parameterString:(NSString *)parameters
+        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure 
+{
+    NSURLRequest *request = [self requestWithMethod:@"PUT" path:path parameterString:parameters];
 	AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithRequest:request success:success failure:failure];
     [self enqueueHTTPRequestOperation:operation];
 }

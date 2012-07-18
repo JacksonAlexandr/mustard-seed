@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UIViewController
+@class MBProgressHUD;
+
+@interface SearchViewController : UIViewController {
+    MBProgressHUD *HUD;
+}
+
+- (void) callAudioApi;
 
 @end

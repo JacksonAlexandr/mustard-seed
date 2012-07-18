@@ -134,7 +134,6 @@ if (Meteor.is_server) {
     Meteor.startup(function () {
         collectionApi = new CollectionAPI();
         collectionApi.addCollection(Items, 'items');
-        collectionApi.addCollection(Favorites, 'items/favorites');
         collectionApi.start();
 
 

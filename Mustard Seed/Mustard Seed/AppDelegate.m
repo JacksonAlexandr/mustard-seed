@@ -15,6 +15,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // Update Navigation bar look and feel
+    UIImage *navBarImage = [[UIImage imageNamed:@"nav-bar"] 
+                            resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
+    
     return YES;
 }
 							
