@@ -13,9 +13,8 @@
 #import "ItemDetailViewController.h"
 #import "ColorBook.h"
 #import "SearchViewController.h"
+#import "Constants.h"
 
-// Constants
-NSString *kTitle = @"KUBE-IT";
 float kRequestButtonHeight = 40.0f;
 
 @implementation ItemsTableViewController

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28097E0015BA810C0027B655 /* tv-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28097DFE15BA810C0027B655 /* tv-icon.png */; };
+		28097E0115BA810C0027B655 /* tv-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28097DFF15BA810C0027B655 /* tv-icon@2x.png */; };
 		2811479E159BAE5E003F3195 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811479D159BAE5E003F3195 /* ItemTableViewCell.m */; };
 		281147A2159BB9B7003F3195 /* placeholder-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 281147A1159BB9B7003F3195 /* placeholder-image.png */; };
 		281147B2159C1C61003F3195 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281147B1159C1C60003F3195 /* ItemDetailViewController.m */; };
@@ -29,6 +31,7 @@
 		28387EDE1593FFCC008EC6AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28387EDC1593FFCC008EC6AF /* InfoPlist.strings */; };
 		28387EE11593FFCC008EC6AF /* Mustard_SeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28387EE01593FFCC008EC6AF /* Mustard_SeedTests.m */; };
 		283E6DD215AAB85C008ED025 /* CommerceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283E6DD115AAB85C008ED025 /* CommerceViewController.m */; };
+		284BB34215B7EC7D004AFC47 /* FavoriteItemsGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284BB34115B7EC7D004AFC47 /* FavoriteItemsGridViewController.m */; };
 		284E012215B5E76F00D026AE /* UIImage+Autofit.m in Sources */ = {isa = PBXBuildFile; fileRef = 284E012115B5E76F00D026AE /* UIImage+Autofit.m */; };
 		284E012615B5F7D500D026AE /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 284E012415B5F7D500D026AE /* background.png */; };
 		284E012715B5F7D500D026AE /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 284E012515B5F7D500D026AE /* background@2x.png */; };
@@ -66,7 +69,11 @@
 		28BCC4E515AF924100074612 /* FavoriteItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BCC4E415AF924100074612 /* FavoriteItemsTableViewController.m */; };
 		28BCC4E815AFAAFF00074612 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BCC4E715AFAAFF00074612 /* AboutViewController.m */; };
 		28C789A815B745D6005D7AD1 /* libGMGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C789A715B745D6005D7AD1 /* libGMGridView.a */; };
-		28C789AB15B7593C005D7AD1 /* ItemGridViewControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C789AA15B7593C005D7AD1 /* ItemGridViewControllerViewController.m */; };
+		28C789AE15B759AB005D7AD1 /* Demo1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C789AD15B759AB005D7AD1 /* Demo1ViewController.m */; };
+		28C789B115B759D8005D7AD1 /* ItemGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C789B015B759D8005D7AD1 /* ItemGridViewController.m */; };
+		28C789DE15B764EC005D7AD1 /* ItemGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C789DD15B764EC005D7AD1 /* ItemGridView.m */; };
+		28C789E215B783D3005D7AD1 /* twitter-bg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 28C789E115B783D3005D7AD1 /* twitter-bg.jpeg */; };
+		28C789E415B78445005D7AD1 /* green-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C789E315B78445005D7AD1 /* green-bg.png */; };
 		28CA90A315A818E600E1694E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CA90A215A818E600E1694E /* MBProgressHUD.m */; };
 		28CB081815B0D3AF00C22350 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28CB081715B0D3AF00C22350 /* Roboto-Regular.ttf */; };
 		28CB081B15B0D6DD00C22350 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28CB081715B0D3AF00C22350 /* Roboto-Regular.ttf */; };
@@ -83,9 +90,25 @@
 			remoteGlobalIDString = 28387EA21593FFCA008EC6AF;
 			remoteInfo = "Mustard Seed";
 		};
+		28C789D815B76171005D7AD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28C789D115B76170005D7AD1 /* GMGridView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 78509312149FAC2E000787E4;
+			remoteInfo = GMGridView;
+		};
+		28C789DA15B76185005D7AD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28C789D115B76170005D7AD1 /* GMGridView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 78509311149FAC2E000787E4;
+			remoteInfo = GMGridView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28097DFE15BA810C0027B655 /* tv-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tv-icon.png"; path = "Mustard Seed/Images/tv-icon.png"; sourceTree = "<group>"; };
+		28097DFF15BA810C0027B655 /* tv-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tv-icon@2x.png"; path = "Mustard Seed/Images/tv-icon@2x.png"; sourceTree = "<group>"; };
 		2811479C159BAE5E003F3195 /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemTableViewCell.h; path = "Mustard Seed/Views/ItemTableViewCell.h"; sourceTree = "<group>"; };
 		2811479D159BAE5E003F3195 /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemTableViewCell.m; path = "Mustard Seed/Views/ItemTableViewCell.m"; sourceTree = "<group>"; };
 		281147A1159BB9B7003F3195 /* placeholder-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "placeholder-image.png"; path = "Mustard Seed/Images/placeholder-image.png"; sourceTree = "<group>"; };
@@ -117,6 +140,8 @@
 		28387EE01593FFCC008EC6AF /* Mustard_SeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mustard_SeedTests.m; sourceTree = "<group>"; };
 		283E6DD015AAB85C008ED025 /* CommerceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommerceViewController.h; path = "Mustard Seed/Controllers/CommerceViewController.h"; sourceTree = "<group>"; };
 		283E6DD115AAB85C008ED025 /* CommerceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommerceViewController.m; path = "Mustard Seed/Controllers/CommerceViewController.m"; sourceTree = "<group>"; };
+		284BB34015B7EC7D004AFC47 /* FavoriteItemsGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteItemsGridViewController.h; path = "Mustard Seed/Controllers/FavoriteItemsGridViewController.h"; sourceTree = "<group>"; };
+		284BB34115B7EC7D004AFC47 /* FavoriteItemsGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteItemsGridViewController.m; path = "Mustard Seed/Controllers/FavoriteItemsGridViewController.m"; sourceTree = "<group>"; };
 		284E012015B5E76F00D026AE /* UIImage+Autofit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Autofit.h"; path = "Supporting Files/UIImage+Autofit.h"; sourceTree = "<group>"; };
 		284E012115B5E76F00D026AE /* UIImage+Autofit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Autofit.m"; path = "Supporting Files/UIImage+Autofit.m"; sourceTree = "<group>"; };
 		284E012415B5F7D500D026AE /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "Mustard Seed/Images/background.png"; sourceTree = "<group>"; };
@@ -172,14 +197,22 @@
 		28BCC4E615AFAAFF00074612 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = "Mustard Seed/Controllers/AboutViewController.h"; sourceTree = "<group>"; };
 		28BCC4E715AFAAFF00074612 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = "Mustard Seed/Controllers/AboutViewController.m"; sourceTree = "<group>"; };
 		28C789A715B745D6005D7AD1 /* libGMGridView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGMGridView.a; path = "../../../Library/Developer/Xcode/DerivedData/Mustard_Seed-cagxtuxzhvpizpculqodzljcluob/Build/Products/Debug-iphoneos/libGMGridView.a"; sourceTree = "<group>"; };
-		28C789A915B7593C005D7AD1 /* ItemGridViewControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemGridViewControllerViewController.h; path = "Mustard Seed/Controllers/ItemGridViewControllerViewController.h"; sourceTree = "<group>"; };
-		28C789AA15B7593C005D7AD1 /* ItemGridViewControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemGridViewControllerViewController.m; path = "Mustard Seed/Controllers/ItemGridViewControllerViewController.m"; sourceTree = "<group>"; };
+		28C789AC15B759AB005D7AD1 /* Demo1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Demo1ViewController.h; path = ../../ios/GMGridView/Example/Demo1ViewController.h; sourceTree = "<group>"; };
+		28C789AD15B759AB005D7AD1 /* Demo1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Demo1ViewController.m; path = ../../ios/GMGridView/Example/Demo1ViewController.m; sourceTree = "<group>"; };
+		28C789AF15B759D8005D7AD1 /* ItemGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemGridViewController.h; path = "Mustard Seed/Controllers/ItemGridViewController.h"; sourceTree = "<group>"; };
+		28C789B015B759D8005D7AD1 /* ItemGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemGridViewController.m; path = "Mustard Seed/Controllers/ItemGridViewController.m"; sourceTree = "<group>"; };
+		28C789D115B76170005D7AD1 /* GMGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GMGridView.xcodeproj; path = GMGridView/GMGridView.xcodeproj; sourceTree = "<group>"; };
+		28C789DC15B764EC005D7AD1 /* ItemGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemGridView.h; path = "Mustard Seed/Views/ItemGridView.h"; sourceTree = "<group>"; };
+		28C789DD15B764EC005D7AD1 /* ItemGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemGridView.m; path = "Mustard Seed/Views/ItemGridView.m"; sourceTree = "<group>"; };
+		28C789E115B783D3005D7AD1 /* twitter-bg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "twitter-bg.jpeg"; path = "Mustard Seed/Images/twitter-bg.jpeg"; sourceTree = "<group>"; };
+		28C789E315B78445005D7AD1 /* green-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-bg.png"; path = "Mustard Seed/Images/green-bg.png"; sourceTree = "<group>"; };
 		28CA90A115A818E600E1694E /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ../../../ios/AFNetworking/Example/Classes/MBProgressHUD.h; sourceTree = "<group>"; };
 		28CA90A215A818E600E1694E /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ../../../ios/AFNetworking/Example/Classes/MBProgressHUD.m; sourceTree = "<group>"; };
 		28CB081715B0D3AF00C22350 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		28CB081C15B0D78900C22350 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		28CB081F15B0D7EE00C22350 /* FontBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontBook.h; path = "Supporting Files/FontBook.h"; sourceTree = "<group>"; };
 		28CB082015B0D7EE00C22350 /* FontBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontBook.m; path = "Supporting Files/FontBook.m"; sourceTree = "<group>"; };
+		28D072AC15BE5F41000F231E /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +257,8 @@
 			children = (
 				2811479C159BAE5E003F3195 /* ItemTableViewCell.h */,
 				2811479D159BAE5E003F3195 /* ItemTableViewCell.m */,
+				28C789DC15B764EC005D7AD1 /* ItemGridView.h */,
+				28C789DD15B764EC005D7AD1 /* ItemGridView.m */,
 			);
 			name = Views;
 			path = ..;
@@ -244,8 +279,10 @@
 				28BCC4E415AF924100074612 /* FavoriteItemsTableViewController.m */,
 				28BCC4E615AFAAFF00074612 /* AboutViewController.h */,
 				28BCC4E715AFAAFF00074612 /* AboutViewController.m */,
-				28C789A915B7593C005D7AD1 /* ItemGridViewControllerViewController.h */,
-				28C789AA15B7593C005D7AD1 /* ItemGridViewControllerViewController.m */,
+				28C789AF15B759D8005D7AD1 /* ItemGridViewController.h */,
+				28C789B015B759D8005D7AD1 /* ItemGridViewController.m */,
+				284BB34015B7EC7D004AFC47 /* FavoriteItemsGridViewController.h */,
+				284BB34115B7EC7D004AFC47 /* FavoriteItemsGridViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -254,6 +291,10 @@
 		2810EA0915945C0D00066B91 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				28097DFE15BA810C0027B655 /* tv-icon.png */,
+				28097DFF15BA810C0027B655 /* tv-icon@2x.png */,
+				28C789E315B78445005D7AD1 /* green-bg.png */,
+				28C789E115B783D3005D7AD1 /* twitter-bg.jpeg */,
 				286C1D5515B63DBA0032E0DA /* person-icon.png */,
 				286C1D5615B63DBA0032E0DA /* person-icon@2x.png */,
 				286C1D4A15B613DC0032E0DA /* heart-gray.png */,
@@ -282,9 +323,12 @@
 		28387E981593FFCA008EC6AF = {
 			isa = PBXGroup;
 			children = (
-				28C789A715B745D6005D7AD1 /* libGMGridView.a */,
-				28BCC4E115AF8EFD00074612 /* video.mp4 */,
+				28C789D115B76170005D7AD1 /* GMGridView.xcodeproj */,
 				2870007C15983DCD00CEBADB /* AFNetworking */,
+				28C789A715B745D6005D7AD1 /* libGMGridView.a */,
+				28C789AC15B759AB005D7AD1 /* Demo1ViewController.h */,
+				28C789AD15B759AB005D7AD1 /* Demo1ViewController.m */,
+				28BCC4E115AF8EFD00074612 /* video.mp4 */,
 				28387EB91593FFCB008EC6AF /* MainStoryboard_iPhone.storyboard */,
 				28387EBC1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard */,
 				28387EAD1593FFCB008EC6AF /* Mustard Seed */,
@@ -347,6 +391,7 @@
 				284E012115B5E76F00D026AE /* UIImage+Autofit.m */,
 				286C1D5215B61C0D0032E0DA /* ColorBook.h */,
 				286C1D5315B61C0D0032E0DA /* ColorBook.m */,
+				28D072AC15BE5F41000F231E /* Constants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -407,6 +452,14 @@
 			name = API;
 			sourceTree = "<group>";
 		};
+		28C789D215B76170005D7AD1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28C789D915B76171005D7AD1 /* libGMGridView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		28CB081A15B0D3B400C22350 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +483,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				28C789DB15B76185005D7AD1 /* PBXTargetDependency */,
 			);
 			name = "Mustard Seed";
 			productName = "Mustard Seed";
@@ -474,6 +528,12 @@
 			mainGroup = 28387E981593FFCA008EC6AF;
 			productRefGroup = 28387EA41593FFCB008EC6AF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 28C789D215B76170005D7AD1 /* Products */;
+					ProjectRef = 28C789D115B76170005D7AD1 /* GMGridView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				28387EA21593FFCA008EC6AF /* Mustard Seed */,
@@ -481,6 +541,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		28C789D915B76171005D7AD1 /* libGMGridView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGMGridView.a;
+			remoteRef = 28C789D815B76171005D7AD1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		28387EA11593FFCA008EC6AF /* Resources */ = {
@@ -514,6 +584,10 @@
 				286C1D5115B613DC0032E0DA /* heart-red@2x.png in Resources */,
 				286C1D5715B63DBA0032E0DA /* person-icon.png in Resources */,
 				286C1D5815B63DBA0032E0DA /* person-icon@2x.png in Resources */,
+				28C789E215B783D3005D7AD1 /* twitter-bg.jpeg in Resources */,
+				28C789E415B78445005D7AD1 /* green-bg.png in Resources */,
+				28097E0015BA810C0027B655 /* tv-icon.png in Resources */,
+				28097E0115BA810C0027B655 /* tv-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,7 +649,9 @@
 				28CB082115B0D7EE00C22350 /* FontBook.m in Sources */,
 				284E012215B5E76F00D026AE /* UIImage+Autofit.m in Sources */,
 				286C1D5415B61C0D0032E0DA /* ColorBook.m in Sources */,
-				28C789AB15B7593C005D7AD1 /* ItemGridViewControllerViewController.m in Sources */,
+				28C789B115B759D8005D7AD1 /* ItemGridViewController.m in Sources */,
+				28C789DE15B764EC005D7AD1 /* ItemGridView.m in Sources */,
+				284BB34215B7EC7D004AFC47 /* FavoriteItemsGridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28387EE11593FFCC008EC6AF /* Mustard_SeedTests.m in Sources */,
+				28C789AE15B759AB005D7AD1 /* Demo1ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +671,11 @@
 			isa = PBXTargetDependency;
 			target = 28387EA21593FFCA008EC6AF /* Mustard Seed */;
 			targetProxy = 28387ED71593FFCC008EC6AF /* PBXContainerItemProxy */;
+		};
+		28C789DB15B76185005D7AD1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GMGridView;
+			targetProxy = 28C789DA15B76185005D7AD1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -687,10 +769,15 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
+				HEADER_SEARCH_PATHS = "GMGridView/**";
 				INFOPLIST_FILE = "Mustard Seed/Mustard Seed-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Mustard_Seed-cagxtuxzhvpizpculqodzljcluob/Build/Products/Debug-iphoneos\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -702,10 +789,15 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
+				HEADER_SEARCH_PATHS = "GMGridView/**";
 				INFOPLIST_FILE = "Mustard Seed/Mustard Seed-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Mustard_Seed-cagxtuxzhvpizpculqodzljcluob/Build/Products/Debug-iphoneos\"",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

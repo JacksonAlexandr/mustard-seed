@@ -53,7 +53,7 @@
     self.navigationController.navigationBar.layer.shadowOpacity = 0.55f;
     self.navigationController.navigationBar.clipsToBounds = NO;
     
-	// Do any additional setup after loading the view.
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewDidUnload

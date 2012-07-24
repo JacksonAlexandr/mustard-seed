@@ -1,5 +1,5 @@
 //
-//  ItemGridViewControllerViewController.h
+//  ItemGridView.h
 //  Mustard Seed
 //
 //  Created by Isaac Wang on 7/18/12.
@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ItemGridViewControllerViewController : UIViewController
+@class Item;
+
+@interface ItemGridView : UIView
+
+@property (nonatomic, strong) Item *item;
 
 @end

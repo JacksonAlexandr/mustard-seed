@@ -32,7 +32,9 @@ int kWaitingTimeInMicroseconds = 10000;
 - (void)viewDidLoad
 {    
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+    // Disable back button
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewDidUnload
@@ -88,13 +90,11 @@ int kWaitingTimeInMicroseconds = 10000;
 		usleep(kWaitingTimeInMicroseconds);
 	}
     
-    [self performSegueWithIdentifier:@"FavoriteItemsSegue" sender:self];
+    [self performSegueWithIdentifier:@"ItemsSegue" sender:self];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([[segue identifier] isEqualToString:@"FavoriteItemsSegue"]) {
-        FavoriteItemsTableViewController *favoritesViewController = (FavoriteItemsTableViewController *)[segue destinationViewController];
-    }
+    
 }
 
 @end
