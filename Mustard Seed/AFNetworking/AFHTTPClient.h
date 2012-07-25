@@ -406,6 +406,11 @@ extern NSString * AFQueryStringFromParametersWithEncoding(NSDictionary *paramete
          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+- (void)postPath:(NSString *)path 
+      parameterString:(NSString *)parameters 
+        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+
 /**
  Creates an `AFHTTPRequestOperation` with a `PUT` request, and enqueues it to the HTTP client's operation queue.
  

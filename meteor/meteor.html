@@ -41,8 +41,8 @@
   <h1>Admin Interface</h1>
   <div>
     {{#each items}}
-        {{> admin_item}}
-      {{/each}}
+      {{> admin_item}}
+    {{/each}}
   </div>
   <input type="button" value="Add" name="add" id="add" />
 </template>
@@ -62,4 +62,12 @@
     </div>
   </div>
   <hr />
+</template>
+
+<template name="requests">
+  <div>
+    {{#each items}}
+      <div>{{name}}</div>
+    {{/each}}
+  </div>
 </template>

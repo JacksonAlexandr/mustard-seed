@@ -14,9 +14,10 @@
 #import "ItemDetailViewController.h"
 #import "ColorBook.h"
 #import "Constants.h"
+#import "RequestItemView.h"
 
 // GMGridViewSortingDelegate, GMGridViewTransformationDelegate
-@interface ItemGridViewController () <GMGridViewDataSource, GMGridViewActionDelegate> {
+@interface ItemGridViewController () <GMGridViewDataSource, GMGridViewActionDelegate, UIAlertViewDelegate> {
     
 }
 
@@ -122,13 +123,22 @@
     }
 }
 
+#pragma mark AlertView
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        // POST requested item
+        [Item postRequest:[alertView textFieldAtIndex:0].text];
+    }
+    NSLog(@"Alert View dismissed with button at index %d", buttonIndex);
+}
+
 //////////////////////////////////////////////////////////////
 #pragma mark GMGridViewDataSource
 //////////////////////////////////////////////////////////////
 
 - (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView
 {
-    return [_items count];
+    return [_items count] + 1;
 }
 
 - (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation
@@ -146,7 +156,7 @@
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index
-{
+{    
     CGSize size = [self GMGridView:gridView sizeForItemsInInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
     
     GMGridViewCell *cell = [gridView dequeueReusableCell];
@@ -154,22 +164,20 @@
     if (!cell) 
     {
         cell = [[GMGridViewCell alloc] init];
-        //cell.deleteButtonIcon = [UIImage imageNamed:@"close_x.png"];
-        //cell.deleteButtonOffset = CGPointMake(-15, -15);
-        
-        /*
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-        view.backgroundColor = [UIColor redColor];
-        view.layer.masksToBounds = NO;
-        view.layer.cornerRadius = 8;
-         */
+
         ItemGridView *view = [[ItemGridView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-        
         cell.contentView = view;
     }
     
-    [(ItemGridView *)cell.contentView setItem:[_items objectAtIndex:index]];
+    Item *item;
     
+    // Special case for request button
+    if (index == _items.count)
+        item = [RequestItemView requestItem];
+    else {
+        item = [_items objectAtIndex:index];
+    }
+    [(ItemGridView *)cell.contentView setItem:item];
     return cell;
 }
 
@@ -185,6 +193,21 @@
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
 {
+    // Bring up an alertview if request item was clicked
+    if (position == _items.count) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Request an Item"
+                                  message:@""
+                                  delegate:self
+                                  cancelButtonTitle:@"Cancel"
+                                  otherButtonTitles:@"OK", nil];
+        
+        alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [alertView show];
+        
+        return;
+    }
+    
     _selectedIndex = position;
     [self performSegueWithIdentifier:@"ItemDetailSegue" sender:self];
 }

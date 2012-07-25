@@ -52,6 +52,25 @@
     [self setFavorite:!_favorite];
 }
 
++ (void) postRequest:(NSString *) request {
+    // Initialize NSDictionary command
+    NSError *error;
+    NSDictionary *data = [NSDictionary dictionaryWithObject: request forKey:@"name"];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data 
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", jsonString);
+    
+    // Make network call
+    [[AFMustardSeedAPIClient sharedClient] postPath:@"requests" parameterString:jsonString success:^(AFHTTPRequestOperation *operation, id JSON) {
+        NSLog(@"Success");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }];
+}
+
 - (void) setFavorite:(BOOL)favorite {
     _favorite = favorite;
     

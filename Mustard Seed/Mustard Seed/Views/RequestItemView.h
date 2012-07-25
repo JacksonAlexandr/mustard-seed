@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Item;
+
 @interface RequestItemView : UIView
+
++ (Item *) requestItem;
 
 @end

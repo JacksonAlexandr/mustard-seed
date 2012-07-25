@@ -25,4 +25,6 @@
 + (void) itemsWithBlock:(void (^)(NSArray * items))block;
 + (void) favoriteItemsWithBlock:(void (^)(NSArray * items))block;
 
++ (void) postRequest:(NSString *)request;
+
 @end

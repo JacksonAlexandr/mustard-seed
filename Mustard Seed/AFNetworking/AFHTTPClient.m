@@ -661,6 +661,16 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
 }
 
 - (void)postPath:(NSString *)path 
+parameterString:(NSString *)parameters
+        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure 
+{
+    NSURLRequest *request = [self requestWithMethod:@"POST" path:path parameterString:parameters];
+	AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithRequest:request success:success failure:failure];
+    [self enqueueHTTPRequestOperation:operation];
+}
+
+- (void)postPath:(NSString *)path 
       parameters:(NSDictionary *)parameters 
          success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
          failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure

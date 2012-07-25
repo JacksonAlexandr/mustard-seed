@@ -8,6 +8,7 @@ var DEFAULT_COMMERCE_URL = "Click here to change the commerce URL";
 // Mongo Collections
 Items = new Meteor.Collection("items");
 Favorites = new Meteor.Collection("favorites");
+Requests = new Meteor.Collection("requests");
 
 function is_favorite(id) {
     return Favorites.findOne({item_id: id});
@@ -42,6 +43,10 @@ if (Meteor.is_client) {
     Template.admin_item.favorite_value = function() {
         return !this.favorite ? 'value="Favorite"' : 'value="Unfavorite"';
     };
+
+    Template.requests.items = function() {
+        return Requests.find({});
+    }
 
     //Template.table_item.favorite = function() {
     //   return is_favorite(this._id);
@@ -98,6 +103,7 @@ if (Meteor.is_client) {
         routes: {
             "" : "main",
             "admin" : "admin",
+            "requests" : "requests",
             ":id" : "id"
         },
         main: function() {
@@ -110,6 +116,9 @@ if (Meteor.is_client) {
         admin: function() {
             // Redirect to add page
             Session.set("page_id", "admin");
+        },
+        requests: function() {
+            Session.set("page_id", "requests");
         }
     });
 
@@ -134,6 +143,7 @@ if (Meteor.is_server) {
     Meteor.startup(function () {
         collectionApi = new CollectionAPI();
         collectionApi.addCollection(Items, 'items');
+        collectionApi.addCollection(Requests, 'requests');
         collectionApi.start();
 
 

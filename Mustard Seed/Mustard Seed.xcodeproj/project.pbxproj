@@ -80,6 +80,7 @@
 		28CB081D15B0D78900C22350 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28CB081C15B0D78900C22350 /* Roboto-Bold.ttf */; };
 		28CB081E15B0D79900C22350 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28CB081C15B0D78900C22350 /* Roboto-Bold.ttf */; };
 		28CB082115B0D7EE00C22350 /* FontBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CB082015B0D7EE00C22350 /* FontBook.m */; };
+		28D072AF15BE71B2000F231E /* RequestItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D072AE15BE71B2000F231E /* RequestItemView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,8 @@
 		28CB081F15B0D7EE00C22350 /* FontBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontBook.h; path = "Supporting Files/FontBook.h"; sourceTree = "<group>"; };
 		28CB082015B0D7EE00C22350 /* FontBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontBook.m; path = "Supporting Files/FontBook.m"; sourceTree = "<group>"; };
 		28D072AC15BE5F41000F231E /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		28D072AD15BE71B2000F231E /* RequestItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestItemView.h; path = "Mustard Seed/Views/RequestItemView.h"; sourceTree = "<group>"; };
+		28D072AE15BE71B2000F231E /* RequestItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestItemView.m; path = "Mustard Seed/Views/RequestItemView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +262,8 @@
 				2811479D159BAE5E003F3195 /* ItemTableViewCell.m */,
 				28C789DC15B764EC005D7AD1 /* ItemGridView.h */,
 				28C789DD15B764EC005D7AD1 /* ItemGridView.m */,
+				28D072AD15BE71B2000F231E /* RequestItemView.h */,
+				28D072AE15BE71B2000F231E /* RequestItemView.m */,
 			);
 			name = Views;
 			path = ..;
@@ -652,6 +657,7 @@
 				28C789B115B759D8005D7AD1 /* ItemGridViewController.m in Sources */,
 				28C789DE15B764EC005D7AD1 /* ItemGridView.m in Sources */,
 				284BB34215B7EC7D004AFC47 /* FavoriteItemsGridViewController.m in Sources */,
+				28D072AF15BE71B2000F231E /* RequestItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
