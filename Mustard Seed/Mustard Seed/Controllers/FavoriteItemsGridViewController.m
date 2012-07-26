@@ -69,10 +69,6 @@
     _backButtonText = @"Favorites";
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-    _gridView.contentSize = CGSizeMake(_gridView.frame.size.width, 1000.0);
-}
-
 //////////////////////////////////////////////////////////////
 #pragma mark GMGridViewDataSource
 //////////////////////////////////////////////////////////////

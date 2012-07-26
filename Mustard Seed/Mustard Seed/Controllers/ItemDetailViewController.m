@@ -144,7 +144,6 @@
     // Position buttonsView due to weird bug..
     float yPos = _scrollView.frame.origin.y + _scrollView.frame.size.height;
     float height = self.view.frame.size.height - yPos;
-    NSLog(@"Height: %f", height);
     _buttonsView.frame = CGRectMake(0, yPos, self.view.frame.size.width, height);
 }
 

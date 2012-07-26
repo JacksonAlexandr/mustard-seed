@@ -17,9 +17,15 @@
     // Override point for customization after application launch.
     
     // Update Navigation bar look and feel
+    /*
     UIImage *navBarImage = [[UIImage imageNamed:@"nav-bar"] 
                             resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
+     */
+    //[[UINavigationBar appearance] setStyle:UIBarStyleBlack];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:.28 green:.28 blue:.28 alpha:.9]];
+    //[[UINavigationBar appearance] setTranslucent:YES];
     
     return YES;
 }

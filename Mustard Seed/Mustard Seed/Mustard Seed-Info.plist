@@ -47,6 +47,7 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Pacifico.ttf</string>
 		<string>Roboto-Regular.ttf</string>
 		<string>Roboto-Bold.ttf</string>
 	</array>

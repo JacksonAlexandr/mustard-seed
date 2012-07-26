@@ -9,13 +9,16 @@
 #import <Foundation/Foundation.h>
 
 @interface FontBook : NSObject {
-    UIFont *_robotoFont;
-    UIFont *_robotoBoldFont;
+    
 }
 
 + (UIFont*) robotoFont;
 + (UIFont*) robotoFontWithSize:(float) size;
 + (UIFont*) robotoBoldFont;
 + (UIFont*) robotoBoldFontWithSize:(float) size;
++ (UIFont*) pacificoFont;
++ (UIFont*) pacificoFontWithSize:(float) size;
+
++ (void) listAllFonts;
 
 @end

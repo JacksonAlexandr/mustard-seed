@@ -43,7 +43,7 @@ const float kPadding = 5.0;
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         _imageView.clipsToBounds = YES;
         
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _borderView.frame.size.height + 2 * kPadding, self.frame.size.width, 20.0)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _borderView.frame.size.height + kPadding, self.frame.size.width, 20.0)];
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.font = [FontBook robotoBoldFontWithSize:15.0];

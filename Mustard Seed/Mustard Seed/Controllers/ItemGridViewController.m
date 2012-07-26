@@ -15,6 +15,7 @@
 #import "ColorBook.h"
 #import "Constants.h"
 #import "RequestItemView.h"
+#import "FontBook.h"
 
 // GMGridViewSortingDelegate, GMGridViewTransformationDelegate
 @interface ItemGridViewController () <GMGridViewDataSource, GMGridViewActionDelegate, UIAlertViewDelegate> {
@@ -72,15 +73,27 @@
     self.title = NSLocalizedString(kTitle, nil);
     
     // Initialize Favorites icon
-    [self.navigationItem.leftBarButtonItem setTitle:@"Favorites"];
+    //[self.navigationItem.leftBarButtonItem setTitle:@"Favorites"];
+    [self.navigationItem.leftBarButtonItem setImage:[UIImage imageNamed:@"person-icon"]];
     self.navigationItem.leftBarButtonItem.tintColor = [ColorBook green];
     
     // Initialize Listen button
-    [self.navigationItem.rightBarButtonItem setTitle:@"Listen"];
+    //[self.navigationItem.rightBarButtonItem setTitle:@"Listen"];
+    [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"tv-icon"]];
     self.navigationItem.rightBarButtonItem.tintColor = [ColorBook green];
     
     // Back button text
     _backButtonText = @"Items";
+    
+    // Title formatting
+    UILabel* titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0,0, 300, 40)];
+    titleLabel.text = @"kube it";
+    titleLabel.font = [FontBook pacificoFontWithSize:28];
+    titleLabel.textColor=[UIColor whiteColor];
+    titleLabel.backgroundColor =[UIColor clearColor];
+    titleLabel.adjustsFontSizeToFitWidth = YES;
+    titleLabel.textAlignment = UITextAlignmentCenter;
+    self.navigationItem.titleView = titleLabel;
     
     // Load items
     [self reload:nil];
@@ -106,6 +119,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     // Background image
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background@2x.png"]];
 }
