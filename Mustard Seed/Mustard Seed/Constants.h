@@ -11,4 +11,12 @@
 
 #define kTitle      @"KUBE-IT"
 
+// ItemGridView
+#define kItemGridViewImageHeight        130
+#define kItemGridViewTitleHeight        20
+#define kItemGridViewOwnerHeight        14
+#define kItemGridViewBufferHeight       15
+#define kItemGridViewHeight             kItemGridViewImageHeight + kItemGridViewTitleHeight + kItemGridViewOwnerHeight + kItemGridViewBufferHeight
+#define kItemGridViewWidth              140
+
 #endif

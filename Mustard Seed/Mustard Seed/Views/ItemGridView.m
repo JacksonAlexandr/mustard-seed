@@ -12,6 +12,7 @@
 
 #import "Item.h"
 #import "FontBook.h"
+#import "Constants.h"
 
 const float kPadding = 5.0;
 
@@ -32,24 +33,24 @@ const float kPadding = 5.0;
     self = [super initWithFrame:frame];
     if (self) {
         // Initialize imageView
-        _borderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height * 2.0 / 3.0)];
+        _borderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kItemGridViewWidth, kItemGridViewImageHeight)];
         _borderView.backgroundColor = [UIColor whiteColor];
         _borderView.layer.masksToBounds = NO;
         _borderView.layer.shadowOffset = CGSizeMake(0, 1.5);
         _borderView.layer.shadowRadius = 3;
         _borderView.layer.shadowOpacity = 0.15;
         
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(kPadding, kPadding, self.frame.size.width - 2 * kPadding, _borderView.frame.size.height - 5 * kPadding)];
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(kPadding, kPadding, kItemGridViewWidth  - 2 * kPadding, _borderView.frame.size.height - 5 * kPadding)];
         _imageView.contentMode = UIViewContentModeScaleAspectFill;
         _imageView.clipsToBounds = YES;
         
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _borderView.frame.size.height + kPadding, self.frame.size.width, 20.0)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _borderView.frame.size.height + kPadding, self.frame.size.width, kItemGridViewTitleHeight)];
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.font = [FontBook robotoBoldFontWithSize:15.0];
         
         _ownerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, _titleLabel.frame.origin.y
-                                                                + _titleLabel.frame.size.height, self.frame.size.width, 15.0)];
+                                                                + _titleLabel.frame.size.height, self.frame.size.width, kItemGridViewOwnerHeight)];
         _ownerLabel.backgroundColor = [UIColor clearColor];
         _ownerLabel.textColor = [UIColor grayColor];
         _ownerLabel.font = [FontBook robotoFontWithSize:11.5];

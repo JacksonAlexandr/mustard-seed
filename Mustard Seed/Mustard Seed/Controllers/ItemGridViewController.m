@@ -158,7 +158,7 @@
 
 - (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
-    return CGSizeMake(140, 190);
+    return CGSizeMake(kItemGridViewWidth, kItemGridViewHeight);
     
     if (UIInterfaceOrientationIsLandscape(orientation)) 
     {
