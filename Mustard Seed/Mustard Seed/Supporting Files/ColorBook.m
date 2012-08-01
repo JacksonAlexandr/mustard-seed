@@ -28,4 +28,8 @@
     return UIColorFromRGB(hex);
 }
 
++ (UIColor *) darkGray {
+    return UIColorFromRGB(0x333333);
+}
+
 @end

@@ -34,7 +34,7 @@
 }
 
 + (Item *) requestItem {
-    return [[Item alloc] initWithAttributes:[NSDictionary dictionaryWithObject:@"http://www.nprlibrary.org/file/images/search_600.jpg" forKey:@"img_url"]];
+    return [[Item alloc] initWithAttributes:[NSDictionary dictionaryWithObject:@"https://dl.dropbox.com/u/234745/request-button.png" forKey:@"img_url"]];
 }
 
 /*

@@ -15,10 +15,13 @@
 #import "Item.h"
 #import "FontBook.h"
 #import "ColorBook.h"
+#import "Constants.h"
 
 // Colors: http://www.colourlovers.com/palette/157085/commons
 
 @interface ItemDetailViewController ()
+
+- (void) formatButton:(UIButton *) button;
 
 @end
 
@@ -113,23 +116,7 @@
     _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, minHeight);
 }
 
-- (void) setupButtons {
-    /*
-    _favoriteButton.backgroundColor = UIColorFromRGB(0xC92020);
-    _commerceButton.backgroundColor = UIColorFromRGB(0x88C6C9);
-    _shareButton.backgroundColor = UIColorFromRGB(0x798EE0);
-    _videoButton.backgroundColor = UIColorFromRGB(0xCDD3E9);
-
-    NSMutableArray *buttons = [NSMutableArray arrayWithObjects:_favoriteButton, _videoButton, _shareButton, _commerceButton, nil];
-    
-    float x = kButtonBorder;
-    float width = (_buttonsView.frame.size.width - kButtonBorder) / buttons.count - kButtonBorder;
-    for (UIButton *button in buttons) {
-        button.frame = CGRectMake(x, kButtonBorder, width, _buttonsView.frame.size.height - kButtonBorder);
-        x += width + kButtonBorder;
-    }
-     */
-    
+- (void) setupButtons {    
     _favoriteButton.selected = _item.favorite;
     
     _buttonsView.layer.shadowOffset = CGSizeMake(0, -5);
@@ -139,12 +126,31 @@
     _buttonsView.opaque = NO;
     
     // Customize layout of buttonsView
-    _buttonsView.image = [[UIImage imageNamed:@"tab-bar"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:0.0];
+    //_buttonsView.image = [[UIImage imageNamed:@"tab-bar"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:0.0];
+    _buttonsView.backgroundColor = [ColorBook darkGray];
+    
+    // Format buttons
+    //[self formatButton:_favoriteButton];
+    //[self formatButton:_commerceButton];
+    //[self formatButton:_shareButton];
+    //[self formatButton:_videoButton];
     
     // Position buttonsView due to weird bug..
     float yPos = _scrollView.frame.origin.y + _scrollView.frame.size.height;
     float height = self.view.frame.size.height - yPos;
     _buttonsView.frame = CGRectMake(0, yPos, self.view.frame.size.width, height);
+}
+
+- (void) formatButton:(UIButton *) button {
+    float buttonHeight = _buttonsView.frame.size.height * kDetailButtonHeightPercent;
+    float buttonY = (_buttonsView.frame.size.height - buttonHeight) / 2;
+    
+    CGRect frame = button.frame;
+    frame.size.height = buttonHeight;
+    frame.size.width = buttonHeight;
+    frame.origin.y = buttonY;
+    
+    button.frame = frame;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -210,7 +216,7 @@
 // Plays a fullscreen movie
 - (IBAction) playMovie:(id)sender {
     //NSURL *url = [NSURL URLWithString:@"http://www.ebookfrenzy.com/ios_book/movie/movie.mov"];
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"video" ofType:@"mp4"]];
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"snowboard" ofType:@"mp4"]];
     _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
     
     [[NSNotificationCenter defaultCenter] addObserver:self

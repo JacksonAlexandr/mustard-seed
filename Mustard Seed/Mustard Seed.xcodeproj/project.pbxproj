@@ -63,10 +63,10 @@
 		2870009B15983DCE00CEBADB /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2870009115983DCD00CEBADB /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2870FFE81597EBD000CEBADB /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 2870FFE71597EBD000CEBADB /* Item.m */; };
 		2870FFEB15983D2800CEBADB /* AFMustardSeedAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2870FFEA15983D2800CEBADB /* AFMustardSeedAPIClient.m */; };
+		2895033B15C9D78100194520 /* snowboard.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2895033A15C9D78100194520 /* snowboard.mp4 */; };
 		289D869C15B55053002650D8 /* nav-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 289D869A15B55053002650D8 /* nav-bar.png */; };
 		289D869D15B55053002650D8 /* nav-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 289D869B15B55053002650D8 /* nav-bar@2x.png */; };
 		28BCC4DF15AF881100074612 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BCC4DE15AF881100074612 /* MediaPlayer.framework */; };
-		28BCC4E215AF8EFD00074612 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 28BCC4E115AF8EFD00074612 /* video.mp4 */; };
 		28BCC4E515AF924100074612 /* FavoriteItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BCC4E415AF924100074612 /* FavoriteItemsTableViewController.m */; };
 		28BCC4E815AFAAFF00074612 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BCC4E715AFAAFF00074612 /* AboutViewController.m */; };
 		28C789A815B745D6005D7AD1 /* libGMGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C789A715B745D6005D7AD1 /* libGMGridView.a */; };
@@ -190,10 +190,10 @@
 		2870FFE71597EBD000CEBADB /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = "Mustard Seed/Models/Item.m"; sourceTree = "<group>"; };
 		2870FFE915983D2800CEBADB /* AFMustardSeedAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFMustardSeedAPIClient.h; path = API/AFMustardSeedAPIClient.h; sourceTree = "<group>"; };
 		2870FFEA15983D2800CEBADB /* AFMustardSeedAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFMustardSeedAPIClient.m; path = API/AFMustardSeedAPIClient.m; sourceTree = "<group>"; };
+		2895033A15C9D78100194520 /* snowboard.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = snowboard.mp4; sourceTree = "<group>"; };
 		289D869A15B55053002650D8 /* nav-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-bar.png"; path = "Mustard Seed/Images/nav-bar.png"; sourceTree = "<group>"; };
 		289D869B15B55053002650D8 /* nav-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-bar@2x.png"; path = "Mustard Seed/Images/nav-bar@2x.png"; sourceTree = "<group>"; };
 		28BCC4DE15AF881100074612 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		28BCC4E115AF8EFD00074612 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video.mp4; path = "Mustard Seed/video.mp4"; sourceTree = "<group>"; };
 		28BCC4E315AF924100074612 /* FavoriteItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteItemsTableViewController.h; path = "Mustard Seed/Controllers/FavoriteItemsTableViewController.h"; sourceTree = "<group>"; };
 		28BCC4E415AF924100074612 /* FavoriteItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteItemsTableViewController.m; path = "Mustard Seed/Controllers/FavoriteItemsTableViewController.m"; sourceTree = "<group>"; };
 		28BCC4E615AFAAFF00074612 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = "Mustard Seed/Controllers/AboutViewController.h"; sourceTree = "<group>"; };
@@ -330,9 +330,9 @@
 				28C789D115B76170005D7AD1 /* GMGridView.xcodeproj */,
 				2870007C15983DCD00CEBADB /* AFNetworking */,
 				28C789A715B745D6005D7AD1 /* libGMGridView.a */,
-				28BCC4E115AF8EFD00074612 /* video.mp4 */,
 				28387EB91593FFCB008EC6AF /* MainStoryboard_iPhone.storyboard */,
 				28387EBC1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard */,
+				2895033A15C9D78100194520 /* snowboard.mp4 */,
 				28387EAD1593FFCB008EC6AF /* Mustard Seed */,
 				28CB081A15B0D3B400C22350 /* Fonts */,
 				2810EA0915945C0D00066B91 /* Images */,
@@ -571,7 +571,6 @@
 				28387ECA1593FFCB008EC6AF /* second.png in Resources */,
 				28387ECC1593FFCB008EC6AF /* second@2x.png in Resources */,
 				281147A2159BB9B7003F3195 /* placeholder-image.png in Resources */,
-				28BCC4E215AF8EFD00074612 /* video.mp4 in Resources */,
 				289D869C15B55053002650D8 /* nav-bar.png in Resources */,
 				289D869D15B55053002650D8 /* nav-bar@2x.png in Resources */,
 				284E012615B5F7D500D026AE /* background.png in Resources */,
@@ -592,6 +591,7 @@
 				28C789E415B78445005D7AD1 /* green-bg.png in Resources */,
 				28097E0015BA810C0027B655 /* tv-icon.png in Resources */,
 				28097E0115BA810C0027B655 /* tv-icon@2x.png in Resources */,
+				2895033B15C9D78100194520 /* snowboard.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,10 +771,12 @@
 		28387EE51593FFCC008EC6AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Isaac Wang (D883CUJD8S)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
 				HEADER_SEARCH_PATHS = "GMGridView/**";
 				INFOPLIST_FILE = "Mustard Seed/Mustard Seed-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Mustard_Seed-cagxtuxzhvpizpculqodzljcluob/Build/Products/Debug-iphoneos\"",
@@ -784,6 +786,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -791,10 +795,12 @@
 		28387EE61593FFCC008EC6AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Isaac Wang";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
 				HEADER_SEARCH_PATHS = "GMGridView/**";
 				INFOPLIST_FILE = "Mustard Seed/Mustard Seed-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Mustard_Seed-cagxtuxzhvpizpculqodzljcluob/Build/Products/Debug-iphoneos\"",
@@ -804,6 +810,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "DCECAD49-9F2F-4CFA-BC06-A5B58F6116A3";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

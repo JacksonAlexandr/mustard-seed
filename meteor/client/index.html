@@ -1,0 +1,73 @@
+<head>
+  <title>meteor</title>
+</head>
+
+<body>
+  {{> container}}
+</body>
+
+<template name="container">
+  {{#content}}
+  {{/content}}
+</template>
+
+<template name="items">
+  <div class="items">
+    {{#each items}}
+      {{> item}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="item">
+  <div class="item">
+    <span>
+      {{#if img_url}}
+      <img src="{{img_url}}" />
+      {{/if}}
+    </span>
+    <span class="title">
+
+      {{name}}
+      {{#if owner}}
+      - {{owner}}
+      {{/if}}
+    </span>
+    <p>{{description}}</p>
+  </div>
+</template>
+
+<template name="admin">
+  <h1>Admin Interface</h1>
+  <div>
+    {{#each items}}
+      {{> admin_item}}
+    {{/each}}
+  </div>
+  <input type="button" value="Add" name="add" id="add" />
+</template>
+
+<template name="admin_item">
+  <div id="admin_item" {{{favorite_style}}}>
+    <div id="image" style="background-image: url('{{img_url}}')"></div>
+    <div id="info">
+      <h2 id="name" class="edit">{{name}}</h2>
+      <h3 id="owner" class="edit">{{owner}}</h3>
+      <div id="description" class="edit">{{description}}</div>
+      <div id="commerce_url" class="edit">{{commerce_url}}</div>
+      <div id="buttons">
+        <input name="favorite" id="favorite" {{{favorite_value}}} type="button" />
+        <input name="delete" id="delete" value="Delete" type="button" />
+      </div>
+    </div>
+  </div>
+  <hr />
+</template>
+
+<template name="requests">
+  <div>
+    {{#each items}}
+      <div>{{name}}</div>
+    {{/each}}
+  </div>
+</template>

@@ -85,16 +85,6 @@
     // Back button text
     _backButtonText = @"Items";
     
-    // Title formatting
-    UILabel* titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0,0, 300, 40)];
-    titleLabel.text = @"kube it";
-    titleLabel.font = [FontBook pacificoFontWithSize:28];
-    titleLabel.textColor=[UIColor whiteColor];
-    titleLabel.backgroundColor =[UIColor clearColor];
-    titleLabel.adjustsFontSizeToFitWidth = YES;
-    titleLabel.textAlignment = UITextAlignmentCenter;
-    self.navigationItem.titleView = titleLabel;
-    
     // Load items
     [self reload:nil];
 }

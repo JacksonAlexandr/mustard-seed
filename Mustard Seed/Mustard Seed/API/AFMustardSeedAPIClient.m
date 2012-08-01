@@ -9,8 +9,7 @@
 #import "AFMustardSeedAPIClient.h"
 #import "AFJSONRequestOperation.h"
 
-//static NSString * const kAFMustardSeedAPIBaseURLString = @"http://mustard-seed.meteor.com/collectionapi/";
-static NSString * const kAFMustardSeedAPIBaseURLString = @"http://localhost:3000/collectionapi/";
+#import "Constants.h"
 
 @implementation AFMustardSeedAPIClient
 

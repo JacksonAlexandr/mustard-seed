@@ -12,11 +12,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmV-4q-afw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController hidesBottomBarWhenPushed="YES" id="rsu-hK-0sV" customClass="ItemDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FKp-qQ-KdJ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="mui-Nv-AM1">
-                                <rect key="frame" x="0.0" y="44" width="320" height="367"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="373"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="NgQ-2X-vvo">
@@ -67,11 +67,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                             <view contentMode="scaleToFill" id="DEj-HM-ejR" customClass="UIImageView">
-                                <rect key="frame" x="0.0" y="367" width="320" height="49"/>
+                                <rect key="frame" x="0.0" y="367" width="320" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NMs-6v-V8I">
-                                        <rect key="frame" x="34" y="6" width="36" height="36"/>
+                                        <rect key="frame" x="34" y="3" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -87,7 +87,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2L7-HN-2De">
-                                        <rect key="frame" x="103" y="6" width="36" height="36"/>
+                                        <rect key="frame" x="103" y="3" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="commerce-icon@2x.png">
@@ -102,7 +102,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ge0-Ki-Zx1">
-                                        <rect key="frame" x="172" y="6" width="36" height="36"/>
+                                        <rect key="frame" x="244" y="3" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="share-icon@2x.png">
@@ -117,7 +117,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7rC-WJ-WeC">
-                                        <rect key="frame" x="244" y="6" width="36" height="36"/>
+                                        <rect key="frame" x="172" y="3" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="play-button@2x.png">
@@ -183,7 +183,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HE-fK-2Ye" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="lhM-ZX-eYf" customClass="CommerceViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sjS-vg-D7h">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="vO2-1u-xUc">
@@ -230,7 +230,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufC-Uk-Hlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="icu-B6-kPm" customClass="FavoriteItemsGridViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="smL-Kv-g6b">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -254,7 +254,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ru-QS-tX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SearchViewController" id="5uy-Mm-52o" customClass="SearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y7U-vB-Ncd">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -272,7 +272,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3z-y4-Plf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ERd-T4-aRk" customClass="ItemGridViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OZW-nb-HCw">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -320,6 +320,17 @@
                 <relationship kind="action" name="playMovie:"/>
                 <relationship kind="action" name="shareToFacebook:"/>
                 <relationship kind="action" name="toggleFavorite:"/>
+                <relationship kind="outlet" name="_buttonsView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="_commerceButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="_descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_favoriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="_favoriteIndicator" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="_imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="_ownerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="_shareButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="_titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="_videoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="buttonsView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="ownerLabel" candidateClass="UILabel"/>

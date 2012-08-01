@@ -43,17 +43,16 @@
     }];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+- (void)loadView {
+    self.navigationItem.hidesBackButton = YES;
+    
+    [super loadView];
     
     self.navigationController.navigationBar.layer.shadowColor = [[UIColor blackColor] CGColor];
     self.navigationController.navigationBar.layer.shadowOffset = CGSizeMake(0.5f, 0.5f);
     self.navigationController.navigationBar.layer.shadowRadius = 5.0f;
     self.navigationController.navigationBar.layer.shadowOpacity = 0.55f;
     self.navigationController.navigationBar.clipsToBounds = NO;
-    
-    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewDidUnload

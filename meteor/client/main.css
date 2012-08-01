@@ -1,0 +1,74 @@
+body {
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 100%;
+	line-height: 1.6875;
+}
+
+h1 {
+
+}
+
+h2 {
+	margin: 0;
+}
+
+h3 {
+	margin: 0;
+	margin-top: -0.5em;
+}
+
+#image {
+	float: left;
+	width: 20%;
+	height: 200px;
+	background-position: center;
+	background-size: cover;
+}
+
+#info {
+	float: left;
+	width: 75%;
+	margin-left: 15px;
+}
+
+#description {
+	margin: 0;
+}
+
+#commerce_url {
+	margin: 0 0 1em 0;
+}
+
+#name, #owner, #description, #buttons, #commerce_link {
+	clear: both;
+}
+
+span.title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+hr {
+	color: #eee;
+}
+
+.favorite {
+	background: #FFFFE0;
+}
+
+.edit:hover {
+	background: #C4FFCF;
+	cursor: hand;
+}
+
+#admin_item {
+	width: 100%;
+	margin: 0.5em 0em;
+	clear: both;
+	float: left;
+}
+
+input {
+	margin-left: 0;
+	font-size: 2em;
+}

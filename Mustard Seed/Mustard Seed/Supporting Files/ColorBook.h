@@ -13,6 +13,7 @@
 + (UIColor *) lightGreen;
 + (UIColor *) green;
 + (UIColor *) darkGreen;
++ (UIColor *) darkGray;
 + (UIColor *) hexColor: (int) hex;
 
 @end

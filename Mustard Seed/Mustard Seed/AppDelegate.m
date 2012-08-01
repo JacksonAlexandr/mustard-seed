@@ -7,24 +7,47 @@
 //
 
 #import "AppDelegate.h"
+#import "ColorBook.h"
+
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 
+- (void)customizeAppearance {
+    // Create resizable images
+    /*
+    UIImage *gradientImage44 = [[UIImage imageNamed:@"surf_gradient_textured_44"] 
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    UIImage *gradientImage32 = [[UIImage imageNamed:@"surf_gradient_textured_32"] 
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    
+    // Set the background image for *all* UINavigationBars
+    [[UINavigationBar appearance] setBackgroundImage:gradientImage44 
+                                       forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:gradientImage32 
+                                       forBarMetrics:UIBarMetricsLandscapePhone];
+    */
+    // Customize the title text for *all* UINavigationBars
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], 
+      UITextAttributeTextColor, 
+      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8], 
+      UITextAttributeTextShadowColor, 
+      [NSValue valueWithUIOffset:UIOffsetMake(0, -1)], 
+      UITextAttributeTextShadowOffset, 
+      [UIFont fontWithName:@"Arial-Bold" size:0.0], 
+      UITextAttributeFont, 
+      nil]];
+    
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [self customizeAppearance];
     
-    // Update Navigation bar look and feel
-    /*
-    UIImage *navBarImage = [[UIImage imageNamed:@"nav-bar"] 
-                            resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-    [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
-     */
-    //[[UINavigationBar appearance] setStyle:UIBarStyleBlack];
-    
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:.28 green:.28 blue:.28 alpha:.9]];
+    [[UINavigationBar appearance] setTintColor:[ColorBook darkGray]];
     //[[UINavigationBar appearance] setTranslucent:YES];
     
     return YES;

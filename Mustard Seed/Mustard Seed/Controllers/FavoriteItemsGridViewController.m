@@ -29,11 +29,13 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	
+- (void)loadView {
     self.navigationItem.hidesBackButton = YES;
+    
+    [super loadView];
+    
+    // Back button text
+    //_backButtonText = @"Favorites";
 }
 
 - (void)viewDidUnload
@@ -60,13 +62,6 @@
         //[_activityIndicatorView stopAnimating];
         //self.navigationItem.rightBarButtonItem.enabled = YES;
     }];
-}
-
-- (void) loadView {
-    [super loadView];
-    
-    // Back button text
-    _backButtonText = @"Favorites";
 }
 
 //////////////////////////////////////////////////////////////
