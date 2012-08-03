@@ -14,3 +14,21 @@
     <h3>{{owner}}</h3>
   </div>
 </template>
+
+<template name="item_detail">
+  <div class="item-detail">
+    {{#with item}}
+      <h1>{{name}}</h1>
+      <h2>{{owner}}</h2>
+      <hr />
+      <img src="{{img_url}}" />
+      <hr />
+      <ul id="action-links">
+        <li><a href="{{commerce_url}}">Purchase this item</a></li>
+      </ul>
+      <h2>Description</h2>
+      <p>{{description}}</p>
+    {{/with}}
+    {{ format }}
+  </div>
+</template>

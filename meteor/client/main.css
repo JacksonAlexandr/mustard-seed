@@ -7,11 +7,28 @@ html, body {
 body {
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
 	font-size: 100%;
-	line-height: 1.6875;
+	line-height: 1.5em;
 	background: #fafafa;
 }
 
-/* Header */
+h1, h2, h3, h4, h5 {
+	line-height: 1.2em;
+}
+
+a {
+	color: #0645AD;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #0B0080;
+}
+
+a:hover {
+	color: #3366BB;
+}
+
+/********* Header *********/
 header {
 	display: table;
 	float: left;
@@ -36,6 +53,10 @@ header a:hover {
 	color: #eee;
 }
 
+header #logo a {
+	color: #FFFFFF;
+}
+
 header #logo {
 	display: table-cell;
 	vertical-align: middle;
@@ -57,28 +78,30 @@ header nav {
 	margin: 0px 35px;
 }
 
-/* Footer */
+/********* Footer *********/
 #wrap {
 	min-height: 100%;
 }
 
 #content{
 	overflow: auto;
-	padding-bottom: 80px;
+	padding-bottom: 60px;
 	width: 100%;
 	float: left;
+	height: 100%;
 }
 
 footer {
 	width: 100%;
 	float: left;
-	height: 80px;
+	height: 60px;
 	position: relative;
-	margin-top: -80px;
+	margin-top: -60px;
+	color: #888;
 }
 
 #footer-wrap {
-	padding: 10px;
+	margin: 10px;
 }
 
 footer #logo {
@@ -89,7 +112,21 @@ footer nav {
 	float: right;
 }
 
-/* Items */
+footer h1 {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+footer a {
+	text-decoration: none;
+	color: #888;
+}
+
+footer a:hover {
+	color: #333;
+}
+
+/********* Items *********/
 #items {
 	float: left;
 	width: 100%;
@@ -97,17 +134,17 @@ footer nav {
 
 .item {
 	width: 180px;
-	margin: 15px;
+	margin: 15px 7px;
 	float: left;
 	background: #ffffff;
 	padding: 10px;
 }
 
-.item hr {
+hr {
 	height: 1px;
 	border: 0px;
-	color: #999;
-	background-color: #eee;
+	color: #bbb;
+	background-color: #bbb;
 }
 
 .item img {
@@ -115,12 +152,48 @@ footer nav {
 }
 
 .item h2 {
-	line-height: 1.0;
 	font-weight: bold;
+	font-size: 0.8em;
 }
 
-header {
-	display: inline;
+.item h3 {
+	font-size: 0.75em;
+	color: #888;
+}
+
+/********* Item Detail ********/
+.item-detail {
+	width: 40%;
+	margin: 0px auto;
+	background: #ffffff;
+	border-style: none solid none solid;
+	border-width: 1px;
+	border-color: #bbb;
+	padding: 20px;
+	padding-top: 20px;
+	height: 100%;
+}
+
+.item-detail img {
+	display: block;
+	margin: 0px auto;
+	max-width: 100%;
+}
+
+.item-detail h1 {
+	font-weight: bold;
+	display: block;
+	width: 100%;
+	font-size: 1.5em;
+}
+
+.item-detail h2 {
+	font-size: 1.05em;
+	color: #888;
+}
+
+.item-detail #action-links {
+	margin-bottom: 15px;
 }
 
 #image {

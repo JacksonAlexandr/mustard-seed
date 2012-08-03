@@ -22,11 +22,38 @@ function set_prompt_value(v, def, id) {
         Items.update(id, {$set: {v: value}});
 }
 
-// Templating
+////////// Items //////////
 Template.items.items = function() {
     return Items.find({}, {sort: {"_id": 1}});
 };
 
+Template.items.events = {
+    'mousedown .item': function() {
+        Router.setItem(this._id);
+    }
+};
+
+////////// Item Detail //////////
+Template.item_detail.item = function() {
+    var item_id = Session.get("item_id");
+    console.log(item_id);
+    return Items.findOne({_id: item_id});
+};
+
+Template.item_detail.format = function() {
+    Meteor.defer(function() {
+        //$(".item-detail h1").fitText(1.5);
+    });
+};
+
+/* = function() {
+    var item_id = Session.get("item_id");
+    console.log(item_id);
+    return Items.find({id: item_id});
+};
+*/
+
+////////// Admin //////////
 Template.admin.favorite_items = function() {
     return Items.find({favorite: true});
 };
@@ -104,14 +131,15 @@ var MSRouter = Backbone.Router.extend({
         "admin" : "admin",
         "analytics" : "analytics",
         "requests" : "requests",
-        ":id" : "id"
+        ":item_id" : "item_id"
     },
     main: function() {
         // Redirect to standard page
         Session.set("page_id", null);
     },
-    id: function(id) {
-        this.navigate("");
+    item_id: function(id) {
+        Session.set("item_id", id);
+        Session.set("page_id", "item_detail");
     },
     about: function() {
         Session.set("page_id", "about");
@@ -125,6 +153,9 @@ var MSRouter = Backbone.Router.extend({
     },
     requests: function() {
         Session.set("page_id", "requests");
+    },
+    setItem: function(item_id) {
+        this.navigate(item_id, true);
     }
 });
 
@@ -148,5 +179,8 @@ $(function() {
     $('#items').masonry({
         itemSelector : '.item',
         columnWidth : 200
+    });
+    $('.item-detail').on('change', function() {
+        console.log($this);
     });
 });
