@@ -100,7 +100,9 @@ Template.admin_item.events = {
 var MSRouter = Backbone.Router.extend({
     routes: {
         "" : "main",
+        "about" : "about",
         "admin" : "admin",
+        "analytics" : "analytics",
         "requests" : "requests",
         ":id" : "id"
     },
@@ -111,9 +113,15 @@ var MSRouter = Backbone.Router.extend({
     id: function(id) {
         this.navigate("");
     },
+    about: function() {
+        Session.set("page_id", "about");
+    },
     admin: function() {
         // Redirect to add page
         Session.set("page_id", "admin");
+    },
+    analytics: function() {
+        Session.set("page_id", "analytics");
     },
     requests: function() {
         Session.set("page_id", "requests");
@@ -133,4 +141,12 @@ Meteor.startup(function() {
     Router = new MSRouter;
 
     Backbone.history.start({pushState: true});
+});
+
+// Jquery
+$(function() {
+    $('#items').masonry({
+        itemSelector : '.item',
+        columnWidth : 200
+    });
 });

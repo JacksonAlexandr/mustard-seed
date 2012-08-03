@@ -1,0 +1,16 @@
+<template name="items">
+  <div id="items">
+    {{#each items}}
+      {{> item}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="item">
+  <div class="item box-shadow">
+    <img src="{{img_url}}" />
+    <hr />
+    <h2>{{name}}</h2>
+    <h3>{{owner}}</h3>
+  </div>
+</template>

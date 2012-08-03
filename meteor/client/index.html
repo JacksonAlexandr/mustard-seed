@@ -1,5 +1,5 @@
 <head>
-  <title>meteor</title>
+  <title>KUBE-iT</title>
 </head>
 
 <body>
@@ -7,34 +7,44 @@
 </body>
 
 <template name="container">
-  {{#content}}
-  {{/content}}
+  <div id="wrap">
+    {{> header}}
+    <div id="content">
+      {{#content}}
+      {{/content}}
+    </div>
+  </div>
+  {{> footer}}
 </template>
 
-<template name="items">
-  <div class="items">
-    {{#each items}}
-      {{> item}}
-    {{/each}}
-  </div>
+<template name="header">
+  <header>
+    <div id="header-wrap">
+      <h1 id="logo">KUBE-iT</h1>
+      <nav>
+        <ul>
+          <li><a href="/admin">Admin</a></li>
+          <li><a href="/analytics">Analytics</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 </template>
 
-<template name="item">
-  <div class="item">
-    <span>
-      {{#if img_url}}
-      <img src="{{img_url}}" />
-      {{/if}}
-    </span>
-    <span class="title">
-
-      {{name}}
-      {{#if owner}}
-      - {{owner}}
-      {{/if}}
-    </span>
-    <p>{{description}}</p>
-  </div>
+<template name="footer">
+  <footer>
+    <hr />
+    <div id="footer-wrap">
+      <div id="logo">
+        <p>KUBE-iT</p>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
 </template>
 
 <template name="admin">
