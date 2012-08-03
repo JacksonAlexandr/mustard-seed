@@ -5,6 +5,10 @@ var DEFAULT_OWNER = "Click here to change owner";
 var DEFAULT_DESCRIPTION = "Click here to change the description of the item";
 var DEFAULT_COMMERCE_URL = "Click here to change the commerce URL";
 
+// Namespace
+var MustardSeed = {};
+MustardSeed.googleApiLoaded = false;
+
 // Mongo Collections
 Items = new Meteor.Collection("items");
 Favorites = new Meteor.Collection("favorites");
@@ -20,6 +24,10 @@ function set_prompt_value(v, def, id) {
 
     if (value)
         Items.update(id, {$set: {v: value}});
+}
+
+function enableGoogleVisualization() {
+    MustardSeed.googleApiLoaded = true;
 }
 
 ////////// Items //////////
@@ -123,6 +131,72 @@ Template.admin_item.events = {
     },
 };
 
+function blah() {
+    console.log("BLAH!");
+}
+
+///////// Analytics //////////
+function drawUserAcquisitionChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Date', 'Users'],
+      ['Sunday', 2],
+      ['Monday',  10],
+      ['Tuesday',  11],
+      ['Wednesday',  6],
+      ['Thursday',  15],
+      ['Friday', 23],
+      ['Saturday', 6]
+    ]);
+
+    var options = {
+      title: 'User Acquisition',
+      backgroundColor: '#fafafa'
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('num-users'));
+    chart.draw(data, options);
+};
+
+function drawUserOverviewChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Time', 'Users'],
+      ['Today', 1],
+      ['This Week',  4],
+      ['This Month',  24],
+      ['Last 6 months', 145],
+      ['Total', 221]
+    ]);
+
+    var options = {
+      title: 'User Acquisition Overview',
+      backgroundColor: '#fafafa'
+    };
+
+    var chart = new google.visualization.BarChart(document.getElementById('num-users-overview'));
+    chart.draw(data, options);
+}
+
+function drawCharts() {
+    // Check if the API is loaded
+    if (!MustardSeed.googleApiLoaded) {
+        console.log("Google API hasn't loaded");
+
+        setTimeout(drawCharts(), 1500);
+        return;
+    }
+
+    console.log("Drawing charts");
+    drawUserAcquisitionChart();
+    drawUserOverviewChart();
+};
+
+Template.analytics.draw = function() {
+    Meteor.defer(function() {
+        //console.log("Drawing charts");
+        drawCharts();
+    });
+};
+
 // Routing
 var MSRouter = Backbone.Router.extend({
     routes: {
@@ -172,6 +246,9 @@ Meteor.startup(function() {
     Router = new MSRouter;
 
     Backbone.history.start({pushState: true});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(enableGoogleVisualization());
 });
 
 // Jquery
