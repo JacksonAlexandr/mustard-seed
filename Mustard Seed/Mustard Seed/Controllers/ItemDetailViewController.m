@@ -11,11 +11,13 @@
 #import "UIImageView+AFNetworking.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
+#import "ActionSheetPicker.h"
 
 #import "Item.h"
 #import "FontBook.h"
 #import "ColorBook.h"
 #import "Constants.h"
+#import "Category.h"
 
 // Colors: http://www.colourlovers.com/palette/157085/commons
 
@@ -32,6 +34,7 @@
     
     IBOutlet UILabel *_titleLabel;
     IBOutlet UILabel *_ownerLabel;
+    IBOutlet UILabel *_categoryLabel;
     IBOutlet UILabel *_descriptionLabel;
     IBOutlet UIScrollView *_scrollView;
     IBOutlet UIImageView *_imageView;
@@ -40,6 +43,8 @@
     IBOutlet UIButton *_commerceButton;
     IBOutlet UIButton *_shareButton;
     IBOutlet UIButton *_videoButton;
+    
+    IBOutlet UIPickerView *_categoryPickerView;
     
     IBOutlet UIButton *_favoriteIndicator;
     
@@ -52,6 +57,8 @@
 @synthesize descriptionLabel = _descriptionLabel;
 @synthesize moviePlayer = _moviePlayer;
 @synthesize buttonsView = _buttonsView;
+@synthesize categoryLabel = _categoryLabel;
+@synthesize categoryPickerView = _categoryPickerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,7 +72,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];    
+    [super viewDidLoad];
 }
 
 - (void)viewDidUnload
@@ -80,6 +87,8 @@
     
     [self setupButtons];
     [self setupScrollView];
+    
+    [_categoryPickerView removeFromSuperview];
 }
 
 - (void) setupScrollView {
@@ -106,13 +115,18 @@
     [_ownerLabel setFont:[FontBook robotoFont]];
     _ownerLabel.textColor = [UIColor grayColor];
     
+    // Format category label
+    _categoryLabel.text = _item.category.name;
+    [_categoryLabel setFont:[FontBook robotoFont]];
+    _categoryLabel.textColor = [UIColor grayColor];
+    
     // Load image
     [_imageView setImageWithURL:_item.imgURL placeholderImage:[UIImage imageNamed:@"placeholder-image"]];
     _imageView.contentMode = UIViewContentModeScaleAspectFill;
     _imageView.clipsToBounds = YES;
     
     // Resize scrollView to fit description text
-    float minHeight = _descriptionLabel.frame.origin.y + _descriptionLabel.frame.size.height - 20;
+    float minHeight = _descriptionLabel.frame.origin.y + _descriptionLabel.frame.size.height + 5;
     _scrollView.contentSize = CGSizeMake(self.view.frame.size.width, minHeight);
 }
 
@@ -176,6 +190,73 @@
         _favoriteButton.titleLabel.text = @"Favorite";
     }
      */
+}
+
+#pragma mark - Create / change categories
+- (IBAction) addToCategory:(id)sender {
+    // Build array of values
+    NSDictionary *categories = [Category cachedCategories];
+    NSMutableArray *values = [[NSMutableArray alloc] init];
+    for (NSString *categoryID in categories) {
+        Category *category = [categories objectForKey:categoryID];
+        [values addObject: category.name];
+    }
+    [values addObject:kAddCategoryTitle];
+    
+    [ActionSheetStringPicker showPickerWithTitle:@"Select Category" 
+                                            rows:values 
+                                initialSelection:0
+                                          target:self 
+                                   successAction:@selector(categoryWasSelected:element:)
+                                    cancelAction:@selector(cancel)
+                                          origin:sender];
+}
+
+- (void) categoryWasSelected:(NSNumber *)selectedIndex element:(id)element {
+    int row = selectedIndex.intValue;
+    
+    NSDictionary *categories = [Category cachedCategories];
+    
+    if (row < [categories count]) {
+        // Change category for item
+        Category *category = [[categories allValues] objectAtIndex:row];
+        
+        [_item setCategory:category];
+        _categoryLabel.text = category.name;
+    } else {
+        // Add category
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:kAddCategoryTitle
+                                                          message:nil
+                                                         delegate:self
+                                                cancelButtonTitle:@"Cancel"
+                                                otherButtonTitles:@"Add", nil];
+        message.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [message show];
+    }
+}
+
+- (void) cancel {
+    NSLog(@"Cancelled");
+}
+
+#pragma mark - UIAlertView
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    NSLog(@"Clicked at %i with title %@", buttonIndex, buttonTitle);
+    
+    // Add Category alert methods
+    if ([alertView.title isEqualToString: kAddCategoryTitle]) {
+        if (buttonIndex == 1) {
+            Category *category = [[Category alloc] init];
+            category.name = [[alertView textFieldAtIndex:0] text];
+            [Category addCategory:category.name withBlock:^(NSString *categoryID) {
+                category.categoryID = categoryID;
+                NSLog(@"Updated category ID: %@", category.categoryID);
+                [_item setCategory:category];
+                _categoryLabel.text = category.name;
+            }];
+        }
+    }
 }
 
 - (void) movieFinished:(NSNotification *) notification {

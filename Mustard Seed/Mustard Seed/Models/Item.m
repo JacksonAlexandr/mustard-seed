@@ -7,6 +7,8 @@
 //
 
 #import "Item.h"
+
+#import "Category.h"
 #import "AFMustardSeedAPIClient.h"
 
 @implementation Item {
@@ -18,6 +20,7 @@
     NSURL *_imgURL;
     NSURL *_commerceURL;
     NSUInteger _viewCount;
+    Category *_category;
     BOOL _favorite;
 }
 
@@ -29,6 +32,7 @@
 @synthesize commerceURL = _commerceURL;
 @synthesize viewCount = _viewCount;
 @synthesize favorite = _favorite;
+@synthesize category = _category;
     
 - (id) initWithAttributes:(NSDictionary *)attributes {
     self = [super init];
@@ -45,11 +49,38 @@
     _viewCount = [[attributes valueForKey:@"view_count"] integerValue];
     _favorite = [[attributes valueForKey:@"favorite"] boolValue];
     
+    [Category categoriesWithBlock:^(NSArray *categories) {
+        NSLog(@"Categories: %@", categories);
+    }];
+    _category = [[Category cachedCategories] objectForKey:[attributes valueForKey:@"categoryID"]];
+    
     return self;
 }
 
-- (void) toggleFavorite {
+- (void) toggleFavorite {    
     [self setFavorite:!_favorite];
+}
+
+- (void) setCategory:(Category *)category {
+    _category = category;
+    
+    // Update backend
+    NSString *path = [NSString stringWithFormat:@"items/%@", _itemID];
+    NSError *error;
+    NSDictionary *data = [NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject: category.categoryID forKey:@"categoryID"] forKey:@"$set"];
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data 
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSLog(@"%@", jsonString);
+    
+    // Make network call
+    [[AFMustardSeedAPIClient sharedClient] putPath:path parameterString:jsonString success:^(AFHTTPRequestOperation *operation, id JSON) {
+        NSLog(@"Success");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }];
 }
 
 + (void) postRequest:(NSString *) request {
@@ -124,6 +155,44 @@
         for (NSDictionary *attributes in JSON) {
             Item * item = [[Item alloc] initWithAttributes:attributes];
             if (item.favorite)
+                [mutableItems addObject:item];
+        }
+        
+        if (block) {
+            block([NSArray arrayWithArray:mutableItems]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {        
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
+#else
+        [[NSAlert alertWithMessageText:NSLocalizedString(@"Error", nil) defaultButton:NSLocalizedString(@"OK", nil) alternateButton:nil otherButton:nil informativeTextWithFormat:[error localizedDescription]] runModal];  
+#endif
+        if (block) {
+            block(nil);
+        }
+    }];
+}
+
++ (void)itemsWithBlock:(void (^)(NSArray *items))block 
+            parameters:(NSDictionary *) parameters {
+    [[AFMustardSeedAPIClient sharedClient] getPath:@"items" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
+        NSMutableArray *mutableItems = [NSMutableArray arrayWithCapacity:[JSON count]];
+        for (NSDictionary *attributes in JSON) {
+            Item * item = [[Item alloc] initWithAttributes:attributes];
+            
+            // Check all parameters
+            BOOL add = true;
+            for (int i = 0; i < parameters.allKeys.count; ++i) {
+                NSString *key = [parameters.allKeys objectAtIndex:i];
+                NSString *value = [parameters.allValues objectAtIndex:i];
+                
+                if (key == @"category" && item.category.name != value) {
+                    add = false;
+                    break;
+                }
+            }
+            
+            if (add)
                 [mutableItems addObject:item];
         }
         

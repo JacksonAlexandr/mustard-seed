@@ -4,6 +4,7 @@ var DEFAULT_NAME = "Click here to change name";
 var DEFAULT_OWNER = "Click here to change owner";
 var DEFAULT_DESCRIPTION = "Click here to change the description of the item";
 var DEFAULT_COMMERCE_URL = "Click here to change the commerce URL";
+var DEFAULT_CATEGORY = "Uncategorized";
 
 // Namespace
 var MustardSeed = {};
@@ -13,6 +14,7 @@ MustardSeed.googleApiLoaded = false;
 Items = new Meteor.Collection("items");
 Favorites = new Meteor.Collection("favorites");
 Requests = new Meteor.Collection("requests");
+Categories = new Meteor.Collection("categories");
 
 // Helper functions
 function is_favorite(id) {
@@ -91,7 +93,8 @@ Template.admin.events = {
             name: DEFAULT_NAME,
             owner: DEFAULT_OWNER,
             commerce_url: DEFAULT_COMMERCE_URL,
-            description: DEFAULT_DESCRIPTION
+            description: DEFAULT_DESCRIPTION,
+            categoryID: DEFAULT_CATEGORY
         });
     }
 };
@@ -150,10 +153,34 @@ function drawUserAcquisitionChart() {
 
     var options = {
       title: 'User Acquisition',
-      backgroundColor: '#fafafa'
+      backgroundColor: '#fafafa',
+      pointSize: 5
     };
 
     var chart = new google.visualization.LineChart(document.getElementById('num-users'));
+    chart.draw(data, options);
+};
+
+function drawItemsChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Date', 'Items'],
+      ['Sunday', 10],
+      ['Monday',  7],
+      ['Tuesday',  12],
+      ['Wednesday',  2],
+      ['Thursday',  4],
+      ['Friday', 20],
+      ['Saturday', 8]
+    ]);
+
+    var options = {
+      title: 'Items Added',
+      backgroundColor: '#fafafa',
+      colors: ['#ff0000'],
+      pointSize: 5
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('num-items-added'));
     chart.draw(data, options);
 };
 
@@ -169,7 +196,8 @@ function drawUserOverviewChart() {
 
     var options = {
       title: 'User Acquisition Overview',
-      backgroundColor: '#fafafa'
+      backgroundColor: '#fafafa',
+      colors: ['green']
     };
 
     var chart = new google.visualization.BarChart(document.getElementById('num-users-overview'));
@@ -185,9 +213,9 @@ function drawCharts() {
         return;
     }
 
-    console.log("Drawing charts");
     drawUserAcquisitionChart();
     drawUserOverviewChart();
+    drawItemsChart();
 };
 
 Template.analytics.draw = function() {

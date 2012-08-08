@@ -13,6 +13,7 @@
 		281147A2159BB9B7003F3195 /* placeholder-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 281147A1159BB9B7003F3195 /* placeholder-image.png */; };
 		281147B2159C1C61003F3195 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281147B1159C1C60003F3195 /* ItemDetailViewController.m */; };
 		2818FA5F159BA1B900CF3E29 /* ItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2818FA5E159BA1B900CF3E29 /* ItemsTableViewController.m */; };
+		282E897D15D0554C00A97BBC /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 282E897C15D0554C00A97BBC /* Category.m */; };
 		28387EA81593FFCB008EC6AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28387EA71593FFCB008EC6AF /* UIKit.framework */; };
 		28387EAA1593FFCB008EC6AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28387EA91593FFCB008EC6AF /* Foundation.framework */; };
 		28387EAC1593FFCB008EC6AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28387EAB1593FFCB008EC6AF /* CoreGraphics.framework */; };
@@ -31,6 +32,8 @@
 		28387EDE1593FFCC008EC6AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28387EDC1593FFCC008EC6AF /* InfoPlist.strings */; };
 		28387EE11593FFCC008EC6AF /* Mustard_SeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28387EE01593FFCC008EC6AF /* Mustard_SeedTests.m */; };
 		283E6DD215AAB85C008ED025 /* CommerceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283E6DD115AAB85C008ED025 /* CommerceViewController.m */; };
+		2846D91C15D1AD5B00C99075 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2846D91315D1AD5B00C99075 /* AbstractActionSheetPicker.m */; };
+		2846D91F15D1AD5B00C99075 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2846D91915D1AD5B00C99075 /* ActionSheetStringPicker.m */; };
 		284BB34215B7EC7D004AFC47 /* FavoriteItemsGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284BB34115B7EC7D004AFC47 /* FavoriteItemsGridViewController.m */; };
 		284E012215B5E76F00D026AE /* UIImage+Autofit.m in Sources */ = {isa = PBXBuildFile; fileRef = 284E012115B5E76F00D026AE /* UIImage+Autofit.m */; };
 		284E012615B5F7D500D026AE /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 284E012415B5F7D500D026AE /* background.png */; };
@@ -117,6 +120,8 @@
 		281147B1159C1C60003F3195 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemDetailViewController.m; path = "Mustard Seed/Controllers/ItemDetailViewController.m"; sourceTree = "<group>"; };
 		2818FA5D159BA1B900CF3E29 /* ItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemsTableViewController.h; path = "Mustard Seed/Controllers/ItemsTableViewController.h"; sourceTree = "<group>"; };
 		2818FA5E159BA1B900CF3E29 /* ItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemsTableViewController.m; path = "Mustard Seed/Controllers/ItemsTableViewController.m"; sourceTree = "<group>"; };
+		282E897B15D0554C00A97BBC /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = "Mustard Seed/Models/Category.h"; sourceTree = "<group>"; };
+		282E897C15D0554C00A97BBC /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Category.m; path = "Mustard Seed/Models/Category.m"; sourceTree = "<group>"; };
 		28387EA31593FFCB008EC6AF /* Mustard Seed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mustard Seed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28387EA71593FFCB008EC6AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28387EA91593FFCB008EC6AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,6 +146,11 @@
 		28387EE01593FFCC008EC6AF /* Mustard_SeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mustard_SeedTests.m; sourceTree = "<group>"; };
 		283E6DD015AAB85C008ED025 /* CommerceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommerceViewController.h; path = "Mustard Seed/Controllers/CommerceViewController.h"; sourceTree = "<group>"; };
 		283E6DD115AAB85C008ED025 /* CommerceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommerceViewController.m; path = "Mustard Seed/Controllers/CommerceViewController.m"; sourceTree = "<group>"; };
+		2846D91015D1AD5B00C99075 /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
+		2846D91215D1AD5B00C99075 /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		2846D91315D1AD5B00C99075 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		2846D91815D1AD5B00C99075 /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		2846D91915D1AD5B00C99075 /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
 		284BB34015B7EC7D004AFC47 /* FavoriteItemsGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteItemsGridViewController.h; path = "Mustard Seed/Controllers/FavoriteItemsGridViewController.h"; sourceTree = "<group>"; };
 		284BB34115B7EC7D004AFC47 /* FavoriteItemsGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteItemsGridViewController.m; path = "Mustard Seed/Controllers/FavoriteItemsGridViewController.m"; sourceTree = "<group>"; };
 		284E012015B5E76F00D026AE /* UIImage+Autofit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Autofit.h"; path = "Supporting Files/UIImage+Autofit.h"; sourceTree = "<group>"; };
@@ -249,6 +259,8 @@
 			children = (
 				2870FFE61597EBD000CEBADB /* Item.h */,
 				2870FFE71597EBD000CEBADB /* Item.m */,
+				282E897B15D0554C00A97BBC /* Category.h */,
+				282E897C15D0554C00A97BBC /* Category.m */,
 			);
 			name = Models;
 			path = ..;
@@ -329,6 +341,7 @@
 			children = (
 				28C789D115B76170005D7AD1 /* GMGridView.xcodeproj */,
 				2870007C15983DCD00CEBADB /* AFNetworking */,
+				2846D90F15D1AD3F00C99075 /* ActionSheetPicker */,
 				28C789A715B745D6005D7AD1 /* libGMGridView.a */,
 				28387EB91593FFCB008EC6AF /* MainStoryboard_iPhone.storyboard */,
 				28387EBC1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard */,
@@ -415,6 +428,26 @@
 				28387EDC1593FFCC008EC6AF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2846D90F15D1AD3F00C99075 /* ActionSheetPicker */ = {
+			isa = PBXGroup;
+			children = (
+				2846D91015D1AD5B00C99075 /* ActionSheetPicker.h */,
+				2846D91115D1AD5B00C99075 /* Pickers */,
+			);
+			name = ActionSheetPicker;
+			sourceTree = "<group>";
+		};
+		2846D91115D1AD5B00C99075 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				2846D91215D1AD5B00C99075 /* AbstractActionSheetPicker.h */,
+				2846D91315D1AD5B00C99075 /* AbstractActionSheetPicker.m */,
+				2846D91815D1AD5B00C99075 /* ActionSheetStringPicker.h */,
+				2846D91915D1AD5B00C99075 /* ActionSheetStringPicker.m */,
+			);
+			path = Pickers;
 			sourceTree = "<group>";
 		};
 		2870007C15983DCD00CEBADB /* AFNetworking */ = {
@@ -657,6 +690,9 @@
 				28C789DE15B764EC005D7AD1 /* ItemGridView.m in Sources */,
 				284BB34215B7EC7D004AFC47 /* FavoriteItemsGridViewController.m in Sources */,
 				28D072AF15BE71B2000F231E /* RequestItemView.m in Sources */,
+				282E897D15D0554C00A97BBC /* Category.m in Sources */,
+				2846D91C15D1AD5B00C99075 /* AbstractActionSheetPicker.m in Sources */,
+				2846D91F15D1AD5B00C99075 /* ActionSheetStringPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

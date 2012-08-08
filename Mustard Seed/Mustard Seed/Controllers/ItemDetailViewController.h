@@ -13,7 +13,7 @@
 @class MBProgressHUD;
 @class MPMoviePlayerController;
 
-@interface ItemDetailViewController : UIViewController <CommerceViewControllerDelegate> {
+@interface ItemDetailViewController : UIViewController <CommerceViewControllerDelegate, UIAlertViewDelegate> {
     MBProgressHUD *HUD;
 }
 
@@ -22,8 +22,10 @@
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *ownerLabel;
 @property (nonatomic, strong) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, strong) IBOutlet UILabel *categoryLabel;
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
 @property (nonatomic, strong) IBOutlet UIImageView *buttonsView;
+@property (nonatomic, strong) IBOutlet UIPickerView *categoryPickerView;
 
 - (void)updateFavorite;
 - (void)movieFinished:(NSNotification *) notification;
@@ -31,6 +33,11 @@
 - (IBAction) toggleFavorite:(id)sender;
 - (IBAction) shareToFacebook:(id)sender;
 - (IBAction) playMovie:(id)sender;
+
+- (void) categoryWasSelected:(NSNumber *)selectedIndex element:(id)element;
+- (void) cancel;
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 - (void) setupButtons;
 - (void) setupScrollView;
