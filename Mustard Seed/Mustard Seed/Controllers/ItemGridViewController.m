@@ -124,6 +124,8 @@
     
     // Background image
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background@2x.png"]];
+
+    [self.view bringSubviewToFront:_requestItemView];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -173,15 +175,6 @@
 - (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation
 {
     return CGSizeMake(kItemGridViewWidth, kItemGridViewHeight);
-    
-    if (UIInterfaceOrientationIsLandscape(orientation)) 
-    {
-        return CGSizeMake(170, 135);
-    }
-    else
-    {
-        return CGSizeMake(140, 110);
-    }
 }
 
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index

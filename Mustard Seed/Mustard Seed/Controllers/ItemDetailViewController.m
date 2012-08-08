@@ -155,18 +155,6 @@
     _buttonsView.frame = CGRectMake(0, yPos, self.view.frame.size.width, height);
 }
 
-- (void) formatButton:(UIButton *) button {
-    float buttonHeight = _buttonsView.frame.size.height * kDetailButtonHeightPercent;
-    float buttonY = (_buttonsView.frame.size.height - buttonHeight) / 2;
-    
-    CGRect frame = button.frame;
-    frame.size.height = buttonHeight;
-    frame.size.width = buttonHeight;
-    frame.origin.y = buttonY;
-    
-    button.frame = frame;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

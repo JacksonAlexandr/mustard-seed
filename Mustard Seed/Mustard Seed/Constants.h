@@ -12,12 +12,12 @@
 #define kTitle      @"KUBE-iT"
 
 // ItemGridView
-#define kItemGridViewImageHeight        130
+#define kItemGridViewImageHeight        130 * 2
 #define kItemGridViewTitleHeight        20
 #define kItemGridViewOwnerHeight        14
 #define kItemGridViewBufferHeight       15
 #define kItemGridViewHeight             kItemGridViewImageHeight + kItemGridViewTitleHeight + kItemGridViewOwnerHeight + kItemGridViewBufferHeight
-#define kItemGridViewWidth              140
+#define kItemGridViewWidth              140 * 2
 #define kDetailButtonHeightPercent      0.7
 
 // Request Item

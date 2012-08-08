@@ -73,20 +73,6 @@
     return [_items count];
 }
 
-- (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation
-{
-    return CGSizeMake(140, 190);
-    
-    if (UIInterfaceOrientationIsLandscape(orientation)) 
-    {
-        return CGSizeMake(170, 135);
-    }
-    else
-    {
-        return CGSizeMake(140, 110);
-    }
-}
-
 - (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index
 {    
     CGSize size = [self GMGridView:gridView sizeForItemsInInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
