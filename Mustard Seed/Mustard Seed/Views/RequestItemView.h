@@ -12,6 +12,8 @@
 
 @interface RequestItemView : UIView
 
+@property (strong) IBOutlet UIButton *button;
+
 + (Item *) requestItem;
 
 @end

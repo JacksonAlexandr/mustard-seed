@@ -7,34 +7,24 @@
 //
 
 #import "RequestItemView.h"
+#import "FontBook.h"
 
 #import "Item.h"
 
 @implementation RequestItemView {
-    UIButton *_requestButton;
+    UIButton *_button;
     Item *_requestItem;
 }
+
+@synthesize button = _button;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Add explanation text
-        UILabel *requestText = [[UILabel alloc] initWithFrame:self.frame];
-        requestText.textAlignment = UITextAlignmentCenter;
-        requestText.text = @"Can't find something?";
         
-        // Add request button
-        //UIButton *requestButton = [[UIButton alloc] initWithFrame:CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
-        
-        // Initialization code
-        [self addSubview:requestText];
     }
     return self;
-}
-
-+ (Item *) requestItem {
-    return [[Item alloc] initWithAttributes:[NSDictionary dictionaryWithObject:@"https://dl.dropbox.com/u/234745/request-button.png" forKey:@"img_url"]];
 }
 
 /*

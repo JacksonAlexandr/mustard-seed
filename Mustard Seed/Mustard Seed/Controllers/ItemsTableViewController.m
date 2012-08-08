@@ -15,8 +15,6 @@
 #import "SearchViewController.h"
 #import "Constants.h"
 
-float kRequestButtonHeight = 40.0f;
-
 @implementation ItemsTableViewController
 
 - (void)reload:(id)sender {

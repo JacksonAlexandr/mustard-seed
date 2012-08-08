@@ -70,14 +70,6 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pickerView contentMode="scaleToFill" id="gar-2j-YEZ">
-                                        <rect key="frame" x="0.0" y="200" width="320" height="216"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="rsu-hK-0sV" id="7NF-ou-5E6"/>
-                                            <outlet property="delegate" destination="rsu-hK-0sV" id="36N-1j-gXd"/>
-                                        </connections>
-                                    </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
@@ -159,7 +151,6 @@
                     <connections>
                         <outlet property="_buttonsView" destination="DEj-HM-ejR" id="FeV-Fz-FrR"/>
                         <outlet property="_categoryLabel" destination="lSF-1Y-9Qh" id="Aru-vZ-bwR"/>
-                        <outlet property="_categoryPickerView" destination="gar-2j-YEZ" id="Pkr-sz-900"/>
                         <outlet property="_commerceButton" destination="2L7-HN-2De" id="CCJ-7r-atL"/>
                         <outlet property="_descriptionLabel" destination="J4G-fs-Te4" id="Zf0-rl-JSi"/>
                         <outlet property="_favoriteButton" destination="NMs-6v-V8I" id="r3K-8R-fUS"/>
@@ -172,7 +163,6 @@
                         <outlet property="_videoButton" destination="7rC-WJ-WeC" id="Y4v-G8-APe"/>
                         <outlet property="buttonsView" destination="DEj-HM-ejR" id="vr8-CU-TTx"/>
                         <outlet property="categoryLabel" destination="lSF-1Y-9Qh" id="zs7-gG-YV3"/>
-                        <outlet property="categoryPickerView" destination="gar-2j-YEZ" id="bWX-oT-Sgd"/>
                         <outlet property="descriptionLabel" destination="J4G-fs-Te4" id="RJk-Ps-phM"/>
                         <outlet property="ownerLabel" destination="KkW-Rs-XV0" id="YcN-eq-taz"/>
                         <outlet property="titleLabel" destination="NgQ-2X-vvo" id="Jid-hg-Y45"/>
@@ -224,6 +214,11 @@
                         <outlet property="webView" destination="vO2-1u-xUc" id="xcb-Nh-eov"/>
                     </connections>
                 </viewController>
+                <view contentMode="scaleToFill" id="6NP-Az-EBD">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="799" y="719"/>
         </scene>
@@ -293,6 +288,33 @@
                     <view key="view" contentMode="scaleToFill" id="OZW-nb-HCw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="gTa-EZ-ZJg" customClass="RequestItemView">
+                                <rect key="frame" x="0.0" y="361" width="320" height="55"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OM1-qs-y2O">
+                                        <rect key="frame" x="7" y="6" width="306" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                        <state key="normal" title="Tag / Request an Item">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onRequestButton:" destination="ERd-T4-aRk" eventType="touchUpInside" id="oZi-N1-tqb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.17378826530612246" green="0.17378826530612246" blue="0.17378826530612246" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="button" destination="OM1-qs-y2O" id="HB3-EE-aOv"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="0Tf-MI-U7z">
@@ -308,11 +330,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="_requestItemView" destination="gTa-EZ-ZJg" id="iEh-T6-27f"/>
                         <segue destination="rsu-hK-0sV" kind="push" identifier="ItemDetailSegue" id="YGF-Po-TeX"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="396" y="125"/>
+            <point key="canvasLocation" x="364" y="125"/>
         </scene>
     </scenes>
     <resources>
@@ -327,6 +350,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CommerceViewController.h"/>
             <relationships>
                 <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="FavoriteItemsGridViewController" superclassName="ItemGridViewController">
@@ -338,19 +362,6 @@
                 <relationship kind="action" name="playMovie:"/>
                 <relationship kind="action" name="shareToFacebook:"/>
                 <relationship kind="action" name="toggleFavorite:"/>
-                <relationship kind="outlet" name="_buttonsView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="_categoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_categoryPickerView" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="_commerceButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="_descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_favoriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="_favoriteIndicator" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="_imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="_ownerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="_shareButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="_titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="_videoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="buttonsView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="categoryPickerView" candidateClass="UIPickerView"/>
@@ -361,6 +372,15 @@
         </class>
         <class className="ItemGridViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemGridViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_requestItemView" candidateClass="RequestItemView"/>
+            </relationships>
+        </class>
+        <class className="RequestItemView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RequestItemView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="button" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="SearchViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchViewController.h"/>

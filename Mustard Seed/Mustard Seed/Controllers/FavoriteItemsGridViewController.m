@@ -33,7 +33,7 @@
     self.navigationItem.hidesBackButton = YES;
     
     [super loadView];
-    
+    //[_requestItemView removeFromSuperview];
     // Back button text
     //_backButtonText = @"Favorites";
 }

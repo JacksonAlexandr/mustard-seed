@@ -48,10 +48,6 @@
     _commerceURL = [NSURL URLWithString:[attributes valueForKey:@"commerce_url"]];
     _viewCount = [[attributes valueForKey:@"view_count"] integerValue];
     _favorite = [[attributes valueForKey:@"favorite"] boolValue];
-    
-    [Category categoriesWithBlock:^(NSArray *categories) {
-        NSLog(@"Categories: %@", categories);
-    }];
     _category = [[Category cachedCategories] objectForKey:[attributes valueForKey:@"categoryID"]];
     
     return self;

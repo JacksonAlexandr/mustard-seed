@@ -19,7 +19,7 @@
 
 // GMGridViewSortingDelegate, GMGridViewTransformationDelegate
 @interface ItemGridViewController () <GMGridViewDataSource, GMGridViewActionDelegate, UIAlertViewDelegate> {
-    
+    IBOutlet RequestItemView *_requestItemView;
 }
 
 @end
@@ -58,11 +58,12 @@
     
     // Setup Grid view
     NSInteger spacing = 10;
-    GMGridView *gridView = [[GMGridView alloc] initWithFrame:self.view.bounds];
+    GMGridView *gridView = [[GMGridView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - _requestItemView.frame.size.height)];
     gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     gridView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:gridView];
     _gridView = gridView;
+    NSLog(@"Grid height: %f", gridView.frame.size.height);
     
     _gridView.style = GMGridViewStyleSwap; // GMGridViewStylePush
     _gridView.itemSpacing = spacing;
@@ -81,6 +82,16 @@
     //[self.navigationItem.rightBarButtonItem setTitle:@"Listen"];
     [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"tv-icon"]];
     self.navigationItem.rightBarButtonItem.tintColor = [ColorBook green];
+    
+    // Setup Request Button
+    [_requestItemView.button.layer setCornerRadius:10.0];
+    _requestItemView.button.layer.borderColor = [UIColor blackColor].CGColor;
+    _requestItemView.button.layer.borderWidth = 0.5f;
+    _requestItemView.button.backgroundColor = [ColorBook green];
+    _requestItemView.button.titleLabel.layer.shadowOpacity = 0.8;   
+    _requestItemView.button.titleLabel.layer.shadowRadius = 1.0;
+    _requestItemView.button.titleLabel.layer.shadowColor = [UIColor grayColor].CGColor;
+    _requestItemView.button.titleLabel.layer.shadowOffset = CGSizeMake(0.5, 0.5);
     
     // Back button text
     _backButtonText = @"Items";
@@ -134,7 +145,20 @@
         // POST requested item
         [Item postRequest:[alertView textFieldAtIndex:0].text];
     }
-    NSLog(@"Alert View dismissed with button at index %d", buttonIndex);
+}
+
+- (IBAction) onRequestButton:(id)sender {
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"Request an Item"
+                              message:@""
+                              delegate:self
+                              cancelButtonTitle:@"Cancel"
+                              otherButtonTitles:@"OK", nil];
+    
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alertView show];
+    
+    return;
 }
 
 //////////////////////////////////////////////////////////////
@@ -143,7 +167,7 @@
 
 - (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView
 {
-    return [_items count] + 1;
+    return [_items count];
 }
 
 - (CGSize)GMGridView:(GMGridView *)gridView sizeForItemsInInterfaceOrientation:(UIInterfaceOrientation)orientation
@@ -174,14 +198,7 @@
         cell.contentView = view;
     }
     
-    Item *item;
-    
-    // Special case for request button
-    if (index == _items.count)
-        item = [RequestItemView requestItem];
-    else {
-        item = [_items objectAtIndex:index];
-    }
+    Item *item = [_items objectAtIndex:index];
     [(ItemGridView *)cell.contentView setItem:item];
     return cell;
 }
@@ -198,21 +215,6 @@
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
 {
-    // Bring up an alertview if request item was clicked
-    if (position == _items.count) {
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Request an Item"
-                                  message:@""
-                                  delegate:self
-                                  cancelButtonTitle:@"Cancel"
-                                  otherButtonTitles:@"OK", nil];
-        
-        alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-        [alertView show];
-        
-        return;
-    }
-    
     _selectedIndex = position;
     [self performSegueWithIdentifier:@"ItemDetailSegue" sender:self];
 }

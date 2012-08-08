@@ -10,6 +10,7 @@
 
 @class Item;
 @class GMGridView;
+@class RequestItemView;
 
 @interface ItemGridViewController : UIViewController {
     NSArray *_items;
