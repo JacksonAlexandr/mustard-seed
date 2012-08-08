@@ -32,12 +32,17 @@ static NSMutableDictionary *_categories;
     return self;
 }
 
+-(id) copyWithZone: (NSZone *) zone {
+    Category *categoryCopy = [[Category alloc] init];
+    categoryCopy.name = [_name copyWithZone:zone];
+    categoryCopy.categoryID = [_categoryID copyWithZone:zone];
+    
+    return categoryCopy;
+}
+
 // Returns cached value of categories
 + (NSDictionary *)cachedCategories {
     if (!_categories || [_categories count] == 0) {
-        _categories = [[NSMutableDictionary alloc] init];
-        
-        // Populate _categories
         [Category populateCategories];
     }
     
@@ -47,23 +52,25 @@ static NSMutableDictionary *_categories;
 // Calls API to populate cached categories dictionary
 + (void) populateCategories {
     // Populate _categories
-    [Category categoriesWithBlock:^(NSArray *categories) {
-        for (Category *category in categories) {
-            [_categories setObject: category forKey: category.categoryID];
+    [Category categoriesWithBlock:^(NSDictionary *categories) {
+        _categories = [[NSMutableDictionary alloc] initWithCapacity:[categories count]];
+        for (NSString *categoryID in categories) {
+            Category *category = [[categories objectForKey:categoryID] copy];
+            [_categories setObject:category forKey:category.categoryID];
         }
     }];
 }
 
-+ (void)categoriesWithBlock:(void (^)(NSArray *categories))block {
++ (void)categoriesWithBlock:(void (^)(NSDictionary *categories))block {
     [[AFMustardSeedAPIClient sharedClient] getPath:@"category" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
-        NSMutableArray *mutableCategories = [NSMutableArray arrayWithCapacity:[JSON count]];
+        NSMutableDictionary *mutableCategories = [NSMutableDictionary dictionaryWithCapacity:[JSON count]];
         for (NSDictionary *attributes in JSON) {
             Category * category = [[Category alloc] initWithAttributes:attributes];
-            [mutableCategories addObject:category];
+            [mutableCategories setObject:category forKey:category.categoryID];
         }
         
         if (block) {
-            block([NSArray arrayWithArray:mutableCategories]);
+            block([NSDictionary dictionaryWithDictionary:mutableCategories]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {        
 #if __IPHONE_OS_VERSION_MIN_REQUIRED

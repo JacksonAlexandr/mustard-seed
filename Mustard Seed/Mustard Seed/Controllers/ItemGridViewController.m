@@ -74,17 +74,15 @@
     self.title = NSLocalizedString(kTitle, nil);
     
     // Initialize Favorites icon
-    //[self.navigationItem.leftBarButtonItem setTitle:@"Favorites"];
     [self.navigationItem.leftBarButtonItem setImage:[UIImage imageNamed:@"person-icon"]];
     self.navigationItem.leftBarButtonItem.tintColor = [ColorBook green];
     
     // Initialize Listen button
-    //[self.navigationItem.rightBarButtonItem setTitle:@"Listen"];
     [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"tv-icon"]];
     self.navigationItem.rightBarButtonItem.tintColor = [ColorBook green];
     
     // Setup Request Button
-    [_requestItemView.button.layer setCornerRadius:10.0];
+    [_requestItemView.button.layer setCornerRadius:5.0];
     _requestItemView.button.layer.borderColor = [UIColor blackColor].CGColor;
     _requestItemView.button.layer.borderWidth = 0.5f;
     _requestItemView.button.backgroundColor = [ColorBook green];

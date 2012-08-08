@@ -48,7 +48,10 @@
     _commerceURL = [NSURL URLWithString:[attributes valueForKey:@"commerce_url"]];
     _viewCount = [[attributes valueForKey:@"view_count"] integerValue];
     _favorite = [[attributes valueForKey:@"favorite"] boolValue];
-    _category = [[Category cachedCategories] objectForKey:[attributes valueForKey:@"categoryID"]];
+    
+    // TODO: Store category name + ID in JSON as nested object
+    _category = [[Category alloc] init];
+    _category.categoryID = [attributes valueForKey:@"categoryID"];
     
     return self;
 }
@@ -124,15 +127,18 @@
 
 + (void)itemsWithBlock:(void (^)(NSArray *items))block {
     [[AFMustardSeedAPIClient sharedClient] getPath:@"items" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
-        NSMutableArray *mutableItems = [NSMutableArray arrayWithCapacity:[JSON count]];
-        for (NSDictionary *attributes in JSON) {
-            Item * item = [[Item alloc] initWithAttributes:attributes];
-            [mutableItems addObject:item];
-        }
-        
-        if (block) {
-            block([NSArray arrayWithArray:mutableItems]);
-        }
+        [Category categoriesWithBlock:^(NSDictionary *categories) {
+            NSMutableArray *mutableItems = [NSMutableArray arrayWithCapacity:[JSON count]];
+            for (NSDictionary *attributes in JSON) {
+                Item * item = [[Item alloc] initWithAttributes:attributes];
+                item.category = [categories objectForKey:item.category.categoryID];
+                [mutableItems addObject:item];
+            }
+            
+            if (block) {
+                block([NSArray arrayWithArray:mutableItems]);
+            }
+        }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {        
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
@@ -147,16 +153,20 @@
 
 + (void)favoriteItemsWithBlock:(void (^)(NSArray *items))block {
     [[AFMustardSeedAPIClient sharedClient] getPath:@"items" parameters:nil success:^(AFHTTPRequestOperation *operation, id JSON) {
-        NSMutableArray *mutableItems = [NSMutableArray arrayWithCapacity:[JSON count]];
-        for (NSDictionary *attributes in JSON) {
-            Item * item = [[Item alloc] initWithAttributes:attributes];
-            if (item.favorite)
+        [Category categoriesWithBlock:^(NSDictionary *categories) {
+            NSMutableArray *mutableItems = [NSMutableArray arrayWithCapacity:[JSON count]];
+            for (NSDictionary *attributes in JSON) {
+                Item * item = [[Item alloc] initWithAttributes:attributes];
+                if (!item.category.categoryID)
+                    continue;
+                item.category = [categories objectForKey:item.category.categoryID];
                 [mutableItems addObject:item];
-        }
-        
-        if (block) {
-            block([NSArray arrayWithArray:mutableItems]);
-        }
+            }
+            
+            if (block) {
+                block([NSArray arrayWithArray:mutableItems]);
+            }
+        }];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {        
 #if __IPHONE_OS_VERSION_MIN_REQUIRED
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[error localizedDescription] delegate:nil cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];

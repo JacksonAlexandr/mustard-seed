@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Category : NSObject
+@interface Category : NSObject <NSCopying>
 
 @property (strong) NSString *categoryID;
 @property (strong) NSString *name;
 
 - (id) initWithAttributes:(NSDictionary *)attributes;
+- (id) copyWithZone: (NSZone *) zone;
 
-+ (void) categoriesWithBlock:(void (^)(NSArray * categories))block;
++ (void) categoriesWithBlock:(void (^)(NSDictionary *categories))block;
 + (void) addCategory:(NSString *)category withBlock:(void (^)(NSString *categoryID))block;
 + (NSDictionary *) cachedCategories;
 + (void) populateCategories;

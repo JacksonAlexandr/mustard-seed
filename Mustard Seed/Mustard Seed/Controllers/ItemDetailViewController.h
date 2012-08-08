@@ -27,12 +27,11 @@
 @property (nonatomic, strong) IBOutlet UIImageView *buttonsView;
 @property (nonatomic, strong) IBOutlet UIPickerView *categoryPickerView;
 
-- (void)updateFavorite;
 - (void)movieFinished:(NSNotification *) notification;
 
-- (IBAction) toggleFavorite:(id)sender;
-- (IBAction) shareToFacebook:(id)sender;
-- (IBAction) playMovie:(id)sender;
+- (IBAction) addToCategory: (id)sender;
+- (IBAction) shareToFacebook: (id)sender;
+- (IBAction) playMovie: (id)sender;
 
 - (void) categoryWasSelected:(NSNumber *)selectedIndex element:(id)element;
 - (void) cancel;

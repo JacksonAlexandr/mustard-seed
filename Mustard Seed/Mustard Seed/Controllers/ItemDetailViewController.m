@@ -101,7 +101,7 @@
     
     // Format favorite indicator
     [_favoriteIndicator setImage:[UIImage imageNamed:@"heart-red"] forState:UIControlStateSelected];
-    [_favoriteIndicator setSelected:_item.favorite];
+    [_favoriteIndicator setSelected:(_item.category.categoryID != nil)];
     
     // Format description label
     _descriptionLabel.text = _item.description;
@@ -140,14 +140,7 @@
     _buttonsView.opaque = NO;
     
     // Customize layout of buttonsView
-    //_buttonsView.image = [[UIImage imageNamed:@"tab-bar"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:0.0];
     _buttonsView.backgroundColor = [ColorBook darkGray];
-    
-    // Format buttons
-    //[self formatButton:_favoriteButton];
-    //[self formatButton:_commerceButton];
-    //[self formatButton:_shareButton];
-    //[self formatButton:_videoButton];
     
     // Position buttonsView due to weird bug..
     float yPos = _scrollView.frame.origin.y + _scrollView.frame.size.height;
@@ -170,36 +163,7 @@
 	}
 }
 
-- (void)updateFavorite {
-    /*
-    if (_item.favorite) {
-        _favoriteButton.titleLabel.text = @"Unfavorite";
-    } else {
-        _favoriteButton.titleLabel.text = @"Favorite";
-    }
-     */
-}
-
 #pragma mark - Create / change categories
-- (IBAction) addToCategory:(id)sender {
-    // Build array of values
-    NSDictionary *categories = [Category cachedCategories];
-    NSMutableArray *values = [[NSMutableArray alloc] init];
-    for (NSString *categoryID in categories) {
-        Category *category = [categories objectForKey:categoryID];
-        [values addObject: category.name];
-    }
-    [values addObject:kAddCategoryTitle];
-    
-    [ActionSheetStringPicker showPickerWithTitle:@"Select Category" 
-                                            rows:values 
-                                initialSelection:0
-                                          target:self 
-                                   successAction:@selector(categoryWasSelected:element:)
-                                    cancelAction:@selector(cancel)
-                                          origin:sender];
-}
-
 - (void) categoryWasSelected:(NSNumber *)selectedIndex element:(id)element {
     int row = selectedIndex.intValue;
     
@@ -211,6 +175,7 @@
         
         [_item setCategory:category];
         _categoryLabel.text = category.name;
+        [_favoriteButton setSelected:true];
     } else {
         // Add category
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:kAddCategoryTitle
@@ -242,6 +207,7 @@
                 NSLog(@"Updated category ID: %@", category.categoryID);
                 [_item setCategory:category];
                 _categoryLabel.text = category.name;
+                [_favoriteButton setSelected:true];
             }];
         }
     }
@@ -260,12 +226,23 @@
 }
 
 #pragma mark - IBActions
-
-- (IBAction) toggleFavorite:(id)sender {
-    [_item setFavorite:!_item.favorite];
-    [self updateFavorite];
-    //[_favoriteButton setSelected:!_favoriteButton.selected];
-    [_favoriteIndicator setSelected:!_favoriteIndicator.selected];
+- (IBAction) addToCategory:(id)sender {
+    // Build array of values
+    NSDictionary *categories = [Category cachedCategories];
+    NSMutableArray *values = [[NSMutableArray alloc] init];
+    for (NSString *categoryID in categories) {
+        Category *category = [categories objectForKey:categoryID];
+        [values addObject: category.name];
+    }
+    [values addObject:kAddCategoryTitle];
+    
+    [ActionSheetStringPicker showPickerWithTitle:@"Select Category" 
+                                            rows:values 
+                                initialSelection:0
+                                          target:self 
+                                   successAction:@selector(categoryWasSelected:element:)
+                                    cancelAction:@selector(cancel)
+                                          origin:sender];
 }
 
 - (IBAction) shareToFacebook:(id)sender {

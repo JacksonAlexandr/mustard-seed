@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ColorBook.h"
-
+#import "Category.h"
 
 @implementation AppDelegate
 
@@ -72,6 +72,9 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    // Load data into caches
+    [Category populateCategories];
+    
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
