@@ -8,7 +8,6 @@ var DEFAULT_CATEGORY = "Uncategorized";
 
 // Namespace
 var MustardSeed = {};
-MustardSeed.googleApiLoaded = false;
 
 // Mongo Collections
 Items = new Meteor.Collection("items");
@@ -26,10 +25,6 @@ function set_prompt_value(v, def, id) {
 
     if (value)
         Items.update(id, {$set: {v: value}});
-}
-
-function enableGoogleVisualization() {
-    MustardSeed.googleApiLoaded = true;
 }
 
 ////////// Items //////////
@@ -134,97 +129,6 @@ Template.admin_item.events = {
     },
 };
 
-function blah() {
-    console.log("BLAH!");
-}
-
-///////// Analytics //////////
-function drawUserAcquisitionChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Date', 'Users'],
-      ['Sunday', 2],
-      ['Monday',  10],
-      ['Tuesday',  11],
-      ['Wednesday',  6],
-      ['Thursday',  15],
-      ['Friday', 23],
-      ['Saturday', 6]
-    ]);
-
-    var options = {
-      title: 'User Acquisition',
-      backgroundColor: '#fafafa',
-      pointSize: 5
-    };
-
-    var chart = new google.visualization.LineChart(document.getElementById('num-users'));
-    chart.draw(data, options);
-};
-
-function drawItemsChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Date', 'Items'],
-      ['Sunday', 10],
-      ['Monday',  7],
-      ['Tuesday',  12],
-      ['Wednesday',  2],
-      ['Thursday',  4],
-      ['Friday', 20],
-      ['Saturday', 8]
-    ]);
-
-    var options = {
-      title: 'Items Added',
-      backgroundColor: '#fafafa',
-      colors: ['#ff0000'],
-      pointSize: 5
-    };
-
-    var chart = new google.visualization.LineChart(document.getElementById('num-items-added'));
-    chart.draw(data, options);
-};
-
-function drawUserOverviewChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Time', 'Users'],
-      ['Today', 1],
-      ['This Week',  4],
-      ['This Month',  24],
-      ['Last 6 months', 145],
-      ['Total', 221]
-    ]);
-
-    var options = {
-      title: 'User Acquisition Overview',
-      backgroundColor: '#fafafa',
-      colors: ['green']
-    };
-
-    var chart = new google.visualization.BarChart(document.getElementById('num-users-overview'));
-    chart.draw(data, options);
-}
-
-function drawCharts() {
-    // Check if the API is loaded
-    if (!MustardSeed.googleApiLoaded) {
-        console.log("Google API hasn't loaded");
-
-        setTimeout(drawCharts(), 1500);
-        return;
-    }
-
-    drawUserAcquisitionChart();
-    drawUserOverviewChart();
-    drawItemsChart();
-};
-
-Template.analytics.draw = function() {
-    Meteor.defer(function() {
-        //console.log("Drawing charts");
-        drawCharts();
-    });
-};
-
 // Routing
 var MSRouter = Backbone.Router.extend({
     routes: {
@@ -250,9 +154,6 @@ var MSRouter = Backbone.Router.extend({
         // Redirect to add page
         Session.set("page_id", "admin");
     },
-    analytics: function() {
-        Session.set("page_id", "analytics");
-    },
     requests: function() {
         Session.set("page_id", "requests");
     },
@@ -274,9 +175,6 @@ Meteor.startup(function() {
     Router = new MSRouter;
 
     Backbone.history.start({pushState: true});
-
-    // Set a callback to run when the Google Visualization API is loaded.
-    google.setOnLoadCallback(enableGoogleVisualization());
 });
 
 // Jquery

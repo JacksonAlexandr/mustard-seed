@@ -1,0 +1,26 @@
+<template name="admin">
+  <h1>Admin Interface</h1>
+  <div>
+    {{#each items}}
+      {{> admin_item}}
+    {{/each}}
+  </div>
+  <input type="button" value="Add" name="add" id="add" />
+</template>
+
+<template name="admin_item">
+  <div id="admin_item" {{{favorite_style}}}>
+    <div id="image" style="background-image: url('{{img_url}}')"></div>
+    <div id="info">
+      <h2 id="name" class="edit">{{name}}</h2>
+      <h3 id="owner" class="edit">{{owner}}</h3>
+      <div id="description" class="edit">{{description}}</div>
+      <div id="commerce_url" class="edit">{{commerce_url}}</div>
+      <div id="buttons">
+        <input name="favorite" id="favorite" {{{favorite_value}}} type="button" />
+        <input name="delete" id="delete" value="Delete" type="button" />
+      </div>
+    </div>
+  </div>
+  <hr />
+</template>

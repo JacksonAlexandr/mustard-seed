@@ -17,7 +17,7 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        {{> header2}}
+        {{> header}}
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
   {{> footer}}
 </template>
 
-<template name="header2">
+<template name="header">
   <a class="brand" href="/">KUBE-iT</a>
   <ul class="nav">
     <li class="active"><a href="/admin">Admin</a></li>
@@ -42,58 +42,9 @@
   </ul>
 </template>
 
-<template name="header">
-  <header>
-    <div id="header-wrap">
-      <h1 id="logo"><a href="/">KUBE-iT</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/admin">Admin</a></li>
-          <li><a href="/analytics">Analytics</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-</template>
-
 <template name="footer">
   <footer>
     <hr />
     <p>&copy; KUBE-iT 2012</p>
   </footer>
-</template>
-
-<template name="admin">
-  <h1>Admin Interface</h1>
-  <div>
-    {{#each items}}
-      {{> admin_item}}
-    {{/each}}
-  </div>
-  <input type="button" value="Add" name="add" id="add" />
-</template>
-
-<template name="admin_item">
-  <div id="admin_item" {{{favorite_style}}}>
-    <div id="image" style="background-image: url('{{img_url}}')"></div>
-    <div id="info">
-      <h2 id="name" class="edit">{{name}}</h2>
-      <h3 id="owner" class="edit">{{owner}}</h3>
-      <div id="description" class="edit">{{description}}</div>
-      <div id="commerce_url" class="edit">{{commerce_url}}</div>
-      <div id="buttons">
-        <input name="favorite" id="favorite" {{{favorite_value}}} type="button" />
-        <input name="delete" id="delete" value="Delete" type="button" />
-      </div>
-    </div>
-  </div>
-  <hr />
-</template>
-
-<template name="requests">
-  <div>
-    {{#each items}}
-      <div>{{name}}</div>
-    {{/each}}
-  </div>
 </template>
