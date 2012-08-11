@@ -20,6 +20,9 @@
 #define kItemGridViewWidth              140 * 2
 #define kDetailButtonHeightPercent      0.7
 
+// Search view
+#define kWaitingTimeInMicroseconds      10000
+
 // Request Item
 #define kRequestButtonHeight            75
 
@@ -33,5 +36,9 @@
 
 // Category Picker
 #define kChooseCategoryComponent        1
+
+// Google Analytics
+#define kGoogleAnalyticsID              @"UA-34017942-1"
+#define kGoogleAnalyticsDispatchPeriod  30
 
 #endif

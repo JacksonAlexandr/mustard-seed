@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 LMD Corp. All rights reserved.
 //
 #import <QuartzCore/QuartzCore.h>
+#import "GANTracker.h"
 
 #import "ItemGridViewController.h"
 #import "Item.h"
@@ -204,8 +205,16 @@
 #pragma mark GMGridViewActionDelegate
 //////////////////////////////////////////////////////////////
 
-- (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
-{
+- (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
+    // GA
+    Item *item = [_items objectAtIndex:position];
+    NSString *pageView = [NSString stringWithFormat: @"[%@] %@", item.itemID, item.name];
+    NSError* error = nil;
+    if (![[GANTracker sharedTracker] trackPageview:pageView
+                                         withError:&error]) {
+        NSLog(@"Track page view error: %@", error);
+    }
+    
     _selectedIndex = position;
     [self performSegueWithIdentifier:@"ItemDetailSegue" sender:self];
 }

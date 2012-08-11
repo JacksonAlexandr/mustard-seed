@@ -8,6 +8,7 @@
 
 #import "CommerceViewController.h"
 #import "MBProgressHUD.h"
+#import "GANTracker.h"
 
 @interface CommerceViewController ()
 
@@ -32,6 +33,13 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    // GA
+    NSError* error = nil;
+    if (![[GANTracker sharedTracker] trackPageview:[_url absoluteString]
+                                         withError:&error]) {
+        NSLog(@"Track page view error: %@", error);
+    }
+    
     webView.delegate = self;
     NSURLRequest *request = [NSURLRequest requestWithURL:_url];
     [webView loadRequest:request];

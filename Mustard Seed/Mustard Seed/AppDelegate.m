@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "GANTracker.h"
+
 #import "ColorBook.h"
 #import "Category.h"
+#import "Constants.h"
 
 @implementation AppDelegate
 
@@ -40,12 +43,18 @@
       [UIFont fontWithName:@"Arial-Bold" size:0.0], 
       UITextAttributeFont, 
       nil]];
-    
+}
+
+- (void) setupGoogleAnalytics {
+    [[GANTracker sharedTracker] startTrackerWithAccountID:kGoogleAnalyticsID
+                                           dispatchPeriod:kGoogleAnalyticsDispatchPeriod
+                                                 delegate:nil];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self customizeAppearance];
+    [self setupGoogleAnalytics];
     
     [[UINavigationBar appearance] setTintColor:[ColorBook darkGray]];
     //[[UINavigationBar appearance] setTranslucent:YES];
@@ -81,6 +90,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[GANTracker sharedTracker] stopTracker];
 }
 
 @end

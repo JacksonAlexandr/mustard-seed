@@ -8,17 +8,17 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "MBProgressHUD.h"
+#import "GANTracker.h"
 
 #import "SearchViewController.h"
 #import "FavoriteItemsTableViewController.h"
+#import "Constants.h"
 
 @interface SearchViewController ()
 
 @end
 
 @implementation SearchViewController
-
-int kWaitingTimeInMicroseconds = 10000;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,6 +50,13 @@ int kWaitingTimeInMicroseconds = 10000;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    // GA
+    NSError* error = nil;
+    if (![[GANTracker sharedTracker] trackPageview:@"Listening to TV Audio"
+                                         withError:&error]) {
+        NSLog(@"Track page view error: %@", error);
+    }
     
     // Listen to input
     HUD = [[MBProgressHUD alloc] initWithView:self.view];

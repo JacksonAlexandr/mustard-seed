@@ -105,8 +105,7 @@
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
 {
-    _selectedIndex = position;
-    [self performSegueWithIdentifier:@"ItemDetailSegue" sender:self];
+    [super GMGridView:gridView didTapOnItemAtIndex:position];
 }
 
 - (void)GMGridViewDidTapOnEmptySpace:(GMGridView *)gridView

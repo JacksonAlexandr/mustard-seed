@@ -66,9 +66,18 @@
 		2870009B15983DCE00CEBADB /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2870009115983DCD00CEBADB /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2870FFE81597EBD000CEBADB /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 2870FFE71597EBD000CEBADB /* Item.m */; };
 		2870FFEB15983D2800CEBADB /* AFMustardSeedAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2870FFEA15983D2800CEBADB /* AFMustardSeedAPIClient.m */; };
+		2876B6D215D4D382000CCF22 /* shopping-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2876B6D115D4D382000CCF22 /* shopping-icon.png */; };
+		2876B6D615D4D565000CCF22 /* share-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2876B6D315D4D565000CCF22 /* share-icon.png */; };
+		2876B6D715D4D565000CCF22 /* share-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2876B6D415D4D565000CCF22 /* share-icon@2x.png */; };
+		2876B6D815D4D565000CCF22 /* shopping-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2876B6D515D4D565000CCF22 /* shopping-icon@2x.png */; };
 		2895033B15C9D78100194520 /* snowboard.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2895033A15C9D78100194520 /* snowboard.mp4 */; };
 		289D869C15B55053002650D8 /* nav-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 289D869A15B55053002650D8 /* nav-bar.png */; };
 		289D869D15B55053002650D8 /* nav-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 289D869B15B55053002650D8 /* nav-bar@2x.png */; };
+		28A883A815D5658700D17C39 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A883A615D5656600D17C39 /* CFNetwork.framework */; };
+		28A883B515D568D400D17C39 /* EasyTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A883B415D568D400D17C39 /* EasyTracker.m */; };
+		28A883B715D568FD00D17C39 /* EasyTracker.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28A883B615D568FD00D17C39 /* EasyTracker.plist */; };
+		28A883C015D5770F00D17C39 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A883BF15D5770F00D17C39 /* libsqlite3.0.dylib */; };
+		28A883C215D5772E00D17C39 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A883C115D5772E00D17C39 /* libGoogleAnalytics.a */; };
 		28BCC4DF15AF881100074612 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BCC4DE15AF881100074612 /* MediaPlayer.framework */; };
 		28BCC4E515AF924100074612 /* FavoriteItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BCC4E415AF924100074612 /* FavoriteItemsTableViewController.m */; };
 		28BCC4E815AFAAFF00074612 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BCC4E715AFAAFF00074612 /* AboutViewController.m */; };
@@ -200,9 +209,20 @@
 		2870FFE71597EBD000CEBADB /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = "Mustard Seed/Models/Item.m"; sourceTree = "<group>"; };
 		2870FFE915983D2800CEBADB /* AFMustardSeedAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFMustardSeedAPIClient.h; path = API/AFMustardSeedAPIClient.h; sourceTree = "<group>"; };
 		2870FFEA15983D2800CEBADB /* AFMustardSeedAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFMustardSeedAPIClient.m; path = API/AFMustardSeedAPIClient.m; sourceTree = "<group>"; };
+		2876B6D115D4D382000CCF22 /* shopping-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopping-icon.png"; path = "Mustard Seed/Images/Icons/shopping-icon.png"; sourceTree = "<group>"; };
+		2876B6D315D4D565000CCF22 /* share-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share-icon.png"; path = "Mustard Seed/Images/Icons/share-icon.png"; sourceTree = "<group>"; };
+		2876B6D415D4D565000CCF22 /* share-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share-icon@2x.png"; path = "Mustard Seed/Images/Icons/share-icon@2x.png"; sourceTree = "<group>"; };
+		2876B6D515D4D565000CCF22 /* shopping-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopping-icon@2x.png"; path = "Mustard Seed/Images/Icons/shopping-icon@2x.png"; sourceTree = "<group>"; };
 		2895033A15C9D78100194520 /* snowboard.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = snowboard.mp4; sourceTree = "<group>"; };
 		289D869A15B55053002650D8 /* nav-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-bar.png"; path = "Mustard Seed/Images/nav-bar.png"; sourceTree = "<group>"; };
 		289D869B15B55053002650D8 /* nav-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-bar@2x.png"; path = "Mustard Seed/Images/nav-bar@2x.png"; sourceTree = "<group>"; };
+		28A883A315D5654100D17C39 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
+		28A883A615D5656600D17C39 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		28A883B315D568D400D17C39 /* EasyTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EasyTracker.h; path = ../../ios/EasyTracker/Library/EasyTracker.h; sourceTree = "<group>"; };
+		28A883B415D568D400D17C39 /* EasyTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EasyTracker.m; path = ../../ios/EasyTracker/Library/EasyTracker.m; sourceTree = "<group>"; };
+		28A883B615D568FD00D17C39 /* EasyTracker.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = EasyTracker.plist; path = ../../../ios/EasyTracker/Examples/EasyTrackerExample/EasyTracker.plist; sourceTree = "<group>"; };
+		28A883BF15D5770F00D17C39 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		28A883C115D5772E00D17C39 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		28BCC4DE15AF881100074612 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		28BCC4E315AF924100074612 /* FavoriteItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteItemsTableViewController.h; path = "Mustard Seed/Controllers/FavoriteItemsTableViewController.h"; sourceTree = "<group>"; };
 		28BCC4E415AF924100074612 /* FavoriteItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteItemsTableViewController.m; path = "Mustard Seed/Controllers/FavoriteItemsTableViewController.m"; sourceTree = "<group>"; };
@@ -232,12 +252,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28A883C215D5772E00D17C39 /* libGoogleAnalytics.a in Frameworks */,
+				28A883C015D5770F00D17C39 /* libsqlite3.0.dylib in Frameworks */,
 				28C789A815B745D6005D7AD1 /* libGMGridView.a in Frameworks */,
 				28BCC4DF15AF881100074612 /* MediaPlayer.framework in Frameworks */,
 				28557FED15A76D1A00F6089F /* QuartzCore.framework in Frameworks */,
 				28387EA81593FFCB008EC6AF /* UIKit.framework in Frameworks */,
 				28387EAA1593FFCB008EC6AF /* Foundation.framework in Frameworks */,
 				28387EAC1593FFCB008EC6AF /* CoreGraphics.framework in Frameworks */,
+				28A883A815D5658700D17C39 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,12 +330,11 @@
 		2810EA0915945C0D00066B91 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2876B6D015D4D357000CCF22 /* Icons */,
 				28097DFE15BA810C0027B655 /* tv-icon.png */,
 				28097DFF15BA810C0027B655 /* tv-icon@2x.png */,
 				28C789E315B78445005D7AD1 /* green-bg.png */,
 				28C789E115B783D3005D7AD1 /* twitter-bg.jpeg */,
-				286C1D5515B63DBA0032E0DA /* person-icon.png */,
-				286C1D5615B63DBA0032E0DA /* person-icon@2x.png */,
 				286C1D4A15B613DC0032E0DA /* heart-gray.png */,
 				286C1D4B15B613DC0032E0DA /* heart-gray@2x.png */,
 				286C1D4C15B613DC0032E0DA /* heart-red.png */,
@@ -339,6 +361,8 @@
 		28387E981593FFCA008EC6AF = {
 			isa = PBXGroup;
 			children = (
+				28A883BF15D5770F00D17C39 /* libsqlite3.0.dylib */,
+				28A883A215D5653200D17C39 /* Google Analytics */,
 				28C789D115B76170005D7AD1 /* GMGridView.xcodeproj */,
 				2870007C15983DCD00CEBADB /* AFNetworking */,
 				2846D90F15D1AD3F00C99075 /* ActionSheetPicker */,
@@ -367,6 +391,7 @@
 		28387EA61593FFCB008EC6AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28A883A615D5656600D17C39 /* CFNetwork.framework */,
 				28BCC4DE15AF881100074612 /* MediaPlayer.framework */,
 				28557FEC15A76D1A00F6089F /* QuartzCore.framework */,
 				28387EA71593FFCB008EC6AF /* UIKit.framework */,
@@ -392,6 +417,7 @@
 		28387EAE1593FFCB008EC6AF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				28A883B615D568FD00D17C39 /* EasyTracker.plist */,
 				28CA90A115A818E600E1694E /* MBProgressHUD.h */,
 				28CA90A215A818E600E1694E /* MBProgressHUD.m */,
 				28387EB61593FFCB008EC6AF /* AppDelegate.h */,
@@ -485,6 +511,30 @@
 				2870FFEA15983D2800CEBADB /* AFMustardSeedAPIClient.m */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		2876B6D015D4D357000CCF22 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				286C1D5515B63DBA0032E0DA /* person-icon.png */,
+				286C1D5615B63DBA0032E0DA /* person-icon@2x.png */,
+				2876B6D315D4D565000CCF22 /* share-icon.png */,
+				2876B6D415D4D565000CCF22 /* share-icon@2x.png */,
+				2876B6D515D4D565000CCF22 /* shopping-icon@2x.png */,
+				2876B6D115D4D382000CCF22 /* shopping-icon.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		28A883A215D5653200D17C39 /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				28A883C115D5772E00D17C39 /* libGoogleAnalytics.a */,
+				28A883A315D5654100D17C39 /* GANTracker.h */,
+				28A883B315D568D400D17C39 /* EasyTracker.h */,
+				28A883B415D568D400D17C39 /* EasyTracker.m */,
+			);
+			name = "Google Analytics";
 			sourceTree = "<group>";
 		};
 		28C789D215B76170005D7AD1 /* Products */ = {
@@ -625,6 +675,11 @@
 				28097E0015BA810C0027B655 /* tv-icon.png in Resources */,
 				28097E0115BA810C0027B655 /* tv-icon@2x.png in Resources */,
 				2895033B15C9D78100194520 /* snowboard.mp4 in Resources */,
+				2876B6D215D4D382000CCF22 /* shopping-icon.png in Resources */,
+				2876B6D615D4D565000CCF22 /* share-icon.png in Resources */,
+				2876B6D715D4D565000CCF22 /* share-icon@2x.png in Resources */,
+				2876B6D815D4D565000CCF22 /* shopping-icon@2x.png in Resources */,
+				28A883B715D568FD00D17C39 /* EasyTracker.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28387EE11593FFCC008EC6AF /* Mustard_SeedTests.m in Sources */,
+				28A883B515D568D400D17C39 /* EasyTracker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +834,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -797,6 +854,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -816,6 +874,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Mustard_Seed-cagxtuxzhvpizpculqodzljcluob/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../ios/Google Analytics SDK/Library\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -840,6 +900,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Mustard_Seed-cagxtuxzhvpizpculqodzljcluob/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../ios/Google Analytics SDK/Library\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -863,6 +925,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
 				INFOPLIST_FILE = "Mustard SeedTests/Mustard SeedTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -880,6 +946,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
 				INFOPLIST_FILE = "Mustard SeedTests/Mustard SeedTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

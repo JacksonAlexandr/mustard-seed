@@ -22,6 +22,8 @@
 
 @property (nonatomic, strong) NSArray *items;
 
-- (void)reload:(id)sender;
+- (void) reload:(id)sender;
+
+- (void) GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position;
 
 @end

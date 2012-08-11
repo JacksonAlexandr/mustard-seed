@@ -12,6 +12,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 #import "ActionSheetPicker.h"
+#import "GANTracker.h"
 
 #import "Item.h"
 #import "FontBook.h"
@@ -22,8 +23,6 @@
 // Colors: http://www.colourlovers.com/palette/157085/commons
 
 @interface ItemDetailViewController ()
-
-- (void) formatButton:(UIButton *) button;
 
 @end
 
@@ -173,6 +172,19 @@
         // Change category for item
         Category *category = [[categories allValues] objectAtIndex:row];
         
+        // Submit analytics for both category and item
+        NSString *pageView = [NSString stringWithFormat: @"Favorite - [%@] %@", _item.itemID, _item.name];
+        NSError* error = nil;
+        if (![[GANTracker sharedTracker] trackPageview:pageView
+                                             withError:&error]) {
+            NSLog(@"Track page view error: %@", error);
+        }
+        pageView = [NSString stringWithFormat: @"Category - [%@] %@", category.categoryID, category.name];
+        if (![[GANTracker sharedTracker] trackPageview:pageView
+                                             withError:&error]) {
+            NSLog(@"Track page view error: %@", error);
+        }
+        
         [_item setCategory:category];
         _categoryLabel.text = category.name;
         [_favoriteButton setSelected:true];
@@ -246,6 +258,14 @@
 }
 
 - (IBAction) shareToFacebook:(id)sender {
+    // GA
+    NSString *pageView = [NSString stringWithFormat: @"Share - [%@] %@", _item.itemID, _item.name];
+    NSError* error = nil;
+    if (![[GANTracker sharedTracker] trackPageview:pageView
+                                         withError:&error]) {
+        NSLog(@"Track page view error: %@", error);
+    }
+    
     // Load HUD
     HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:HUD];
@@ -261,6 +281,14 @@
 
 // Plays a fullscreen movie
 - (IBAction) playMovie:(id)sender {
+    // GA
+    NSString *pageView = [NSString stringWithFormat: @"Play Video - [%@] %@", _item.itemID, _item.name];
+    NSError* error = nil;
+    if (![[GANTracker sharedTracker] trackPageview:pageView
+                                         withError:&error]) {
+        NSLog(@"Track page view error: %@", error);
+    }
+    
     //NSURL *url = [NSURL URLWithString:@"http://www.ebookfrenzy.com/ios_book/movie/movie.mov"];
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"snowboard" ofType:@"mp4"]];
     _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];

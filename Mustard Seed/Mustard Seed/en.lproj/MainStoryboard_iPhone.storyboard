@@ -78,7 +78,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NMs-6v-V8I">
-                                        <rect key="frame" x="34" y="3" width="36" height="36"/>
+                                        <rect key="frame" x="34" y="3" width="32" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -93,26 +93,11 @@
                                             <action selector="addToCategory:" destination="rsu-hK-0sV" eventType="touchUpInside" id="MeT-DQ-789"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2L7-HN-2De">
-                                        <rect key="frame" x="103" y="3" width="36" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="commerce-icon@2x.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="hwY-0q-g43" kind="modal" identifier="CommerceSegue" id="R1D-XB-hE1"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ge0-Ki-Zx1">
-                                        <rect key="frame" x="244" y="3" width="36" height="36"/>
+                                        <rect key="frame" x="185" y="6" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" image="share-icon@2x.png">
+                                        <state key="normal" image="share-icon.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -124,7 +109,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7rC-WJ-WeC">
-                                        <rect key="frame" x="172" y="3" width="36" height="36"/>
+                                        <rect key="frame" x="251" y="3" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="play-button@2x.png">
@@ -136,6 +121,21 @@
                                         </state>
                                         <connections>
                                             <action selector="playMovie:" destination="rsu-hK-0sV" eventType="touchUpInside" id="hRk-Jw-SlE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2L7-HN-2De">
+                                        <rect key="frame" x="108" y="6" width="34" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="shopping-icon.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="hwY-0q-g43" kind="modal" identifier="CommerceSegue" id="R1D-XB-hE1"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -339,11 +339,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="commerce-icon@2x.png" width="72" height="72"/>
         <image name="heart-gray@2x.png" width="60" height="60"/>
         <image name="heart-icon@2x.png" width="72" height="72"/>
         <image name="play-button@2x.png" width="72" height="72"/>
-        <image name="share-icon@2x.png" width="72" height="72"/>
+        <image name="share-icon.png" width="48" height="45"/>
+        <image name="shopping-icon.png" width="49" height="42"/>
     </resources>
     <classes>
         <class className="CommerceViewController" superclassName="UIViewController">
@@ -359,9 +359,9 @@
         <class className="ItemDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemDetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="addToCategory:"/>
                 <relationship kind="action" name="playMovie:"/>
                 <relationship kind="action" name="shareToFacebook:"/>
-                <relationship kind="action" name="toggleFavorite:"/>
                 <relationship kind="outlet" name="buttonsView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="categoryPickerView" candidateClass="UIPickerView"/>
