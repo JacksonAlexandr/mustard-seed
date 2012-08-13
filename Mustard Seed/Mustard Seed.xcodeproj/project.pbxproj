@@ -70,7 +70,6 @@
 		2876B6D615D4D565000CCF22 /* share-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2876B6D315D4D565000CCF22 /* share-icon.png */; };
 		2876B6D715D4D565000CCF22 /* share-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2876B6D415D4D565000CCF22 /* share-icon@2x.png */; };
 		2876B6D815D4D565000CCF22 /* shopping-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2876B6D515D4D565000CCF22 /* shopping-icon@2x.png */; };
-		2895033B15C9D78100194520 /* snowboard.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2895033A15C9D78100194520 /* snowboard.mp4 */; };
 		289D869C15B55053002650D8 /* nav-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 289D869A15B55053002650D8 /* nav-bar.png */; };
 		289D869D15B55053002650D8 /* nav-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 289D869B15B55053002650D8 /* nav-bar@2x.png */; };
 		28A883A815D5658700D17C39 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A883A615D5656600D17C39 /* CFNetwork.framework */; };
@@ -213,7 +212,6 @@
 		2876B6D315D4D565000CCF22 /* share-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share-icon.png"; path = "Mustard Seed/Images/Icons/share-icon.png"; sourceTree = "<group>"; };
 		2876B6D415D4D565000CCF22 /* share-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share-icon@2x.png"; path = "Mustard Seed/Images/Icons/share-icon@2x.png"; sourceTree = "<group>"; };
 		2876B6D515D4D565000CCF22 /* shopping-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopping-icon@2x.png"; path = "Mustard Seed/Images/Icons/shopping-icon@2x.png"; sourceTree = "<group>"; };
-		2895033A15C9D78100194520 /* snowboard.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = snowboard.mp4; sourceTree = "<group>"; };
 		289D869A15B55053002650D8 /* nav-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-bar.png"; path = "Mustard Seed/Images/nav-bar.png"; sourceTree = "<group>"; };
 		289D869B15B55053002650D8 /* nav-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-bar@2x.png"; path = "Mustard Seed/Images/nav-bar@2x.png"; sourceTree = "<group>"; };
 		28A883A315D5654100D17C39 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
@@ -369,7 +367,6 @@
 				28C789A715B745D6005D7AD1 /* libGMGridView.a */,
 				28387EB91593FFCB008EC6AF /* MainStoryboard_iPhone.storyboard */,
 				28387EBC1593FFCB008EC6AF /* MainStoryboard_iPad.storyboard */,
-				2895033A15C9D78100194520 /* snowboard.mp4 */,
 				28387EAD1593FFCB008EC6AF /* Mustard Seed */,
 				28CB081A15B0D3B400C22350 /* Fonts */,
 				2810EA0915945C0D00066B91 /* Images */,
@@ -674,7 +671,6 @@
 				28C789E415B78445005D7AD1 /* green-bg.png in Resources */,
 				28097E0015BA810C0027B655 /* tv-icon.png in Resources */,
 				28097E0115BA810C0027B655 /* tv-icon@2x.png in Resources */,
-				2895033B15C9D78100194520 /* snowboard.mp4 in Resources */,
 				2876B6D215D4D382000CCF22 /* shopping-icon.png in Resources */,
 				2876B6D615D4D565000CCF22 /* share-icon.png in Resources */,
 				2876B6D715D4D565000CCF22 /* share-icon@2x.png in Resources */,
