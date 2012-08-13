@@ -1,6 +1,6 @@
 <template name="admin">
   <h2>Admin Interface</h2>
-  <button class="btn btn-primary" id="add">Add</button>
+  <button class="btn btn-primary" id="add">Add an Item</button>
   <ul id="items" class="thumbnails">
     {{#each items}}
       {{> admin_item}}
@@ -15,11 +15,11 @@
       <hr />
       <h5>{{name}}</h5>
       <h5 class="owner">{{owner}}</h5>
-      <a id="delete" class="btn btn-danger">
-        <i class="icon-trash icon-white"></i>
-         Delete
-      </a>
     </div>
+    <a id="delete-item" class="btn btn-danger">
+      <i class="icon-trash icon-white"></i>
+       Delete
+    </a>
   </li>
 </template>
 

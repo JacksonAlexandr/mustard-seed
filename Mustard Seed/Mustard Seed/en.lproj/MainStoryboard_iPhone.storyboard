@@ -64,7 +64,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="lSF-1Y-9Qh">
-                                        <rect key="frame" x="46" y="261" width="70" height="21"/>
+                                        <rect key="frame" x="46" y="261" width="243" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -350,7 +350,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CommerceViewController.h"/>
             <relationships>
                 <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
         <class className="FavoriteItemsGridViewController" superclassName="ItemGridViewController">

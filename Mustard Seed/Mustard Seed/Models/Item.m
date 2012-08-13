@@ -19,6 +19,7 @@
     NSString *_owner;
     NSURL *_imgURL;
     NSURL *_commerceURL;
+    NSURL *_videoURL;
     NSUInteger _viewCount;
     Category *_category;
     BOOL _favorite;
@@ -33,6 +34,7 @@
 @synthesize viewCount = _viewCount;
 @synthesize favorite = _favorite;
 @synthesize category = _category;
+@synthesize videoURL = _videoURL;
     
 - (id) initWithAttributes:(NSDictionary *)attributes {
     self = [super init];
@@ -46,12 +48,13 @@
     _description = [attributes valueForKey:@"description"];
     _imgURL = [NSURL URLWithString:[attributes valueForKey:@"img_url"]];
     _commerceURL = [NSURL URLWithString:[attributes valueForKey:@"commerce_url"]];
+    _videoURL = [NSURL URLWithString:[attributes valueForKey:@"video_url"]];
     _viewCount = [[attributes valueForKey:@"view_count"] integerValue];
     _favorite = [[attributes valueForKey:@"favorite"] boolValue];
     
     // TODO: Store category name + ID in JSON as nested object
     _category = [[Category alloc] init];
-    _category.categoryID = [attributes valueForKey:@"categoryID"];
+    _category.categoryID = [attributes valueForKey:@"category_id"];
     
     return self;
 }
@@ -66,7 +69,7 @@
     // Update backend
     NSString *path = [NSString stringWithFormat:@"items/%@", _itemID];
     NSError *error;
-    NSDictionary *data = [NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject: category.categoryID forKey:@"categoryID"] forKey:@"$set"];
+    NSDictionary *data = [NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject: category.categoryID forKey:@"category_id"] forKey:@"$set"];
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data 
                                                        options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string

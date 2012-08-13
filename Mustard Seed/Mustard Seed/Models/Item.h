@@ -17,8 +17,9 @@
 @property (readonly) NSString *description;
 @property (readonly) NSString *owner;
 @property (readonly) Category *category;
-@property (readonly) NSURL * imgURL;
-@property (readonly) NSURL * commerceURL;
+@property (readonly) NSURL *imgURL;
+@property (readonly) NSURL *commerceURL;
+@property (readonly) NSURL *videoURL;
 @property (readonly) NSUInteger viewCount;
 @property (nonatomic, assign) BOOL favorite;
 

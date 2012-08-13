@@ -59,8 +59,6 @@ Template.items.events = {
 };
 
 ////////// Item Detail //////////
-Template.item_detail.items = Template.items.items;
-
 Template.item_detail.item = function() {
     var item_id = Session.get("item_id");
     return Items.findOne({_id: item_id});
@@ -97,21 +95,25 @@ Template.requests.items = function() {
 };
 
 ////////// Admin //////////
-Template.admin.items = Template.items.items;
+Template.admin.items = function() {
+    return Items.find({});
+}
 
 Template.admin.events = {
     'click #add': function() {
         Router.navigate("add", {trigger: true});
     },
-    'click .item': function() {
+    'click .thumbnail': function() {
         Router.editItem(this._id);
     },
 };
 
 Template.admin_item.events = {
-    'click #delete': function() {
+    'click #delete-item': function() {
         if (confirm("Are you sure you want to delete this item?"))
             Items.remove({_id: this._id});
+        else
+            Router.navigate('/admin', {trigger: true});
     }
 };
 

@@ -289,8 +289,8 @@
         NSLog(@"Track page view error: %@", error);
     }
     
-    //NSURL *url = [NSURL URLWithString:@"http://www.ebookfrenzy.com/ios_book/movie/movie.mov"];
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"snowboard" ofType:@"mp4"]];
+    NSURL *url = [NSURL URLWithString:[[_item videoURL] absoluteString]];
+    //NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"snowboard" ofType:@"mp4"]];
     _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
