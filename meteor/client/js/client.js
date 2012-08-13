@@ -67,8 +67,6 @@ Template.item_detail.item = function() {
 };
 
 Template.item_detail.category = function() {
-    console.log(this);
-
     return Categories.findOne({_id: this.category_id});
 };
 

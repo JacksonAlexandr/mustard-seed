@@ -40,7 +40,9 @@
       <h3>{{owner}}</h3>
         <div class="category-btn btn-group">
           <a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#">
-            {{category.name}}
+            {{#with category}}
+            {{name}}
+            {{/with}}
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
