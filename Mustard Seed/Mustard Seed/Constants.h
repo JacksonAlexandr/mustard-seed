@@ -27,8 +27,8 @@
 #define kRequestButtonHeight            75
 
 // API
-//#define kAFMustardSeedAPIBaseURLString      @"http://mustard-seed.meteor.com/collectionapi/"
-#define kAFMustardSeedAPIBaseURLString      @"http://localhost:3000/collectionapi/"
+#define kAFMustardSeedAPIBaseURLString      @"http://mustard-seed.meteor.com/collectionapi/"
+//#define kAFMustardSeedAPIBaseURLString      @"http://localhost:3000/collectionapi/"
 
 // Titles
 #define kSaveItemTitle                  @"Save this Item"
