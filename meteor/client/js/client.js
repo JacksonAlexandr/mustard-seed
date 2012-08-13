@@ -23,13 +23,24 @@ function set_prompt_value(v, def, id) {
         Items.update(id, {$set: {v: value}});
 }
 
+// Finds the default Category object or creates it if it doesn't exist
+function getDefaultCategory() {
+    var defaultCategory = Categories.findOne({name: DEFAULT_CATEGORY});
+    if (!defaultCategory) {
+        defaultCategory.name = DEFAULT_CATEGORY;
+        defaultCategory._id = Categories.insert({name: DEFAULT_CATEGORY});
+    }
+
+    return defaultCategory;
+}
+
 ////////// Items //////////
 Template.items.items = function() {
     var categoryId = Session.get("category_id");
     if (categoryId === null)
-        return Items.find({}, {sort: {"_id": 1}});
+        return Items.find({category_id: {$ne:""}}, {sort: {"_id": 1}});
     else
-        return Items.find({category_id: categoryId}, {sort: {"_id": 1}});
+        return Items.find({category_id: categoryId, category_id: {$ne:""}}, {sort: {"_id": 1}});
 };
 
 Template.items.category = function() {
@@ -86,6 +97,12 @@ Template.item_detail.events = {
         var newCategoryId = Categories.insert({name: newCategory});
 
         Items.update({_id: item_id}, {$set: {category_id: newCategoryId}});
+    },
+    'click .unfavorite': function() {
+        if (confirm("Are you sure you want to unfavorite this item?")) {
+            Items.update({_id: this._id}, {$set: {category_id: ""}});
+            Router.navigate("/", {trigger: true});
+        }
     }
 };
 
@@ -131,6 +148,18 @@ Template.edit_item.events = {
         var video_url = document.getElementById("video-url");
         var description = document.getElementById("description");
 
+        // Check if favorited
+        var favorited = document.getElementById("favorited");
+        var categoryId = "";
+        if (favorited.checked) {
+            categoryId = this.category_id;
+
+            // If item doesn't have a category id, assign it to the default
+            if (categoryId === "")
+                categoryId = getDefaultCategory()._id;
+        }
+            
+
         // Error checking
         var valid = [];
         valid.push(checkInput(name));
@@ -148,7 +177,8 @@ Template.edit_item.events = {
             img_url: img_url.value,
             commerce_url: commerce_url.value,
             video_url: video_url.value,
-            description: description.value
+            description: description.value,
+            category_id: categoryId
         }});
 
         // Redirect to /admin?
@@ -168,6 +198,7 @@ function checkInput(e) {
         return true;
     }
 }
+
 Template.add_item.events = {
     'click button#submit': function(e) {
         var name = document.getElementById("name");
@@ -188,11 +219,15 @@ Template.add_item.events = {
         for (status in valid)
             if (!status) return false;
         
-        // Find the 'Uncategorized' category        
-        var uncategorized = Categories.findOne({name: DEFAULT_CATEGORY});
-        if (!uncategorized) {
-            uncategorized = {};
-            uncategorized._id = Categories.insert({name: DEFAULT_CATEGORY});
+        // Check if user has favorited the item
+        var category = {};
+        var favorited = document.getElementById("favorited");
+        if (favorited.checked) {
+            category = getDefaultCategory();
+        }
+        else {
+            // No category
+            category._id = "";
         }
 
         var newItem = Items.insert({
@@ -202,7 +237,7 @@ Template.add_item.events = {
             commerce_url: commerce_url.value,
             video_url: video_url.value,
             description: description.value,
-            category_id: uncategorized._id
+            category_id: category._id
         });
 
         Router.setItem(newItem);
@@ -276,6 +311,6 @@ Meteor.startup(function() {
 // Jquery
 $(function() {
     $('#items').masonry({
-        itemSelector : '.item'
+        itemSelector : '.thumbnail'
     });
 });
