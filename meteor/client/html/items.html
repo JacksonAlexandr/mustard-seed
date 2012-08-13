@@ -1,4 +1,18 @@
 <template name="items">
+  <div class="category-btn btn-group">
+    <a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#">
+      {{#with category}}
+      {{name}}
+      {{/with}}
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a id="all-items">All Items</a></li>
+      {{#each categories}}
+        <li><a class="category-id">{{name}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
   <ul id="items" class="thumbnails">
     {{#each items}}
       {{> item}}

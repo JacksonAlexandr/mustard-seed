@@ -25,12 +25,36 @@ function set_prompt_value(v, def, id) {
 
 ////////// Items //////////
 Template.items.items = function() {
-    return Items.find({}, {sort: {"_id": 1}});
+    var categoryId = Session.get("category_id");
+    if (categoryId === null)
+        return Items.find({}, {sort: {"_id": 1}});
+    else
+        return Items.find({category_id: categoryId}, {sort: {"_id": 1}});
+};
+
+Template.items.category = function() {
+    var categoryId = Session.get("category_id");
+    if (categoryId === null)
+        return {name: "All Items"};
+
+    return Categories.findOne({_id: categoryId});
+};
+
+Template.items.categories = function() {
+    return Categories.find({});
 };
 
 Template.items.events = {
     'click .item': function() {
         Router.setItem(this._id);
+    },
+    'click .category-id': function() {
+        var categoryId = this._id;
+        console.log("Clicked on Category " + this.name);
+        Session.set("category_id", categoryId);
+    },
+    'click #all-items': function() {
+        Session.set("category_id", null);
     }
 };
 
@@ -201,6 +225,7 @@ var MSRouter = Backbone.Router.extend({
     main: function() {
         // Redirect to standard page
         Session.set("page_id", null);
+        Session.set("category_id", null);
     },
     item_id: function(id) {
         Session.set("item_id", id);
