@@ -16,10 +16,6 @@ Requests = new Meteor.Collection("requests");
 Categories = new Meteor.Collection("categories");
 
 // Helper functions
-function is_favorite(id) {
-    return Favorites.findOne({item_id: id});
-}
-
 function set_prompt_value(v, def, id) {
     var value = prompt("Enter " + v, def);
 
@@ -33,100 +29,161 @@ Template.items.items = function() {
 };
 
 Template.items.events = {
-    'mousedown .item': function() {
+    'click .item': function() {
         Router.setItem(this._id);
     }
 };
 
 ////////// Item Detail //////////
+Template.item_detail.items = Template.items.items;
+
 Template.item_detail.item = function() {
     var item_id = Session.get("item_id");
-    console.log(item_id);
     return Items.findOne({_id: item_id});
 };
 
-Template.item_detail.format = function() {
-    Meteor.defer(function() {
-        //$(".item-detail h1").fitText(1.5);
-    });
+Template.item_detail.category = function() {
+    console.log(this);
+
+    return Categories.findOne({_id: this.category_id});
 };
 
-/* = function() {
-    var item_id = Session.get("item_id");
-    console.log(item_id);
-    return Items.find({id: item_id});
-};
-*/
-
-////////// Admin //////////
-Template.admin.favorite_items = function() {
-    return Items.find({favorite: true});
+Template.item_detail.categories = function() {
+    return Categories.find({});
 };
 
-Template.admin.items = Template.items.items;
+Template.item_detail.events = {
+    'click .category-id': function() {
+        // Update Item's category
+        var item_id = Session.get("item_id");
+        console.log("Item ID: " + item_id);
+        console.log("New Category: [" + this._id + "] " + this.name);
+        Items.update({_id: item_id}, {$set: {category_id: this._id}});
+    },
+    'click #add-category': function() {
+        var item_id = Session.get("item_id");
+        var newCategory = prompt("Add a Category", "Input category name");
+        var newCategoryId = Categories.insert({name: newCategory});
 
-Template.admin_item.favorite_checkbox = function () {
-    return this.favorite ? 'checked="checked"' : '';
+        Items.update({_id: item_id}, {$set: {category_id: newCategoryId}});
+    }
 };
 
-Template.admin_item.favorite_style = function () {
-    return this.favorite ? 'class="favorite"' : '';
-};
-
-Template.admin_item.favorite_value = function() {
-    return !this.favorite ? 'value="Favorite"' : 'value="Unfavorite"';
-};
-
+////////// Requests //////////
 Template.requests.items = function() {
     return Requests.find({});
 };
 
+////////// Admin //////////
+Template.admin.items = Template.items.items;
+
 Template.admin.events = {
-    'click input#add': function() {
-        Items.insert({
-            img_url: DEFAULT_IMG_URL,
-            name: DEFAULT_NAME,
-            owner: DEFAULT_OWNER,
-            commerce_url: DEFAULT_COMMERCE_URL,
-            description: DEFAULT_DESCRIPTION,
-            categoryID: DEFAULT_CATEGORY
-        });
-    }
+    'click #add': function() {
+        Router.navigate("add", {trigger: true});
+    },
+    'click .item': function() {
+        Router.editItem(this._id);
+    },
 };
 
 Template.admin_item.events = {
     'click #delete': function() {
         if (confirm("Are you sure you want to delete this item?"))
             Items.remove({_id: this._id});
-    },
-    'click #favorite': function(e) {
-        Items.update(this._id, {$set: {favorite: !this.favorite}});
-    },
-    'click #name': function(e) {
-        var value = prompt("Enter Name", this.name);
+    }
+};
 
-        if (value) Items.update(this._id, {$set: {name: value}});
-    },
-    'click #owner': function(e) {
-        var value = prompt("Enter Owner", this.owner);
+////////// Edit //////////
+Template.edit_item.item = function() {
+    return Items.findOne({_id: Session.get("item_id")});
+};
 
-        if (value) Items.update(this._id, {$set: {owner: value}});
-    },
-    'click #description': function(e) {
-        var value = prompt("Enter Description", this.description);
+Template.edit_item.events = {
+    'click #submit': function() {
+        var name = document.getElementById("name");
+        var owner = document.getElementById("owner");
+        var img_url = document.getElementById("img-url");
+        var commerce_url = document.getElementById("commerce-url");
+        var video_url = document.getElementById("video-url");
+        var description = document.getElementById("description");
 
-        if (value) Items.update(this._id, {$set: {description: value}});
-    },
-    'click #commerce_url': function(e) {
-        var value = prompt("Enter Commerce URL", this.commerce_url);
+        // Error checking
+        var valid = [];
+        valid.push(checkInput(name));
+        valid.push(checkInput(owner));
+        valid.push(checkInput(img_url));
+        valid.push(checkInput(commerce_url));
+        valid.push(checkInput(video_url));
+        valid.push(checkInput(description));
+        for (status in valid)
+            if (!status) return false;
 
-        if (value) Items.update(this._id, {$set: {commerce_url: value}});
-    },
-    'click #image': function(e) {
-        var value = prompt("Enter Image URL", this.img_url);
+        Items.update({_id: this._id}, {$set: {
+            name: name.value,
+            owner: owner.value,
+            img_url: img_url.value,
+            commerce_url: commerce_url.value,
+            video_url: video_url.value,
+            description: description.value
+        }});
 
-        if (value) Items.update(this._id, {$set: {img_url: value}});
-    },
+        // Redirect to /admin?
+        Router.setItem(this._id);
+        return false;
+    }
+}
+
+////////// Add //////////
+function checkInput(e) {
+    if (!e.value) {
+        $(e).closest('.control-group').addClass('error');
+        return false;
+    }
+    else {
+        $(e).closest('.control-group').removeClass('error');
+        return true;
+    }
+}
+Template.add_item.events = {
+    'click button#submit': function(e) {
+        var name = document.getElementById("name");
+        var owner = document.getElementById("owner");
+        var img_url = document.getElementById("img-url");
+        var commerce_url = document.getElementById("commerce-url");
+        var video_url = document.getElementById("video-url");
+        var description = document.getElementById("description");
+
+        // Error checking
+        var valid = [];
+        valid.push(checkInput(name));
+        valid.push(checkInput(owner));
+        valid.push(checkInput(img_url));
+        valid.push(checkInput(commerce_url));
+        valid.push(checkInput(video_url));
+        valid.push(checkInput(description));
+        for (status in valid)
+            if (!status) return false;
+        
+        // Find the 'Uncategorized' category        
+        var uncategorized = Categories.findOne({name: DEFAULT_CATEGORY});
+        if (!uncategorized) {
+            uncategorized = {};
+            uncategorized._id = Categories.insert({name: DEFAULT_CATEGORY});
+        }
+
+        var newItem = Items.insert({
+            name: name.value,
+            owner: owner.value,
+            img_url: img_url.value,
+            commerce_url: commerce_url.value,
+            video_url: video_url.value,
+            description: description.value,
+            category_id: uncategorized._id
+        });
+
+        Router.setItem(newItem);
+        return false;
+    }
 };
 
 // Routing
@@ -135,9 +192,11 @@ var MSRouter = Backbone.Router.extend({
         "" : "main",
         "about" : "about",
         "admin" : "admin",
+        "add" : "add",
         "analytics" : "analytics",
         "requests" : "requests",
-        ":item_id" : "item_id"
+        ":item_id" : "item_id",
+        "edit/:item_id" : "edit_item"
     },
     main: function() {
         // Redirect to standard page
@@ -147,6 +206,10 @@ var MSRouter = Backbone.Router.extend({
         Session.set("item_id", id);
         Session.set("page_id", "item_detail");
     },
+    edit_item: function(id) {
+        Session.set("item_id", id);
+        Session.set("page_id", "edit_item");
+    },
     about: function() {
         Session.set("page_id", "about");
     },
@@ -154,11 +217,17 @@ var MSRouter = Backbone.Router.extend({
         // Redirect to add page
         Session.set("page_id", "admin");
     },
+    add: function() {
+        Session.set("page_id", "add_item");
+    },
     requests: function() {
         Session.set("page_id", "requests");
     },
     setItem: function(item_id) {
-        this.navigate(item_id, true);
+        this.navigate(item_id, {trigger: true, replace: false});
+    },
+    editItem: function(item_id) {
+        this.navigate('edit/' + item_id, {trigger: true});
     }
 });
 
@@ -182,10 +251,6 @@ Meteor.startup(function() {
 // Jquery
 $(function() {
     $('#items').masonry({
-        itemSelector : '.item',
-        columnWidth : 200
-    });
-    $('.item-detail').on('change', function() {
-        console.log($this);
+        itemSelector : '.item'
     });
 });

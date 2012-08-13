@@ -1,0 +1,43 @@
+<template name="add_item">
+  <form class="form-horizontal">
+    <h2>Add an Item</h2>
+    <div class="control-group">
+      <label class="control-label" for="name">Name</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="name" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="owner">Owner</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="owner" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="img-url">Image URL</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="img-url" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="commerce-url">Commerce URL</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="commerce-url" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="video-url">Video URL</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="video-url" />
+        <p class="help-block">Linked video must be of type mp4</p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="description">Description</label>
+      <div class="controls">
+        <textarea class="input-xlarge" id="description" rows="3"></textarea>
+      </div>
+    </div>
+    <button id="submit" class="btn btn-primary">Submit</button>
+  </form>
+</template>

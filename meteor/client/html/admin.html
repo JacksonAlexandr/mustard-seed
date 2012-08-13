@@ -1,26 +1,67 @@
 <template name="admin">
-  <h1>Admin Interface</h1>
-  <div>
+  <h2>Admin Interface</h2>
+  <button class="btn btn-primary" id="add">Add</button>
+  <ul id="items" class="thumbnails">
     {{#each items}}
       {{> admin_item}}
     {{/each}}
-  </div>
-  <input type="button" value="Add" name="add" id="add" />
+  </ul>
 </template>
 
 <template name="admin_item">
-  <div id="admin_item" {{{favorite_style}}}>
-    <div id="image" style="background-image: url('{{img_url}}')"></div>
-    <div id="info">
-      <h2 id="name" class="edit">{{name}}</h2>
-      <h3 id="owner" class="edit">{{owner}}</h3>
-      <div id="description" class="edit">{{description}}</div>
-      <div id="commerce_url" class="edit">{{commerce_url}}</div>
-      <div id="buttons">
-        <input name="favorite" id="favorite" {{{favorite_value}}} type="button" />
-        <input name="delete" id="delete" value="Delete" type="button" />
+   <li class="item span3">
+    <div class="thumbnail">
+      <img src="{{img_url}}" />
+      <hr />
+      <h5>{{name}}</h5>
+      <h5 class="owner">{{owner}}</h5>
+      <button id="delete" class="btn btn-danger">Delete</button>
+    </div>
+  </li>
+</template>
+
+<template name="edit_item">
+  <form class="form-horizontal">
+    <h2>Edit an Item</h2>
+    {{#with item}}
+    <div class="control-group">
+      <label class="control-label" for="name">Name</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="name" value={{name}} />
       </div>
     </div>
-  </div>
-  <hr />
+    <div class="control-group">
+      <label class="control-label" for="owner">Owner</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="owner" value={{owner}} />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="img-url">Image URL</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="img-url" value={{img_url}} />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="commerce-url">Commerce URL</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="commerce-url" value={{commerce_url}} />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="video-url">Video URL</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="video-url" value={{video_url}} />
+        <p class="help-block">Linked video must be of type mp4</p>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="description">Description</label>
+      <div class="controls">
+        <textarea class="input-xlarge" id="description" rows="3">{{description}}</textarea>
+      </div>
+    </div>
+    <button id="submit" class="btn btn-primary">Submit</button>
+    {{/with}}
+  </form>
 </template>

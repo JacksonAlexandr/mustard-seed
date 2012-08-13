@@ -1,21 +1,54 @@
 <template name="items">
-  <div id="items">
+  <ul id="items" class="thumbnails">
     {{#each items}}
       {{> item}}
     {{/each}}
-  </div>
+  </ul>
 </template>
 
 <template name="item">
-  <div class="item box-shadow">
-    <img src="{{img_url}}" />
-    <hr />
-    <h2>{{name}}</h2>
-    <h3>{{owner}}</h3>
-  </div>
+  <li class="item span3">
+    <div class="thumbnail">
+      <img src="{{img_url}}" />
+      <hr />
+      <h5>{{name}}</h5>
+      <h5 class="owner">{{owner}}</h5>
+    </div>
+  </li>
 </template>
 
 <template name="item_detail">
+  {{#with item}}
+  <div class="row">
+    <img src="{{img_url}}" class="span4" />
+    <div class="span8">
+      <h2>{{name}}</h2>
+      <h3>{{owner}}</h3>
+        <div class="category-btn btn-group">
+          <a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#">
+            {{category.name}}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            {{#each categories}}
+              <li><a class="category-id">{{name}}</a></li>
+            {{/each}}
+            <li class="divider"></li>
+            <li><a id="add-category">Add a category</a></li>
+          </ul>
+        </div>
+        <button class="btn">Purchase</button>
+        <button class="btn">Share</button>
+        <button class="btn">Watch Video</button>
+      <hr />
+      <h4>Description</h4>
+      <p>{{description}}</p>
+    </div>
+  </div>
+  {{/with}}
+</template>
+
+<template name="item_detail2">
   <div class="item-detail">
     {{#with item}}
       <h1>{{name}}</h1>
