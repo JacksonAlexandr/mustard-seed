@@ -33,7 +33,7 @@ Template.items.items = function() {
     if (categoryId === null)
         return Items.find({category_id: {$ne:""}}, {sort: {"_id": 1}});
     else
-        return Items.find({category_id: categoryId, category_id: {$ne:""}}, {sort: {"_id": 1}});
+        return Items.find({category_id: categoryId}, {sort: {"_id": 1}});
 };
 
 Template.items.category = function() {
