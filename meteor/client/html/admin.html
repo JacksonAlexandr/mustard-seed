@@ -67,7 +67,8 @@
     <div class="control-group">
       <label class="control-label" for="favorited">Favorite</label>
       <div class="controls">
-        <input type="checkbox" id="favorited" />
+        <input type="checkbox" id="favorited" 
+        {{#if favorited}} checked="checked"{{/if}} />
       </div>
     </div>
     <button id="submit" class="btn btn-primary">Submit</button>

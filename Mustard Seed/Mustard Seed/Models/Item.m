@@ -64,6 +64,8 @@
 }
 
 - (void) setCategory:(Category *)category {
+    if (!category) return;
+    
     _category = category;
     
     // Update backend
@@ -88,7 +90,9 @@
 + (void) postRequest:(NSString *) request {
     // Initialize NSDictionary command
     NSError *error;
-    NSDictionary *data = [NSDictionary dictionaryWithObject: request forKey:@"name"];
+    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObject: request forKey:@"name"];
+    [data setValue:[[NSDate date] description] forKey:@"time"];
+    [data setValue:[NSNumber numberWithBool:false] forKey:@"added"];
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data 
                                                        options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
@@ -98,28 +102,6 @@
     
     // Make network call
     [[AFMustardSeedAPIClient sharedClient] postPath:@"requests" parameterString:jsonString success:^(AFHTTPRequestOperation *operation, id JSON) {
-        NSLog(@"Success");
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", [error localizedDescription]);
-    }];
-}
-
-- (void) setFavorite:(BOOL)favorite {
-    _favorite = favorite;
-    
-    // Initialize NSDictionary command
-    NSString *path = [NSString stringWithFormat:@"items/%@", _itemID];
-    NSError *error;
-    NSDictionary *data = [NSDictionary dictionaryWithObject:[NSDictionary dictionaryWithObject: [NSNumber numberWithBool:favorite] forKey:@"favorite"] forKey:@"$set"];
-    
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data 
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"%@", jsonString);
-    
-    // Make network call
-    [[AFMustardSeedAPIClient sharedClient] putPath:path parameterString:jsonString success:^(AFHTTPRequestOperation *operation, id JSON) {
         NSLog(@"Success");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", [error localizedDescription]);
@@ -160,7 +142,7 @@
             NSMutableArray *mutableItems = [NSMutableArray arrayWithCapacity:[JSON count]];
             for (NSDictionary *attributes in JSON) {
                 Item * item = [[Item alloc] initWithAttributes:attributes];
-                if (!item.category.categoryID)
+                if ([item.category.categoryID isEqualToString:@""])
                     continue;
                 item.category = [categories objectForKey:item.category.categoryID];
                 [mutableItems addObject:item];

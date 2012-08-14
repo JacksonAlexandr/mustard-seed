@@ -100,7 +100,7 @@
     
     // Format favorite indicator
     [_favoriteIndicator setImage:[UIImage imageNamed:@"heart-red"] forState:UIControlStateSelected];
-    [_favoriteIndicator setSelected:(_item.category.categoryID != nil)];
+    [_favoriteIndicator setSelected:![_item.category.categoryID isEqualToString:@""]];
     
     // Format description label
     _descriptionLabel.text = _item.description;
@@ -187,7 +187,7 @@
         
         [_item setCategory:category];
         _categoryLabel.text = category.name;
-        [_favoriteButton setSelected:true];
+        [_favoriteIndicator setSelected:true];
     } else {
         // Add category
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:kAddCategoryTitle
@@ -219,7 +219,7 @@
                 NSLog(@"Updated category ID: %@", category.categoryID);
                 [_item setCategory:category];
                 _categoryLabel.text = category.name;
-                [_favoriteButton setSelected:true];
+                [_favoriteIndicator setSelected:true];
             }];
         }
     }

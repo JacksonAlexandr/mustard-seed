@@ -56,29 +56,10 @@
         <a href={{commerce_url}} class="btn btn-small" target="_blank">Purchase</a>
         <a class="btn btn-small">Share</a>
         <a href={{video_url}} class="btn btn-small" target="_blank">Watch Video</a>
-        <a class="btn btn-small unfavorite">Unfavorite</a>
       <hr />
       <h4>Description</h4>
       <p>{{description}}</p>
     </div>
   </div>
   {{/with}}
-</template>
-
-<template name="item_detail2">
-  <div class="item-detail">
-    {{#with item}}
-      <h1>{{name}}</h1>
-      <h2>{{owner}}</h2>
-      <hr />
-      <img src="{{img_url}}" />
-      <hr />
-      <ul id="action-links">
-        <li><a href="{{commerce_url}}">Purchase this item</a></li>
-      </ul>
-      <h2>Description</h2>
-      <p>{{description}}</p>
-    {{/with}}
-    {{ format }}
-  </div>
 </template>

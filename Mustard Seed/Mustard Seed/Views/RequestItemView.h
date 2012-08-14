@@ -14,6 +14,4 @@
 
 @property (strong) IBOutlet UIButton *button;
 
-+ (Item *) requestItem;
-
 @end

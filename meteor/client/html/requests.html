@@ -1,7 +1,33 @@
 <template name="requests">
   <div>
-    {{#each items}}
-      <div>{{name}}</div>
-    {{/each}}
+  	<h2>Tagged / Requested Items</h2>
+  	<table class="table table-striped table-condensed table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Time</th>
+        <th>Added</th>
+      </tr>
+      {{#each items}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{time}}</td>
+        <td><button class="added btn btn-mini btn-primary"><i class="icon-ok-sign icon-white"></i></button>
+        </td>
+      </tr>
+      {{/each}}
+    </table>
+    <h2>Added Items</h2>
+    <table class="table table-striped table-condensed table-bordered">
+      <tr>
+        <th>Name</th>
+        <th>Time</th>
+      </tr>
+      {{#each added_items}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{time}}</td>
+      </tr>
+      {{/each}}
+    </table>
   </div>
 </template>

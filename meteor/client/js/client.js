@@ -1,13 +1,6 @@
-// Constants
-var DEFAULT_IMG_URL = "http://www.sdtimes.com/blog/post/2010/image.axd?picture=2010%2F7%2Fclick_here.png";
-var DEFAULT_NAME = "Click here to change name";
-var DEFAULT_OWNER = "Click here to change owner";
-var DEFAULT_DESCRIPTION = "Click here to change the description of the item";
-var DEFAULT_COMMERCE_URL = "Click here to change the commerce URL";
-var DEFAULT_CATEGORY = "Uncategorized";
-
-// Namespace
+// Namespace + Constants
 var MustardSeed = {};
+MustardSeed.DEFAULT_CATEGORY = "Uncategorized";
 
 // Mongo Collections
 Items = new Meteor.Collection("items");
@@ -25,10 +18,10 @@ function set_prompt_value(v, def, id) {
 
 // Finds the default Category object or creates it if it doesn't exist
 function getDefaultCategory() {
-    var defaultCategory = Categories.findOne({name: DEFAULT_CATEGORY});
+    var defaultCategory = Categories.findOne({name: MustardSeed.DEFAULT_CATEGORY});
     if (!defaultCategory) {
-        defaultCategory.name = DEFAULT_CATEGORY;
-        defaultCategory._id = Categories.insert({name: DEFAULT_CATEGORY});
+        defaultCategory.name = MustardSeed.DEFAULT_CATEGORY;
+        defaultCategory._id = Categories.insert({name: MustardSeed.DEFAULT_CATEGORY});
     }
 
     return defaultCategory;
@@ -98,18 +91,22 @@ Template.item_detail.events = {
 
         Items.update({_id: item_id}, {$set: {category_id: newCategoryId}});
     },
-    'click .unfavorite': function() {
-        if (confirm("Are you sure you want to unfavorite this item?")) {
-            Items.update({_id: this._id}, {$set: {category_id: ""}});
-            Router.navigate("/", {trigger: true});
-        }
-    }
 };
 
 ////////// Requests //////////
 Template.requests.items = function() {
-    return Requests.find({});
+    return Requests.find({added: false});
 };
+
+Template.requests.added_items = function() {
+    return Requests.find({added: true});
+};
+
+Template.requests.events = {
+    'click .added': function() {
+        Requests.update({_id: this._id}, {$set: {added: true}});
+    }
+}
 
 ////////// Admin //////////
 Template.admin.items = function() {
@@ -139,6 +136,10 @@ Template.edit_item.item = function() {
     return Items.findOne({_id: Session.get("item_id")});
 };
 
+Template.edit_item.favorited = function() {
+    return (this.category_id !== "");
+};
+
 Template.edit_item.events = {
     'click #submit': function() {
         var name = document.getElementById("name");
@@ -158,7 +159,6 @@ Template.edit_item.events = {
             if (categoryId === "")
                 categoryId = getDefaultCategory()._id;
         }
-            
 
         // Error checking
         var valid = [];
@@ -253,7 +253,7 @@ var MSRouter = Backbone.Router.extend({
         "admin" : "admin",
         "add" : "add",
         "analytics" : "analytics",
-        "requests" : "requests",
+        "tags" : "requests",
         ":item_id" : "item_id",
         "edit/:item_id" : "edit_item"
     },
@@ -280,6 +280,9 @@ var MSRouter = Backbone.Router.extend({
     add: function() {
         Session.set("page_id", "add_item");
     },
+    analytics: function() {
+        Session.set("page_id", "analytics");
+    },
     requests: function() {
         Session.set("page_id", "requests");
     },
@@ -296,8 +299,6 @@ Handlebars.registerHelper('content', function() {
 
     // Set default template
     if (!page_id) page_id = 'items';
-
-    console.log("Page ID: " + page_id);
 
     return Template[page_id]();
 });
