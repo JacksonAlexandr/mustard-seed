@@ -91,6 +91,9 @@ Template.item_detail.events = {
 
         Items.update({_id: item_id}, {$set: {category_id: newCategoryId}});
     },
+    'click .share-btn': function() {
+        alert(this.name + " was shared on Facebook");
+    }
 };
 
 ////////// Requests //////////
