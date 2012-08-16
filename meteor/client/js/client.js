@@ -248,7 +248,22 @@ Template.add_item.events = {
     }
 };
 
-// Routing
+////////// Container //////////
+Template.container.dom_updated = function() {
+    Meteor.defer(function() {
+        $('.item').imagesLoaded( function( $images, $proper, $broken ) {
+          // callback provides three arguments:
+          // $images: the jQuery object with all images
+          // $proper: the jQuery object with properly loaded images
+          // $broken: the jQuery object with broken images
+          // `this` is a jQuery object of container
+          console.log( $images.length + ' images total have been loaded in ' + this );
+          //console.log( $broken.length + ' broken images' );
+        });
+    });
+};
+
+////////// Routing //////////
 var MSRouter = Backbone.Router.extend({
     routes: {
         "" : "main",
@@ -317,4 +332,17 @@ $(function() {
     $('#items').masonry({
         itemSelector : '.thumbnail'
     });
+    Meteor.flush();
+});
+
+$(window).load(function(){
+    $('.item').imagesLoaded( function( $images, $proper, $broken ) {
+          // callback provides three arguments:
+          // $images: the jQuery object with all images
+          // $proper: the jQuery object with properly loaded images
+          // $broken: the jQuery object with broken images
+          // `this` is a jQuery object of container
+          console.log( $images.length + ' images total have been loaded in ' + this );
+          //console.log( $broken.length + ' broken images' );
+        });
 });
