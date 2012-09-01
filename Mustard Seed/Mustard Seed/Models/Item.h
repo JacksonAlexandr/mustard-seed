@@ -10,7 +10,7 @@
 
 @class Category;
 
-@interface Item : NSObject
+@interface Item : NSObject <UIAlertViewDelegate>
 
 @property (readonly) NSString *itemID;
 @property (readonly) NSString *name;
@@ -32,5 +32,13 @@
 + (void) itemsWithBlock:(void (^)(NSArray * items))block parameters: (NSDictionary *) parameters;
 
 + (void) postRequest:(NSString *)request;
+
+// Actions
+- (void) playVideoInView: (UIView *) view;
+- (void) videoFinished:(NSNotification *) notification;
+- (void) shareInView: (UIView *) view;
+- (void) cancel;
+- (void) chooseCategory: (id) sender withBlock:(void (^)(void))block;
+- (void) categoryWasSelected:(NSNumber *)selectedIndex element:(id) element;
 
 @end

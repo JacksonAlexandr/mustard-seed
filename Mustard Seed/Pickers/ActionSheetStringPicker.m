@@ -140,21 +140,20 @@
 #pragma mark - Block setters
 
     // NOTE: Sometimes see crashes when relying on just the copy property. Using Block_copy ensures correct behavior
-
+/*
 - (void)setOnActionSheetDone:(ActionStringDoneBlock)onActionSheetDone {
     if (_onActionSheetDone) {
         //Block_release(_onActionSheetDone);
         _onActionSheetDone = nil;
     }
-    //_onActionSheetDone = Block_copy(onActionSheetDone);
+    _onActionSheetDone = Block_copy(onActionSheetDone);
 }
 
 - (void)setOnActionSheetCancel:(ActionStringCancelBlock)onActionSheetCancel {
     if (_onActionSheetCancel) {
-        //Block_release(_onActionSheetCancel);
         _onActionSheetCancel = nil;
     }
-    //_onActionSheetCancel = Block_copy(onActionSheetCancel);
+    _onActionSheetCancel = Block_copy(onActionSheetCancel);
 }
-
+*/
 @end

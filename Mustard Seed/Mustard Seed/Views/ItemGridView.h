@@ -14,4 +14,19 @@
 
 @property (nonatomic, strong) Item *item;
 
+// Buttons
+@property (nonatomic, strong) UIButton *imageButton;
+@property (nonatomic, strong) UIButton *categoryButton;
+@property (nonatomic, strong) UIButton *commerceButton;
+@property (nonatomic, strong) UIButton *shareButton;
+@property (nonatomic, strong) UIButton *videoButton;
+
+- (id)initWithFrame:(CGRect)frame withController:(UIViewController *)viewController;
+
+- (void) setItem:(Item *)item;
+
+- (void) setItemCategory;
+- (void) shareItem;
+- (void) playItemVideo;
+
 @end

@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		28097E0015BA810C0027B655 /* tv-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 28097DFE15BA810C0027B655 /* tv-icon.png */; };
 		28097E0115BA810C0027B655 /* tv-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28097DFF15BA810C0027B655 /* tv-icon@2x.png */; };
-		2811479E159BAE5E003F3195 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2811479D159BAE5E003F3195 /* ItemTableViewCell.m */; };
 		281147A2159BB9B7003F3195 /* placeholder-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 281147A1159BB9B7003F3195 /* placeholder-image.png */; };
 		281147B2159C1C61003F3195 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 281147B1159C1C60003F3195 /* ItemDetailViewController.m */; };
-		2818FA5F159BA1B900CF3E29 /* ItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2818FA5E159BA1B900CF3E29 /* ItemsTableViewController.m */; };
 		282E897D15D0554C00A97BBC /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 282E897C15D0554C00A97BBC /* Category.m */; };
 		28387EA81593FFCB008EC6AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28387EA71593FFCB008EC6AF /* UIKit.framework */; };
 		28387EAA1593FFCB008EC6AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28387EA91593FFCB008EC6AF /* Foundation.framework */; };
@@ -32,6 +30,13 @@
 		28387EDE1593FFCC008EC6AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28387EDC1593FFCC008EC6AF /* InfoPlist.strings */; };
 		28387EE11593FFCC008EC6AF /* Mustard_SeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28387EE01593FFCC008EC6AF /* Mustard_SeedTests.m */; };
 		283E6DD215AAB85C008ED025 /* CommerceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283E6DD115AAB85C008ED025 /* CommerceViewController.m */; };
+		2846226915EEC04900D4A39C /* play-icon-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 2846226715EEC04900D4A39C /* play-icon-black.png */; };
+		2846226A15EEC04900D4A39C /* play-icon-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2846226815EEC04900D4A39C /* play-icon-black@2x.png */; };
+		2846226D15EEC49500D4A39C /* share-icon-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 2846226B15EEC49500D4A39C /* share-icon-black.png */; };
+		2846226E15EEC49500D4A39C /* share-icon-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2846226C15EEC49500D4A39C /* share-icon-black@2x.png */; };
+		2846227215EEC72A00D4A39C /* heart-icon-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 2846226F15EEC72A00D4A39C /* heart-icon-black.png */; };
+		2846227315EEC72A00D4A39C /* heart-icon-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2846227015EEC72A00D4A39C /* heart-icon-black@2x.png */; };
+		2846227415EEC72A00D4A39C /* shopping-icon-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 2846227115EEC72A00D4A39C /* shopping-icon-black.png */; };
 		2846D91C15D1AD5B00C99075 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2846D91315D1AD5B00C99075 /* AbstractActionSheetPicker.m */; };
 		2846D91F15D1AD5B00C99075 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2846D91915D1AD5B00C99075 /* ActionSheetStringPicker.m */; };
 		284BB34215B7EC7D004AFC47 /* FavoriteItemsGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284BB34115B7EC7D004AFC47 /* FavoriteItemsGridViewController.m */; };
@@ -39,8 +44,17 @@
 		284E012615B5F7D500D026AE /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 284E012415B5F7D500D026AE /* background.png */; };
 		284E012715B5F7D500D026AE /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 284E012515B5F7D500D026AE /* background@2x.png */; };
 		28509EBE15C11FD800FA9D66 /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28509EBD15C11FD800FA9D66 /* Pacifico.ttf */; };
+		285489E715E3F19F00163DAA /* play-icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 285489E515E3F19F00163DAA /* play-icon2.png */; };
+		285489E815E3F19F00163DAA /* play-icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 285489E615E3F19F00163DAA /* play-icon2@2x.png */; };
+		285489EC15E3F3D200163DAA /* iPhoneButtonv2Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 285489EB15E3F3D200163DAA /* iPhoneButtonv2Blue.png */; };
+		285489EE15E3F41600163DAA /* iPhoneButtonv2Blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 285489ED15E3F41600163DAA /* iPhoneButtonv2Blue@2x.png */; };
+		285489F015E3F42300163DAA /* iPhoneButtonv2Blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 285489EF15E3F42300163DAA /* iPhoneButtonv2Blue@2x.png */; };
 		28557FED15A76D1A00F6089F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28557FEC15A76D1A00F6089F /* QuartzCore.framework */; };
 		28557FF115A76D9F00F6089F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28557FF015A76D9F00F6089F /* SearchViewController.m */; };
+		2864B06315F18580003CADAD /* application-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2864B06115F18580003CADAD /* application-icon.png */; };
+		2864B06415F18580003CADAD /* application-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2864B06215F18580003CADAD /* application-icon@2x.png */; };
+		2864B06615F18598003CADAD /* application-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2864B06515F18598003CADAD /* application-icon.png */; };
+		2864B06815F1859C003CADAD /* application-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2864B06715F1859C003CADAD /* application-icon@2x.png */; };
 		286C1D3E15B602A40032E0DA /* heart-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 286C1D3D15B602A40032E0DA /* heart-icon@2x.png */; };
 		286C1D4115B604280032E0DA /* commerce-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 286C1D4015B604280032E0DA /* commerce-icon@2x.png */; };
 		286C1D4315B6055C0032E0DA /* share-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 286C1D4215B6055C0032E0DA /* share-icon@2x.png */; };
@@ -78,8 +92,6 @@
 		28A883C015D5770F00D17C39 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A883BF15D5770F00D17C39 /* libsqlite3.0.dylib */; };
 		28A883C215D5772E00D17C39 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A883C115D5772E00D17C39 /* libGoogleAnalytics.a */; };
 		28BCC4DF15AF881100074612 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BCC4DE15AF881100074612 /* MediaPlayer.framework */; };
-		28BCC4E515AF924100074612 /* FavoriteItemsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BCC4E415AF924100074612 /* FavoriteItemsTableViewController.m */; };
-		28BCC4E815AFAAFF00074612 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BCC4E715AFAAFF00074612 /* AboutViewController.m */; };
 		28C789A815B745D6005D7AD1 /* libGMGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C789A715B745D6005D7AD1 /* libGMGridView.a */; };
 		28C789B115B759D8005D7AD1 /* ItemGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C789B015B759D8005D7AD1 /* ItemGridViewController.m */; };
 		28C789DE15B764EC005D7AD1 /* ItemGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C789DD15B764EC005D7AD1 /* ItemGridView.m */; };
@@ -121,23 +133,19 @@
 /* Begin PBXFileReference section */
 		28097DFE15BA810C0027B655 /* tv-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tv-icon.png"; path = "Mustard Seed/Images/tv-icon.png"; sourceTree = "<group>"; };
 		28097DFF15BA810C0027B655 /* tv-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tv-icon@2x.png"; path = "Mustard Seed/Images/tv-icon@2x.png"; sourceTree = "<group>"; };
-		2811479C159BAE5E003F3195 /* ItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemTableViewCell.h; path = "Mustard Seed/Views/ItemTableViewCell.h"; sourceTree = "<group>"; };
-		2811479D159BAE5E003F3195 /* ItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemTableViewCell.m; path = "Mustard Seed/Views/ItemTableViewCell.m"; sourceTree = "<group>"; };
 		281147A1159BB9B7003F3195 /* placeholder-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "placeholder-image.png"; path = "Mustard Seed/Images/placeholder-image.png"; sourceTree = "<group>"; };
 		281147B0159C1C60003F3195 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemDetailViewController.h; path = "Mustard Seed/Controllers/ItemDetailViewController.h"; sourceTree = "<group>"; };
 		281147B1159C1C60003F3195 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemDetailViewController.m; path = "Mustard Seed/Controllers/ItemDetailViewController.m"; sourceTree = "<group>"; };
-		2818FA5D159BA1B900CF3E29 /* ItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemsTableViewController.h; path = "Mustard Seed/Controllers/ItemsTableViewController.h"; sourceTree = "<group>"; };
-		2818FA5E159BA1B900CF3E29 /* ItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemsTableViewController.m; path = "Mustard Seed/Controllers/ItemsTableViewController.m"; sourceTree = "<group>"; };
 		282E897B15D0554C00A97BBC /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = "Mustard Seed/Models/Category.h"; sourceTree = "<group>"; };
 		282E897C15D0554C00A97BBC /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Category.m; path = "Mustard Seed/Models/Category.m"; sourceTree = "<group>"; };
-		28387EA31593FFCB008EC6AF /* Mustard Seed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mustard Seed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28387EA31593FFCB008EC6AF /* KUBE-iT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KUBE-iT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28387EA71593FFCB008EC6AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28387EA91593FFCB008EC6AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		28387EAB1593FFCB008EC6AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28387EAF1593FFCB008EC6AF /* Mustard Seed-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mustard Seed-Info.plist"; sourceTree = "<group>"; };
+		28387EAF1593FFCB008EC6AF /* KUBE-iT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KUBE-iT-Info.plist"; sourceTree = "<group>"; };
 		28387EB11593FFCB008EC6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		28387EB31593FFCB008EC6AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		28387EB51593FFCB008EC6AF /* Mustard Seed-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mustard Seed-Prefix.pch"; sourceTree = "<group>"; };
+		28387EB51593FFCB008EC6AF /* KUBE-iT-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KUBE-iT-Prefix.pch"; sourceTree = "<group>"; };
 		28387EB61593FFCB008EC6AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		28387EB71593FFCB008EC6AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		28387EBA1593FFCB008EC6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -146,14 +154,21 @@
 		28387EC41593FFCB008EC6AF /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "Mustard Seed/first@2x.png"; sourceTree = "<group>"; };
 		28387EC91593FFCB008EC6AF /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = "Mustard Seed/second.png"; sourceTree = "<group>"; };
 		28387ECB1593FFCB008EC6AF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Mustard Seed/second@2x.png"; sourceTree = "<group>"; };
-		28387ED21593FFCB008EC6AF /* Mustard SeedTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mustard SeedTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28387ED21593FFCB008EC6AF /* KUBE-iTTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KUBE-iTTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28387ED31593FFCB008EC6AF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		28387EDB1593FFCC008EC6AF /* Mustard SeedTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mustard SeedTests-Info.plist"; sourceTree = "<group>"; };
+		28387EDB1593FFCC008EC6AF /* KUBE-iTTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KUBE-iTTests-Info.plist"; sourceTree = "<group>"; };
 		28387EDD1593FFCC008EC6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		28387EDF1593FFCC008EC6AF /* Mustard_SeedTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mustard_SeedTests.h; sourceTree = "<group>"; };
 		28387EE01593FFCC008EC6AF /* Mustard_SeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mustard_SeedTests.m; sourceTree = "<group>"; };
 		283E6DD015AAB85C008ED025 /* CommerceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommerceViewController.h; path = "Mustard Seed/Controllers/CommerceViewController.h"; sourceTree = "<group>"; };
 		283E6DD115AAB85C008ED025 /* CommerceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommerceViewController.m; path = "Mustard Seed/Controllers/CommerceViewController.m"; sourceTree = "<group>"; };
+		2846226715EEC04900D4A39C /* play-icon-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-icon-black.png"; path = "Mustard Seed/Images/play-icon-black.png"; sourceTree = "<group>"; };
+		2846226815EEC04900D4A39C /* play-icon-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-icon-black@2x.png"; path = "Mustard Seed/Images/play-icon-black@2x.png"; sourceTree = "<group>"; };
+		2846226B15EEC49500D4A39C /* share-icon-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share-icon-black.png"; path = "Mustard Seed/Images/share-icon-black.png"; sourceTree = "<group>"; };
+		2846226C15EEC49500D4A39C /* share-icon-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share-icon-black@2x.png"; path = "Mustard Seed/Images/share-icon-black@2x.png"; sourceTree = "<group>"; };
+		2846226F15EEC72A00D4A39C /* heart-icon-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heart-icon-black.png"; path = "Mustard Seed/Images/heart-icon-black.png"; sourceTree = "<group>"; };
+		2846227015EEC72A00D4A39C /* heart-icon-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heart-icon-black@2x.png"; path = "Mustard Seed/Images/heart-icon-black@2x.png"; sourceTree = "<group>"; };
+		2846227115EEC72A00D4A39C /* shopping-icon-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopping-icon-black.png"; path = "Mustard Seed/Images/shopping-icon-black.png"; sourceTree = "<group>"; };
 		2846D91015D1AD5B00C99075 /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
 		2846D91215D1AD5B00C99075 /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		2846D91315D1AD5B00C99075 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
@@ -166,9 +181,18 @@
 		284E012415B5F7D500D026AE /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = "Mustard Seed/Images/background.png"; sourceTree = "<group>"; };
 		284E012515B5F7D500D026AE /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "Mustard Seed/Images/background@2x.png"; sourceTree = "<group>"; };
 		28509EBD15C11FD800FA9D66 /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
+		285489E515E3F19F00163DAA /* play-icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-icon2.png"; path = "Mustard Seed/Images/play-icon2.png"; sourceTree = "<group>"; };
+		285489E615E3F19F00163DAA /* play-icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-icon2@2x.png"; path = "Mustard Seed/Images/play-icon2@2x.png"; sourceTree = "<group>"; };
+		285489EB15E3F3D200163DAA /* iPhoneButtonv2Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPhoneButtonv2Blue.png; path = "Mustard Seed/Images/iPhoneButtonv2Blue.png"; sourceTree = "<group>"; };
+		285489ED15E3F41600163DAA /* iPhoneButtonv2Blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPhoneButtonv2Blue@2x.png"; path = "Mustard Seed/Images/iPhoneButtonv2Blue@2x.png"; sourceTree = "<group>"; };
+		285489EF15E3F42300163DAA /* iPhoneButtonv2Blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhoneButtonv2Blue@2x.png"; sourceTree = "<group>"; };
 		28557FEC15A76D1A00F6089F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		28557FEF15A76D9F00F6089F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = "Mustard Seed/Controllers/SearchViewController.h"; sourceTree = "<group>"; };
 		28557FF015A76D9F00F6089F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = "Mustard Seed/Controllers/SearchViewController.m"; sourceTree = "<group>"; };
+		2864B06115F18580003CADAD /* application-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "application-icon.png"; path = "Mustard Seed/Images/application-icon.png"; sourceTree = "<group>"; };
+		2864B06215F18580003CADAD /* application-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "application-icon@2x.png"; path = "Mustard Seed/Images/application-icon@2x.png"; sourceTree = "<group>"; };
+		2864B06515F18598003CADAD /* application-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "application-icon.png"; sourceTree = "<group>"; };
+		2864B06715F1859C003CADAD /* application-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "application-icon@2x.png"; sourceTree = "<group>"; };
 		286C1D3D15B602A40032E0DA /* heart-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heart-icon@2x.png"; path = "Mustard Seed/Images/heart-icon@2x.png"; sourceTree = "<group>"; };
 		286C1D4015B604280032E0DA /* commerce-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "commerce-icon@2x.png"; path = "Mustard Seed/Images/commerce-icon@2x.png"; sourceTree = "<group>"; };
 		286C1D4215B6055C0032E0DA /* share-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share-icon@2x.png"; path = "Mustard Seed/Images/share-icon@2x.png"; sourceTree = "<group>"; };
@@ -222,10 +246,6 @@
 		28A883BF15D5770F00D17C39 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		28A883C115D5772E00D17C39 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		28BCC4DE15AF881100074612 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		28BCC4E315AF924100074612 /* FavoriteItemsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoriteItemsTableViewController.h; path = "Mustard Seed/Controllers/FavoriteItemsTableViewController.h"; sourceTree = "<group>"; };
-		28BCC4E415AF924100074612 /* FavoriteItemsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoriteItemsTableViewController.m; path = "Mustard Seed/Controllers/FavoriteItemsTableViewController.m"; sourceTree = "<group>"; };
-		28BCC4E615AFAAFF00074612 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = "Mustard Seed/Controllers/AboutViewController.h"; sourceTree = "<group>"; };
-		28BCC4E715AFAAFF00074612 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = "Mustard Seed/Controllers/AboutViewController.m"; sourceTree = "<group>"; };
 		28C789A715B745D6005D7AD1 /* libGMGridView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGMGridView.a; path = "../../../Library/Developer/Xcode/DerivedData/Mustard_Seed-cagxtuxzhvpizpculqodzljcluob/Build/Products/Debug-iphoneos/libGMGridView.a"; sourceTree = "<group>"; };
 		28C789AF15B759D8005D7AD1 /* ItemGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemGridViewController.h; path = "Mustard Seed/Controllers/ItemGridViewController.h"; sourceTree = "<group>"; };
 		28C789B015B759D8005D7AD1 /* ItemGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemGridViewController.m; path = "Mustard Seed/Controllers/ItemGridViewController.m"; sourceTree = "<group>"; };
@@ -290,8 +310,6 @@
 		2810EA0615945BB100066B91 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2811479C159BAE5E003F3195 /* ItemTableViewCell.h */,
-				2811479D159BAE5E003F3195 /* ItemTableViewCell.m */,
 				28C789DC15B764EC005D7AD1 /* ItemGridView.h */,
 				28C789DD15B764EC005D7AD1 /* ItemGridView.m */,
 				28D072AD15BE71B2000F231E /* RequestItemView.h */,
@@ -306,16 +324,10 @@
 			children = (
 				283E6DD015AAB85C008ED025 /* CommerceViewController.h */,
 				283E6DD115AAB85C008ED025 /* CommerceViewController.m */,
-				2818FA5D159BA1B900CF3E29 /* ItemsTableViewController.h */,
-				2818FA5E159BA1B900CF3E29 /* ItemsTableViewController.m */,
 				281147B0159C1C60003F3195 /* ItemDetailViewController.h */,
 				281147B1159C1C60003F3195 /* ItemDetailViewController.m */,
 				28557FEF15A76D9F00F6089F /* SearchViewController.h */,
 				28557FF015A76D9F00F6089F /* SearchViewController.m */,
-				28BCC4E315AF924100074612 /* FavoriteItemsTableViewController.h */,
-				28BCC4E415AF924100074612 /* FavoriteItemsTableViewController.m */,
-				28BCC4E615AFAAFF00074612 /* AboutViewController.h */,
-				28BCC4E715AFAAFF00074612 /* AboutViewController.m */,
 				28C789AF15B759D8005D7AD1 /* ItemGridViewController.h */,
 				28C789B015B759D8005D7AD1 /* ItemGridViewController.m */,
 				284BB34015B7EC7D004AFC47 /* FavoriteItemsGridViewController.h */,
@@ -328,6 +340,19 @@
 		2810EA0915945C0D00066B91 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2864B06115F18580003CADAD /* application-icon.png */,
+				2864B06215F18580003CADAD /* application-icon@2x.png */,
+				2846226F15EEC72A00D4A39C /* heart-icon-black.png */,
+				2846227015EEC72A00D4A39C /* heart-icon-black@2x.png */,
+				2846227115EEC72A00D4A39C /* shopping-icon-black.png */,
+				2846226B15EEC49500D4A39C /* share-icon-black.png */,
+				2846226C15EEC49500D4A39C /* share-icon-black@2x.png */,
+				2846226715EEC04900D4A39C /* play-icon-black.png */,
+				2846226815EEC04900D4A39C /* play-icon-black@2x.png */,
+				285489ED15E3F41600163DAA /* iPhoneButtonv2Blue@2x.png */,
+				285489EB15E3F3D200163DAA /* iPhoneButtonv2Blue.png */,
+				285489E515E3F19F00163DAA /* play-icon2.png */,
+				285489E615E3F19F00163DAA /* play-icon2@2x.png */,
 				2876B6D015D4D357000CCF22 /* Icons */,
 				28097DFE15BA810C0027B655 /* tv-icon.png */,
 				28097DFF15BA810C0027B655 /* tv-icon@2x.png */,
@@ -359,6 +384,9 @@
 		28387E981593FFCA008EC6AF = {
 			isa = PBXGroup;
 			children = (
+				2864B06715F1859C003CADAD /* application-icon@2x.png */,
+				2864B06515F18598003CADAD /* application-icon.png */,
+				285489EF15E3F42300163DAA /* iPhoneButtonv2Blue@2x.png */,
 				28A883BF15D5770F00D17C39 /* libsqlite3.0.dylib */,
 				28A883A215D5653200D17C39 /* Google Analytics */,
 				28C789D115B76170005D7AD1 /* GMGridView.xcodeproj */,
@@ -379,8 +407,8 @@
 		28387EA41593FFCB008EC6AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				28387EA31593FFCB008EC6AF /* Mustard Seed.app */,
-				28387ED21593FFCB008EC6AF /* Mustard SeedTests.octest */,
+				28387EA31593FFCB008EC6AF /* KUBE-iT.app */,
+				28387ED21593FFCB008EC6AF /* KUBE-iTTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -419,10 +447,10 @@
 				28CA90A215A818E600E1694E /* MBProgressHUD.m */,
 				28387EB61593FFCB008EC6AF /* AppDelegate.h */,
 				28387EB71593FFCB008EC6AF /* AppDelegate.m */,
-				28387EAF1593FFCB008EC6AF /* Mustard Seed-Info.plist */,
+				28387EAF1593FFCB008EC6AF /* KUBE-iT-Info.plist */,
 				28387EB01593FFCB008EC6AF /* InfoPlist.strings */,
 				28387EB31593FFCB008EC6AF /* main.m */,
-				28387EB51593FFCB008EC6AF /* Mustard Seed-Prefix.pch */,
+				28387EB51593FFCB008EC6AF /* KUBE-iT-Prefix.pch */,
 				28CB081F15B0D7EE00C22350 /* FontBook.h */,
 				28CB082015B0D7EE00C22350 /* FontBook.m */,
 				284E012015B5E76F00D026AE /* UIImage+Autofit.h */,
@@ -447,7 +475,7 @@
 		28387EDA1593FFCC008EC6AF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				28387EDB1593FFCC008EC6AF /* Mustard SeedTests-Info.plist */,
+				28387EDB1593FFCC008EC6AF /* KUBE-iTTests-Info.plist */,
 				28387EDC1593FFCC008EC6AF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -555,9 +583,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		28387EA21593FFCA008EC6AF /* Mustard Seed */ = {
+		28387EA21593FFCA008EC6AF /* KUBE-iT */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 28387EE41593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "Mustard Seed" */;
+			buildConfigurationList = 28387EE41593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "KUBE-iT" */;
 			buildPhases = (
 				28387E9F1593FFCA008EC6AF /* Sources */,
 				28387EA01593FFCA008EC6AF /* Frameworks */,
@@ -568,14 +596,14 @@
 			dependencies = (
 				28C789DB15B76185005D7AD1 /* PBXTargetDependency */,
 			);
-			name = "Mustard Seed";
+			name = "KUBE-iT";
 			productName = "Mustard Seed";
-			productReference = 28387EA31593FFCB008EC6AF /* Mustard Seed.app */;
+			productReference = 28387EA31593FFCB008EC6AF /* KUBE-iT.app */;
 			productType = "com.apple.product-type.application";
 		};
-		28387ED11593FFCB008EC6AF /* Mustard SeedTests */ = {
+		28387ED11593FFCB008EC6AF /* KUBE-iTTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 28387EE71593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "Mustard SeedTests" */;
+			buildConfigurationList = 28387EE71593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "KUBE-iTTests" */;
 			buildPhases = (
 				28387ECD1593FFCB008EC6AF /* Sources */,
 				28387ECE1593FFCB008EC6AF /* Frameworks */,
@@ -587,9 +615,9 @@
 			dependencies = (
 				28387ED81593FFCC008EC6AF /* PBXTargetDependency */,
 			);
-			name = "Mustard SeedTests";
+			name = "KUBE-iTTests";
 			productName = "Mustard SeedTests";
-			productReference = 28387ED21593FFCB008EC6AF /* Mustard SeedTests.octest */;
+			productReference = 28387ED21593FFCB008EC6AF /* KUBE-iTTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -601,7 +629,7 @@
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "LMD Corp";
 			};
-			buildConfigurationList = 28387E9D1593FFCA008EC6AF /* Build configuration list for PBXProject "Mustard Seed" */;
+			buildConfigurationList = 28387E9D1593FFCA008EC6AF /* Build configuration list for PBXProject "KUBE-iT" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -619,8 +647,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				28387EA21593FFCA008EC6AF /* Mustard Seed */,
-				28387ED11593FFCB008EC6AF /* Mustard SeedTests */,
+				28387EA21593FFCA008EC6AF /* KUBE-iT */,
+				28387ED11593FFCB008EC6AF /* KUBE-iTTests */,
 			);
 		};
 /* End PBXProject section */
@@ -676,6 +704,22 @@
 				2876B6D715D4D565000CCF22 /* share-icon@2x.png in Resources */,
 				2876B6D815D4D565000CCF22 /* shopping-icon@2x.png in Resources */,
 				28A883B715D568FD00D17C39 /* EasyTracker.plist in Resources */,
+				285489E715E3F19F00163DAA /* play-icon2.png in Resources */,
+				285489E815E3F19F00163DAA /* play-icon2@2x.png in Resources */,
+				285489EC15E3F3D200163DAA /* iPhoneButtonv2Blue.png in Resources */,
+				285489EE15E3F41600163DAA /* iPhoneButtonv2Blue@2x.png in Resources */,
+				285489F015E3F42300163DAA /* iPhoneButtonv2Blue@2x.png in Resources */,
+				2846226915EEC04900D4A39C /* play-icon-black.png in Resources */,
+				2846226A15EEC04900D4A39C /* play-icon-black@2x.png in Resources */,
+				2846226D15EEC49500D4A39C /* share-icon-black.png in Resources */,
+				2846226E15EEC49500D4A39C /* share-icon-black@2x.png in Resources */,
+				2846227215EEC72A00D4A39C /* heart-icon-black.png in Resources */,
+				2846227315EEC72A00D4A39C /* heart-icon-black@2x.png in Resources */,
+				2846227415EEC72A00D4A39C /* shopping-icon-black.png in Resources */,
+				2864B06315F18580003CADAD /* application-icon.png in Resources */,
+				2864B06415F18580003CADAD /* application-icon@2x.png in Resources */,
+				2864B06615F18598003CADAD /* application-icon.png in Resources */,
+				2864B06815F1859C003CADAD /* application-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,14 +770,10 @@
 				2870009915983DCE00CEBADB /* AFURLConnectionOperation.m in Sources */,
 				2870009A15983DCE00CEBADB /* AFXMLRequestOperation.m in Sources */,
 				2870009B15983DCE00CEBADB /* UIImageView+AFNetworking.m in Sources */,
-				2818FA5F159BA1B900CF3E29 /* ItemsTableViewController.m in Sources */,
-				2811479E159BAE5E003F3195 /* ItemTableViewCell.m in Sources */,
 				281147B2159C1C61003F3195 /* ItemDetailViewController.m in Sources */,
 				28557FF115A76D9F00F6089F /* SearchViewController.m in Sources */,
 				28CA90A315A818E600E1694E /* MBProgressHUD.m in Sources */,
 				283E6DD215AAB85C008ED025 /* CommerceViewController.m in Sources */,
-				28BCC4E515AF924100074612 /* FavoriteItemsTableViewController.m in Sources */,
-				28BCC4E815AFAAFF00074612 /* AboutViewController.m in Sources */,
 				28CB082115B0D7EE00C22350 /* FontBook.m in Sources */,
 				284E012215B5E76F00D026AE /* UIImage+Autofit.m in Sources */,
 				286C1D5415B61C0D0032E0DA /* ColorBook.m in Sources */,
@@ -761,7 +801,7 @@
 /* Begin PBXTargetDependency section */
 		28387ED81593FFCC008EC6AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 28387EA21593FFCA008EC6AF /* Mustard Seed */;
+			target = 28387EA21593FFCA008EC6AF /* KUBE-iT */;
 			targetProxy = 28387ED71593FFCC008EC6AF /* PBXContainerItemProxy */;
 		};
 		28C789DB15B76185005D7AD1 /* PBXTargetDependency */ = {
@@ -861,11 +901,11 @@
 		28387EE51593FFCC008EC6AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Isaac Wang (D883CUJD8S)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Isaac Wang";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
+				GCC_PREFIX_HEADER = "Mustard Seed/KUBE-iT-Prefix.pch";
 				HEADER_SEARCH_PATHS = "GMGridView/**";
-				INFOPLIST_FILE = "Mustard Seed/Mustard Seed-Info.plist";
+				INFOPLIST_FILE = "Mustard Seed/KUBE-iT-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -877,8 +917,8 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = "KUBE-iT";
+				PROVISIONING_PROFILE = "1F9F848F-69D3-49A1-AD15-6EB29C4FE329";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -889,9 +929,9 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Isaac Wang";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
+				GCC_PREFIX_HEADER = "Mustard Seed/KUBE-iT-Prefix.pch";
 				HEADER_SEARCH_PATHS = "GMGridView/**";
-				INFOPLIST_FILE = "Mustard Seed/Mustard Seed-Info.plist";
+				INFOPLIST_FILE = "Mustard Seed/KUBE-iT-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -903,8 +943,8 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "DCECAD49-9F2F-4CFA-BC06-A5B58F6116A3";
+				PRODUCT_NAME = "KUBE-iT";
+				PROVISIONING_PROFILE = "1F9F848F-69D3-49A1-AD15-6EB29C4FE329";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -920,12 +960,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
-				INFOPLIST_FILE = "Mustard SeedTests/Mustard SeedTests-Info.plist";
+				INFOPLIST_FILE = "Mustard SeedTests/KUBE-iTTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "KUBE-iTTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -941,12 +981,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mustard Seed/Mustard Seed-Prefix.pch";
-				INFOPLIST_FILE = "Mustard SeedTests/Mustard SeedTests-Info.plist";
+				INFOPLIST_FILE = "Mustard SeedTests/KUBE-iTTests-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "KUBE-iTTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -955,7 +995,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		28387E9D1593FFCA008EC6AF /* Build configuration list for PBXProject "Mustard Seed" */ = {
+		28387E9D1593FFCA008EC6AF /* Build configuration list for PBXProject "KUBE-iT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28387EE21593FFCC008EC6AF /* Debug */,
@@ -964,7 +1004,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		28387EE41593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "Mustard Seed" */ = {
+		28387EE41593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "KUBE-iT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28387EE51593FFCC008EC6AF /* Debug */,
@@ -973,7 +1013,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		28387EE71593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "Mustard SeedTests" */ = {
+		28387EE71593FFCC008EC6AF /* Build configuration list for PBXNativeTarget "KUBE-iTTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28387EE81593FFCC008EC6AF /* Debug */,

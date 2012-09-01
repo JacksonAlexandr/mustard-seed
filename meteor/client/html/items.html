@@ -18,6 +18,7 @@
       {{> item}}
     {{/each}}
   </ul>
+  {{ done }}
 </template>
 
 <template name="item">
@@ -25,10 +26,11 @@
     <div class="thumbnail">
       <img src="{{img_url}}" />
       <hr />
-      <h5>{{name}}</h5>
+      <h5 class="name">{{name}}</h5>
       <h5 class="owner">{{owner}}</h5>
     </div>
   </li>
+  {{ done }}
 </template>
 
 <template name="item_detail">

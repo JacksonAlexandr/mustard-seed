@@ -21,6 +21,8 @@
 // GMGridViewSortingDelegate, GMGridViewTransformationDelegate
 @interface ItemGridViewController () <GMGridViewDataSource, GMGridViewActionDelegate, UIAlertViewDelegate> {
     IBOutlet RequestItemView *_requestItemView;
+    
+    Item *_item;
 }
 
 @end
@@ -127,8 +129,22 @@
     [self.view bringSubviewToFront:_requestItemView];
 }
 
+#pragma mark - Commerce View Controller handles
+
+- (void) commerceViewControllerDone:(CommerceViewController *)controller {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void) showCommerceViewController {
+    if (!_item) return;
+    
+    [self performSegueWithIdentifier:@"CommerceSegue" sender:self];
+}
+
+#pragma mark - Segue
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([[segue identifier] isEqualToString:@"ItemDetailSegue"]) {
+    if ([[segue identifier] isEqualToString:@"ItemDetailSegue"]) {
         // Set back button text
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:_backButtonText style:UIBarButtonItemStyleBordered target:nil action:nil]; 
         [[self navigationItem] setBackBarButtonItem:backButton];
@@ -136,11 +152,18 @@
         ItemDetailViewController *detailViewController = (ItemDetailViewController *)[segue destinationViewController];
         
         // Set item for Detail View Controller
-        detailViewController.item = [_items objectAtIndex:_selectedIndex];
+        detailViewController.item = _item;
+    }
+    if ([[segue identifier] isEqualToString:@"CommerceSegue"]) {
+        UINavigationController *navigationController = segue.destinationViewController;
+		CommerceViewController *commerceViewController = [[navigationController viewControllers] objectAtIndex:0];
+        commerceViewController.url = _item.commerceURL;
+		commerceViewController.delegate = self;
     }
 }
 
-#pragma mark AlertView
+#pragma mark - AlertView
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         // POST requested item
@@ -186,8 +209,9 @@
     {
         cell = [[GMGridViewCell alloc] init];
 
-        ItemGridView *view = [[ItemGridView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+        ItemGridView *view = [[ItemGridView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height) withController:self];
         cell.contentView = view;
+        [view.imageButton addTarget:self action:@selector(itemSelected) forControlEvents:UIControlEventTouchUpInside];
     }
     
     Item *item = [_items objectAtIndex:index];
@@ -195,6 +219,11 @@
     return cell;
 }
 
+- (void) itemSelected {
+    if (!_item) return;
+    
+    [self performSegueWithIdentifier:@"ItemDetailSegue" sender:self];
+}
 
 - (BOOL)GMGridView:(GMGridView *)gridView canDeleteItemAtIndex:(NSInteger)index
 {
@@ -207,16 +236,17 @@
 
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position {
     // GA
-    Item *item = [_items objectAtIndex:position];
-    NSString *pageView = [NSString stringWithFormat: @"[%@] %@", item.itemID, item.name];
+    _item = [_items objectAtIndex:position];
+    NSString *pageView = [NSString stringWithFormat: @"[%@] %@", _item.itemID, _item.name];
     NSError* error = nil;
     if (![[GANTracker sharedTracker] trackPageview:pageView
                                          withError:&error]) {
         NSLog(@"Track page view error: %@", error);
     }
     
-    _selectedIndex = position;
-    [self performSegueWithIdentifier:@"ItemDetailSegue" sender:self];
+    // Check for buttons
+    
+    //[self performSegueWithIdentifier:@"ItemDetailSegue" sender:self];
 }
 
 - (void)GMGridViewDidTapOnEmptySpace:(GMGridView *)gridView

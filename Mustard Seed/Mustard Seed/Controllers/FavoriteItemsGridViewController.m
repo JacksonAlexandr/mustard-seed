@@ -68,37 +68,6 @@
 #pragma mark GMGridViewDataSource
 //////////////////////////////////////////////////////////////
 
-- (NSInteger)numberOfItemsInGMGridView:(GMGridView *)gridView
-{
-    return [_items count];
-}
-
-- (GMGridViewCell *)GMGridView:(GMGridView *)gridView cellForItemAtIndex:(NSInteger)index
-{    
-    CGSize size = [self GMGridView:gridView sizeForItemsInInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
-    
-    GMGridViewCell *cell = [gridView dequeueReusableCell];
-    
-    if (!cell) 
-    {
-        cell = [[GMGridViewCell alloc] init];
-        
-        ItemGridView *view = [[ItemGridView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-        cell.contentView = view;
-    }
-    
-    Item *item = [_items objectAtIndex:index];
-    
-    [(ItemGridView *)cell.contentView setItem:item];
-    return cell;
-}
-
-
-- (BOOL)GMGridView:(GMGridView *)gridView canDeleteItemAtIndex:(NSInteger)index
-{
-    return NO;
-}
-
 //////////////////////////////////////////////////////////////
 #pragma mark GMGridViewActionDelegate
 //////////////////////////////////////////////////////////////
@@ -106,21 +75,6 @@
 - (void)GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position
 {
     [super GMGridView:gridView didTapOnItemAtIndex:position];
-}
-
-- (void)GMGridViewDidTapOnEmptySpace:(GMGridView *)gridView
-{
-    
-}
-
-- (void)GMGridView:(GMGridView *)gridView processDeleteActionForItemAtIndex:(NSInteger)index
-{
-    
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-
 }
 
 @end

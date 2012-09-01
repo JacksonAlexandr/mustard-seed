@@ -7,17 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommerceViewController.h"
 
 @class Item;
 @class GMGridView;
 @class RequestItemView;
 
-@interface ItemGridViewController : UIViewController {
+@interface ItemGridViewController : UIViewController<CommerceViewControllerDelegate> {
     NSArray *_items;
     GMGridView *_gridView;
     NSString *_backButtonText;
-    
-    NSInteger _selectedIndex;
 }
 
 @property (nonatomic, strong) NSArray *items;
@@ -25,5 +24,9 @@
 - (void) reload:(id)sender;
 
 - (void) GMGridView:(GMGridView *)gridView didTapOnItemAtIndex:(NSInteger)position;
+- (void) itemSelected;
+
+- (void) showCommerceViewController;
+- (void) commerceViewControllerDone:(CommerceViewController *)controller;
 
 @end

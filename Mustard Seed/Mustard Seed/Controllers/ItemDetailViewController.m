@@ -162,146 +162,21 @@
 	}
 }
 
-#pragma mark - Create / change categories
-- (void) categoryWasSelected:(NSNumber *)selectedIndex element:(id)element {
-    int row = selectedIndex.intValue;
-    
-    NSDictionary *categories = [Category cachedCategories];
-    
-    if (row < [categories count]) {
-        // Change category for item
-        Category *category = [[categories allValues] objectAtIndex:row];
-        
-        // Submit analytics for both category and item
-        NSString *pageView = [NSString stringWithFormat: @"Favorite - [%@] %@", _item.itemID, _item.name];
-        NSError* error = nil;
-        if (![[GANTracker sharedTracker] trackPageview:pageView
-                                             withError:&error]) {
-            NSLog(@"Track page view error: %@", error);
-        }
-        pageView = [NSString stringWithFormat: @"Category - [%@] %@", category.categoryID, category.name];
-        if (![[GANTracker sharedTracker] trackPageview:pageView
-                                             withError:&error]) {
-            NSLog(@"Track page view error: %@", error);
-        }
-        
-        [_item setCategory:category];
-        _categoryLabel.text = category.name;
-        [_favoriteIndicator setSelected:true];
-    } else {
-        // Add category
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:kAddCategoryTitle
-                                                          message:nil
-                                                         delegate:self
-                                                cancelButtonTitle:@"Cancel"
-                                                otherButtonTitles:@"Add", nil];
-        message.alertViewStyle = UIAlertViewStylePlainTextInput;
-        [message show];
-    }
-}
-
-- (void) cancel {
-    NSLog(@"Cancelled");
-}
-
-#pragma mark - UIAlertView
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
-    NSLog(@"Clicked at %i with title %@", buttonIndex, buttonTitle);
-    
-    // Add Category alert methods
-    if ([alertView.title isEqualToString: kAddCategoryTitle]) {
-        if (buttonIndex == 1) {
-            Category *category = [[Category alloc] init];
-            category.name = [[alertView textFieldAtIndex:0] text];
-            [Category addCategory:category.name withBlock:^(NSString *categoryID) {
-                category.categoryID = categoryID;
-                NSLog(@"Updated category ID: %@", category.categoryID);
-                [_item setCategory:category];
-                _categoryLabel.text = category.name;
-                [_favoriteIndicator setSelected:true];
-            }];
-        }
-    }
-}
-
-- (void) movieFinished:(NSNotification *) notification {
-    MPMoviePlayerController *moviePlayer = [notification object];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self      
-                                                    name:MPMoviePlayerPlaybackDidFinishNotification
-                                                  object:moviePlayer];
-    
-    if ([moviePlayer respondsToSelector:@selector(setFullscreen:animated:)]) {
-        [moviePlayer.view removeFromSuperview];
-    }
-}
-
 #pragma mark - IBActions
 - (IBAction) addToCategory:(id)sender {
-    // Build array of values
-    NSDictionary *categories = [Category cachedCategories];
-    NSMutableArray *values = [[NSMutableArray alloc] init];
-    for (NSString *categoryID in categories) {
-        Category *category = [categories objectForKey:categoryID];
-        [values addObject: category.name];
-    }
-    [values addObject:kAddCategoryTitle];
-    
-    [ActionSheetStringPicker showPickerWithTitle:@"Select Category" 
-                                            rows:values 
-                                initialSelection:0
-                                          target:self 
-                                   successAction:@selector(categoryWasSelected:element:)
-                                    cancelAction:@selector(cancel)
-                                          origin:sender];
+    [_item chooseCategory:sender withBlock:^{
+        _categoryLabel.text = _item.category.name;
+        [_favoriteIndicator setSelected:true];
+    }];
 }
 
 - (IBAction) shareToFacebook:(id)sender {
-    // GA
-    NSString *pageView = [NSString stringWithFormat: @"Share - [%@] %@", _item.itemID, _item.name];
-    NSError* error = nil;
-    if (![[GANTracker sharedTracker] trackPageview:pageView
-                                         withError:&error]) {
-        NSLog(@"Track page view error: %@", error);
-    }
-    
-    // Load HUD
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:HUD];
-    HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.labelText = @"Sharing on Facebook";
-    [HUD show:YES];
-    
-    // @TODO: Facebook API calls here
-    
-    [HUD hide:YES afterDelay:2];
-    //[HUD hide:YES];
+    [_item shareInView: self.view];
 }
 
 // Plays a fullscreen movie
 - (IBAction) playMovie:(id)sender {
-    // GA
-    NSString *pageView = [NSString stringWithFormat: @"Play Video - [%@] %@", _item.itemID, _item.name];
-    NSError* error = nil;
-    if (![[GANTracker sharedTracker] trackPageview:pageView
-                                         withError:&error]) {
-        NSLog(@"Track page view error: %@", error);
-    }
-    
-    NSURL *url = [NSURL URLWithString:[[_item videoURL] absoluteString]];
-    //NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"snowboard" ofType:@"mp4"]];
-    _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(movieFinished:)
-                                                 name:MPMoviePlayerPlaybackDidFinishNotification
-                                               object:_moviePlayer];
-    
-    _moviePlayer.controlStyle = MPMovieControlStyleDefault;
-    _moviePlayer.shouldAutoplay = YES;
-    [self.view addSubview:_moviePlayer.view];
-    [_moviePlayer setFullscreen:YES animated:YES];
+    [_item playVideoInView:self.view];
 }
 
 #pragma mark - Delegate

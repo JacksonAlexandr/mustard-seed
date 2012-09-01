@@ -27,6 +27,10 @@ function getDefaultCategory() {
     return defaultCategory;
 }
 
+Template.item.done = function() {
+    console.log("Item is done");
+}
+
 ////////// Items //////////
 Template.items.items = function() {
     var categoryId = Session.get("category_id");
@@ -47,6 +51,10 @@ Template.items.category = function() {
 Template.items.categories = function() {
     return Categories.find({});
 };
+
+Template.items.done = function() {
+    console.log("Items are done");
+}
 
 Template.items.events = {
     'click .item': function() {
@@ -257,7 +265,7 @@ Template.container.dom_updated = function() {
           // $proper: the jQuery object with properly loaded images
           // $broken: the jQuery object with broken images
           // `this` is a jQuery object of container
-          console.log( $images.length + ' images total have been loaded in ' + this );
+          console.log( $images.length + ' image(s) total have been loaded in ' + this );
           //console.log( $broken.length + ' broken images' );
         });
     });
@@ -325,6 +333,17 @@ Meteor.startup(function() {
     Router = new MSRouter;
 
     Backbone.history.start({pushState: true});
+
+    $('.item').imagesLoaded( function( $images, $proper, $broken ) {
+      // callback provides three arguments:
+      // $images: the jQuery object with all images
+      // $proper: the jQuery object with properly loaded images
+      // $broken: the jQuery object with broken images
+      // `this` is a jQuery object of container
+      console.log( $images.length + ' images total have been loaded in ' + this );
+      //console.log( $broken.length + ' broken images' );
+    });
+
 });
 
 // Jquery
@@ -333,16 +352,4 @@ $(function() {
         itemSelector : '.thumbnail'
     });
     Meteor.flush();
-});
-
-$(window).load(function(){
-    $('.item').imagesLoaded( function( $images, $proper, $broken ) {
-          // callback provides three arguments:
-          // $images: the jQuery object with all images
-          // $proper: the jQuery object with properly loaded images
-          // $broken: the jQuery object with broken images
-          // `this` is a jQuery object of container
-          console.log( $images.length + ' images total have been loaded in ' + this );
-          //console.log( $broken.length + ' broken images' );
-        });
 });

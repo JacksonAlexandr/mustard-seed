@@ -15,8 +15,9 @@
 #define kItemGridViewImageHeight        130 * 2
 #define kItemGridViewTitleHeight        20
 #define kItemGridViewOwnerHeight        14
-#define kItemGridViewBufferHeight       15
-#define kItemGridViewHeight             kItemGridViewImageHeight + kItemGridViewTitleHeight + kItemGridViewOwnerHeight + kItemGridViewBufferHeight
+#define kItemGridViewBuffer       15
+#define kItemGridViewButtonHeight       35
+#define kItemGridViewHeight             kItemGridViewImageHeight + kItemGridViewTitleHeight + kItemGridViewOwnerHeight + kItemGridViewBuffer + kItemGridViewButtonHeight + kItemGridViewBuffer
 #define kItemGridViewWidth              140 * 2
 #define kDetailButtonHeightPercent      0.7
 
@@ -27,8 +28,8 @@
 #define kRequestButtonHeight            75
 
 // API
-//#define kAFMustardSeedAPIBaseURLString      @"http://mustard-seed.meteor.com/collectionapi/"
-#define kAFMustardSeedAPIBaseURLString      @"http://localhost:3000/collectionapi/"
+#define kAFMustardSeedAPIBaseURLString      @"http://mustard-seed.meteor.com/collectionapi/"
+//#define kAFMustardSeedAPIBaseURLString      @"http://localhost:3000/collectionapi/"
 
 // Titles
 #define kSaveItemTitle                  @"Save this Item"

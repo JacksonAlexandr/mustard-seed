@@ -7,9 +7,14 @@
 //
 
 #import "Item.h"
+#import "GANTracker.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import "MBProgressHUD.h"
+#import "ActionSheetPicker.h"
 
 #import "Category.h"
 #import "AFMustardSeedAPIClient.h"
+#import "Constants.h"
 
 @implementation Item {
 @private
@@ -23,6 +28,8 @@
     NSUInteger _viewCount;
     Category *_category;
     BOOL _favorite;
+    MPMoviePlayerController *_moviePlayer;
+    MBProgressHUD *_HUD;
 }
 
 @synthesize itemID = _itemID;
@@ -200,6 +207,165 @@
             block(nil);
         }
     }];
+}
+
+#pragma mark - Actions
+
+- (void) playVideoInView: (UIView *) view {
+    // GA
+    NSString *pageView = [NSString stringWithFormat: @"Play Video - [%@] %@", _itemID, _name];
+    NSError* error = nil;
+    if (![[GANTracker sharedTracker] trackPageview:pageView
+                                         withError:&error]) {
+        NSLog(@"Track page view error: %@", error);
+    }
+    
+    NSURL *url = [NSURL URLWithString:[[self videoURL] absoluteString]];
+    //NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"snowboard" ofType:@"mp4"]];
+    _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(movieFinished:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:_moviePlayer];
+    
+    _moviePlayer.controlStyle = MPMovieControlStyleDefault;
+    _moviePlayer.shouldAutoplay = YES;
+    [view addSubview:_moviePlayer.view];
+    [_moviePlayer setFullscreen:YES animated:YES];
+}
+
+- (void) videoFinished:(NSNotification *) notification {
+    MPMoviePlayerController *moviePlayer = [notification object];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self      
+                                                    name:MPMoviePlayerPlaybackDidFinishNotification
+                                                  object:moviePlayer];
+    
+    if ([moviePlayer respondsToSelector:@selector(setFullscreen:animated:)]) {
+        [moviePlayer.view removeFromSuperview];
+    }
+}
+
+- (void) shareInView: (UIView *) view {
+    // GA
+    NSString *pageView = [NSString stringWithFormat: @"Share - [%@] %@", _itemID, _name];
+    NSError* error = nil;
+    if (![[GANTracker sharedTracker] trackPageview:pageView
+                                         withError:&error]) {
+        NSLog(@"Track page view error: %@", error);
+    }
+    
+    // Load HUD
+    MBProgressHUD *HUD = [[MBProgressHUD alloc] initWithView: view];
+    [view addSubview:HUD];
+    HUD.mode = MBProgressHUDModeIndeterminate;
+    HUD.labelText = @"Sharing on Facebook";
+    [HUD show:YES];
+    
+    // @TODO: Facebook API calls here
+    
+    [HUD hide:YES afterDelay:2];
+    //[HUD hide:YES];
+}
+
+- (void) chooseCategory: (id)sender withBlock:(void (^)(void))block {
+    // Build array of values
+    NSDictionary *categories = [Category cachedCategories];
+    NSMutableArray *values = [[NSMutableArray alloc] init];
+    for (NSString *categoryID in categories) {
+        Category *category = [categories objectForKey:categoryID];
+        [values addObject: category.name];
+    }
+    [values addObject:kAddCategoryTitle];
+    
+    /*
+    [ActionSheetStringPicker showPickerWithTitle:@"Select Category" 
+                                            rows:values 
+                                initialSelection:0
+                                          target:self 
+                                   successAction:@selector(categoryWasSelected:element:)
+                                    cancelAction:@selector(cancel)
+                                          origin:sender];
+    */
+    
+    [ActionSheetStringPicker showPickerWithTitle:@"Select Category"
+                                            rows:values
+                                initialSelection:0
+                                       doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
+                                           [self categoryWasSelected:[NSNumber numberWithInteger: selectedIndex] element:selectedValue];
+                                           
+                                           if (block)
+                                               block();
+                                       } 
+                                     cancelBlock:^(ActionSheetStringPicker *picker) {
+                                         NSLog(@"Cancelled");
+                                       } 
+                                          origin:sender];
+    
+}
+
+- (void) cancel {
+    NSLog(@"Cancelled");
+}
+
+- (void) categoryWasSelected:(NSNumber *)selectedIndex element:(id)element {
+    int row = selectedIndex.intValue;
+    
+    NSDictionary *categories = [Category cachedCategories];
+    
+    if (row < [categories count]) {
+        // Change category for item
+        Category *category = [[categories allValues] objectAtIndex:row];
+        
+        // Submit analytics for both category and item
+        NSString *pageView = [NSString stringWithFormat: @"Favorite - [%@] %@", _itemID, _name];
+        NSError* error = nil;
+        if (![[GANTracker sharedTracker] trackPageview:pageView
+                                             withError:&error]) {
+            NSLog(@"Track page view error: %@", error);
+        }
+        pageView = [NSString stringWithFormat: @"Category - [%@] %@", category.categoryID, category.name];
+        if (![[GANTracker sharedTracker] trackPageview:pageView
+                                             withError:&error]) {
+            NSLog(@"Track page view error: %@", error);
+        }
+        
+        [self setCategory:category];
+        
+        //_categoryLabel.text = category.name;
+        //[_favoriteIndicator setSelected:true];
+    } else {
+        // Add category
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:kAddCategoryTitle
+                                                          message:nil
+                                                         delegate:self
+                                                cancelButtonTitle:@"Cancel"
+                                                otherButtonTitles:@"Add", nil];
+        message.alertViewStyle = UIAlertViewStylePlainTextInput;
+        [message show];
+    }
+}
+
+#pragma mark - UIAlertView
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    NSLog(@"Clicked at %i with title %@", buttonIndex, buttonTitle);
+    
+    // Add Category alert methods
+    if ([alertView.title isEqualToString: kAddCategoryTitle]) {
+        if (buttonIndex == 1) {
+            Category *category = [[Category alloc] init];
+            category.name = [[alertView textFieldAtIndex:0] text];
+            [Category addCategory:category.name withBlock:^(NSString *categoryID) {
+                category.categoryID = categoryID;
+                NSLog(@"Updated category ID: %@", category.categoryID);
+                [self setCategory:category];
+                //_categoryLabel.text = category.name;
+                //[_favoriteIndicator setSelected:true];
+            }];
+        }
+    }
 }
 
 @end
